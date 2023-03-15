@@ -1,6 +1,25 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle<{theme: any}>`
+export interface ThemeType {
+  colors: {
+    background: string;
+    menu_background: string;
+
+    gradient: string;
+    text_gradient: string;
+
+    text_primary: string;
+    text_secondary: string;
+
+    button: string;
+    font: {
+      size: number;
+      weight: number;
+    };
+  };
+}
+
+export default createGlobalStyle<{theme: ThemeType}>`
 
 * {
   margin: 0;
@@ -23,6 +42,7 @@ body {
 export const theme = {
   colors: {
     background: "#1D1E18",
+    menu_background: "#D9D9D9",
 
     gradient:
       "109.87deg, rgba(71, 115, 167), rgba(22, 219, 101), rgba(149, 239, 185)",
@@ -34,7 +54,6 @@ export const theme = {
     text_secondary: "#FFFFFF",
 
     button: "#16DB65",
-    menu_background: "#D9D9D9",
   },
   font: {
     size: {
@@ -53,4 +72,4 @@ export const theme = {
   },
 };
 
-export default GlobalStyle;
+

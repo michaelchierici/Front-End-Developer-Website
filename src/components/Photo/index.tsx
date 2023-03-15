@@ -14,12 +14,12 @@ export default function Photo({ active }: PhotoProps) {
     <Container>
       <Circle>
         {skillsIcons.map((item: SkillsProps, index: number) => (
-          <Icon ammount={Number(item.id)} key={index}>
+          <Icon ammount={item.id} key={index}>
             <img
               style={{
                 transform: `rotate(${item.rotate}deg)`,
               }}
-              alt={String(item.name)}
+              alt={item.name}
               src={item.icon}
               width={50}
               height={50}

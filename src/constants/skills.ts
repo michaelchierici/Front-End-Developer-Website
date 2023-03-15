@@ -18,8 +18,8 @@ export interface SkillsProps {
   id: number;
   name?: string;
   description?: string;
-  element?: any;
-  icon?: any;
+  element?: string;
+  icon?: string;
   rotate?: string;
 }
 

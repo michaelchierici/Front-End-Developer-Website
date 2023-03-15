@@ -1,9 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface Props {
-  type?: "name" | "dev" | "front";
-  iconSize?: number
+  type: "name" | "profession" | "role";
+  iconSize: number
 }
+
+const containerVariants = {
+  name: css`
+    font-weight: ${({ theme }) => theme.font.weight.main};
+  `,
+  profession: css`
+    font-weight: ${({ theme }) => theme.font.weight.light};
+  `,
+  role: css`
+    font-weight: ${({ theme }) => theme.font.weight.regular};
+  `,
+};
 
 export const Container = styled.main`
  
@@ -26,7 +38,7 @@ export const Content = styled.div`
   height: 100%;
 `;
 
-export const CardTitle = styled.div`
+export const Card = styled.div`
   width: 90%;
 
   position: relative;
@@ -53,13 +65,13 @@ export const CardTitle = styled.div`
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    mask: exclude;
     pointer-events: none;
   }
 `;
 
-export const Title = styled.h1<Props>`
-  font-weight: ${({ theme, type }) =>
-    type === "name" ? theme.font.weight.regular : theme.font.weight.light};
+export const Title = styled.h1<Partial<Props>>`
+  ${({ type }) => containerVariants[type!] || containerVariants.name};
 
   font-size: ${({ theme }) => theme.font.size.xxl}px;
 
@@ -68,7 +80,7 @@ export const Title = styled.h1<Props>`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 
   margin: 15px 0 0 10px;
 `;
@@ -83,7 +95,7 @@ export const Footer = styled.footer`
   
 `;
 
-export const Icon = styled.div<Props>`
+export const Icon = styled.div<Partial<Props>>`
   transition: all 450ms;
   width: ${({iconSize}) => iconSize}px;
   height: ${({iconSize}) => iconSize}px;

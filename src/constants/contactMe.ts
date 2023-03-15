@@ -5,10 +5,10 @@ import Gmail from "../assets/icons/contact/gmail.svg";
 
 interface ContactMeIcons {
   name: string;
-  element: any;
+  element: string;
   value?: string;
   link?: string;
-  icon: any;
+  icon: string;
 }
 
 export const contactMeIcons: ContactMeIcons[] = [
