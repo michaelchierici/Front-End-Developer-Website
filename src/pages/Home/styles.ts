@@ -5,7 +5,7 @@ interface Props {
   iconSize: number
 }
 
-const containerVariants = {
+const titleVariants = {
   name: css`
     font-weight: ${({ theme }) => theme.font.weight.main};
   `,
@@ -71,7 +71,7 @@ export const Card = styled.div`
 `;
 
 export const Title = styled.h1<Partial<Props>>`
-  ${({ type }) => containerVariants[type!] || containerVariants.name};
+  ${({ type }) => titleVariants[type!] || titleVariants.name};
 
   font-size: ${({ theme }) => theme.font.size.xxl}px;
 

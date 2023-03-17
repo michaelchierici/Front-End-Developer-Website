@@ -1,8 +1,9 @@
 import styled from "styled-components";
-
+import { ReactComponent as BurgerIcon } from "../../assets/logo/navigation.svg";
 
 interface Props {
   isOpen: boolean;
+  activeByHeight: number;
 }
 
 export const Container = styled.div<Props>`
@@ -17,18 +18,42 @@ export const Container = styled.div<Props>`
   
   margin: 15px 15px 0px 0px;
 
-  width: 48px;
-  height: ${({isOpen}) => isOpen ? '50px' : '156px'};
-  border-radius: 12px;
+  width: 55px;
+  height: ${({isOpen}) => !isOpen ? '50px' : '156px'};
+  border-radius: 16px;
+  
+  background: linear-gradient(
+    103.59deg,
+    rgba(255, 255, 255, 0.1) 30.34%,
+    rgba(255, 255, 255, 0.1) 79.99%
+    );
+    
+    transition: height 400ms ease-in-out;
+    overflow: hidden;
 
-  transition: height 400ms ease-in-out;
-
-  background-color: ${({ theme }) => theme.colors.menu_background};
-  overflow: hidden;
+    background: ${({isOpen, activeByHeight}) => activeByHeight >= 50 && !isOpen && 'transparent'}
+    
+    
 `;
 
 
 export const Content = styled.div`
-  max-width: 100%;
-  max-height: 100%;
+  width:  100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
 `;
+
+
+export const Button = styled.button`
+  background-color: transparent;
+  border: none;
+
+`
+
+export const LogoMenu = styled(BurgerIcon)`
+width: 50px;
+height: 50px;
+`;
+
