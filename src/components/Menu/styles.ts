@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { ReactComponent as BurgerIcon } from "../../assets/logo/navigation.svg";
+import { ReactComponent as OpenIcon } from "../../assets/icons/components/navigation.svg";
+import { ReactComponent as CloseIcon } from "../../assets/icons/components/close.svg";
 
 interface Props {
   isOpen: boolean;
-  activeByHeight: number;
 }
 
 export const Container = styled.div<Props>`
@@ -15,45 +15,54 @@ export const Container = styled.div<Props>`
   position: absolute;
   right: 0;
   top: 0;
-  
+
   margin: 15px 15px 0px 0px;
 
-  width: 55px;
-  height: ${({isOpen}) => !isOpen ? '50px' : '156px'};
   border-radius: 16px;
-  
-  background: linear-gradient(
-    103.59deg,
-    rgba(255, 255, 255, 0.1) 30.34%,
-    rgba(255, 255, 255, 0.1) 79.99%
-    );
-    
-    transition: height 400ms ease-in-out;
-    overflow: hidden;
 
-    background: ${({isOpen, activeByHeight}) => activeByHeight >= 50 && !isOpen && 'transparent'}
-    
-    
+  width: 63px;
+  height: ${({ isOpen }) => (!isOpen ? "50px" : "186px")};
+  background-color: ${({ isOpen, theme }) =>
+    isOpen && `${theme.colors.menu_background}`};
+
+  transition: all 400ms ease;
+  transition-property: height, background-color;
+
+  overflow: hidden;
 `;
-
 
 export const Content = styled.div`
-  width:  100%;
-  height: 100%;
+  width: 50px;
+  height: 180px;
   display: flex;
-  justify-content: center;
-
+  margin-top: 10px;
+  align-items: center;
+  flex-direction: column;
 `;
-
 
 export const Button = styled.button`
   background-color: transparent;
   border: none;
-
-`
-
-export const LogoMenu = styled(BurgerIcon)`
-width: 50px;
-height: 50px;
+  cursor: pointer;
 `;
 
+export const OpenMenu = styled(OpenIcon)`
+  width: 50px;
+  height: 50px;
+
+  &:active {
+    transform: rotate(180deg);
+    transition: transform 250ms ease-in-out;
+  }
+`;
+
+export const CloseMenu = styled(CloseIcon)`
+  width: 40px;
+  height: 60px;
+  margin-bottom: 10px;
+
+  &:active {
+    transform: rotate(-180deg);
+    transition: transform 250ms ease-in-out;
+  }
+`;

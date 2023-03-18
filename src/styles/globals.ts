@@ -19,7 +19,7 @@ export interface ThemeType {
   };
 }
 
-export default createGlobalStyle<{theme: ThemeType}>`
+export default createGlobalStyle<{ theme: ThemeType }>`
 
 * {
   margin: 0;
@@ -37,12 +37,17 @@ body {
   height: 100vh;
 }
 
+button {
+  cursor: pointer;
+
+}
+
 `;
 
 export const theme = {
   colors: {
     background: "#1D1E18",
-    menu_background: "#D9D9D9",
+    menu_background: "rgba(255, 255, 255, 0.1)",
 
     gradient:
       "109.87deg, rgba(71, 115, 167), rgba(22, 219, 101), rgba(149, 239, 185)",
@@ -71,5 +76,3 @@ export const theme = {
     },
   },
 };
-
-

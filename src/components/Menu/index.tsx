@@ -1,22 +1,28 @@
-import { useCallback, useRef, useState } from "react";
-import { Button, Container, Content, LogoMenu } from "./styles";
+import { useState } from "react";
+import { Button, Container, Content, OpenMenu, CloseMenu } from "./styles";
+import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.svg";
+import { ReactComponent as USFlag } from "../../assets/icons/components/usa.svg";
 
 export default function Menu() {
-  const ref = useRef<any>();
-
   const [showMenu, setShowMenu] = useState(false);
-  const [height, setHeight] = useState(50);
 
-  const handleOpenMenu = useCallback(() => {
+  function handleOpenMenu() {
     setShowMenu((prevState) => !prevState);
-    setHeight(ref.current?.clientHeight);
-  }, [showMenu, height]);
+  }
 
   return (
-    <Container ref={ref} activeByHeight={height} isOpen={showMenu}>
+    <Container isOpen={showMenu}>
       <Button onClick={handleOpenMenu}>
         <Content>
-          <LogoMenu />
+          {!showMenu ? (
+            <OpenMenu />
+          ) : (
+            <>
+              <CloseMenu />
+              <BFlag height={50} width={50} />
+              <USFlag height={50} width={50} />
+            </>
+          )}
         </Content>
       </Button>
     </Container>
