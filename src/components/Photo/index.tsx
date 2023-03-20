@@ -8,13 +8,11 @@ interface PhotoProps {
 }
 
 export default function Photo({ active }: PhotoProps) {
-  const [showSkills, setShowSkills] = useState(false);
-
   return (
     <Container>
       <Circle>
         {skillsIcons.map((item: SkillsProps, index: number) => (
-          <Icon ammount={item.id} key={index}>
+          <Icon isOpen={active} index={item.id} key={index}>
             <img
               style={{
                 transform: `rotate(${item.rotate}deg)`,

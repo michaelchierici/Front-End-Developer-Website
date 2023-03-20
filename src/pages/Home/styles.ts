@@ -2,7 +2,8 @@ import styled, { css } from "styled-components";
 
 interface Props {
   type: "name" | "profession" | "role";
-  iconSize: number
+  iconSize: number;
+  isOpenResume: boolean;
 }
 
 const titleVariants = {
@@ -18,7 +19,6 @@ const titleVariants = {
 };
 
 export const Container = styled.main`
- 
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -91,14 +91,12 @@ export const Footer = styled.footer`
   flex-direction: row;
   width: 400px;
   margin: auto auto 20px 0px;
-  
-  
 `;
 
 export const Icon = styled.div<Partial<Props>>`
   transition: all 450ms;
-  width: ${({iconSize}) => iconSize}px;
-  height: ${({iconSize}) => iconSize}px;
+  width: ${({ iconSize }) => iconSize}px;
+  height: ${({ iconSize }) => iconSize}px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,4 +107,41 @@ export const Icon = styled.div<Partial<Props>>`
   }
   &:active {
     transform: scale(0.95);
-  }`;
+  }
+`;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  justify-content: flex-start;
+
+  margin-bottom: auto;
+  padding-top: 49px;
+
+  width: 80%;
+  transition: all 450ms;
+`;
+
+export const Button = styled.button<Partial<Props>>`
+  width: ${({ isOpenResume }) => (isOpenResume ? "3rem" : "9rem")};
+  height: ${({ isOpenResume }) => (isOpenResume ? "3rem" : "2.5rem")};
+
+  font-size: ${({ theme }) => theme.font.size.md}px;
+  font-weight: ${({ theme }) => theme.font.weight.light};
+
+  border-radius: ${({ isOpenResume }) => (isOpenResume ? "50%" : "14px")};
+  border: none;
+
+  background-color: ${({ theme }) => theme.colors.button};
+  color: ${({ theme }) => theme.colors.text_primary};
+
+  transition: all 450ms;
+
+  &:hover {
+    background: ${({ theme }) => `linear-gradient(${theme.colors.gradient})`};
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
+    transform: scale(0.95);
+  }
+`;

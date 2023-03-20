@@ -1,10 +1,25 @@
-import Button from "../../components/Button";
+import { useState } from "react";
 import Menu from "../../components/Menu";
 import Photo from "../../components/Photo";
 import { contactMeIcons } from "../../constants/contactMe";
-import { Card, Container, Content, Footer, Icon, Title } from "./styles";
+import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
+import {
+  Card,
+  Container,
+  Content,
+  Footer,
+  Icon,
+  Title,
+  ContainerButton,
+  Button,
+} from "./styles";
 
 export default function Home() {
+  const [isOpenResume, setIsOpenResume] = useState(false);
+
+  function handleShowResume() {
+    setIsOpenResume((prevState) => !prevState);
+  }
   return (
     <Container>
       <Menu />
@@ -14,7 +29,11 @@ export default function Home() {
           <Title type="profession">DESENVOLVEDOR</Title>
           <Title type="role">FRONT-END</Title>
         </Card>
-        <Button title="Resumo" />
+        <ContainerButton>
+          <Button isOpenResume={isOpenResume} onClick={handleShowResume}>
+            {isOpenResume ? <BackArrow /> : "Resumo"}
+          </Button>
+        </ContainerButton>
         <Footer>
           {contactMeIcons.map((item, index) => (
             <Icon key={index} iconSize={65}>
@@ -25,7 +44,7 @@ export default function Home() {
           ))}
         </Footer>
       </Content>
-      <Photo active />
+      <Photo active={isOpenResume} />
     </Container>
   );
 }

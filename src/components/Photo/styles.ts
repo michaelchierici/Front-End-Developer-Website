@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 interface Props {
-  ammount: number;
+  isOpen: boolean;
+  index: number;
 }
 
 export const Container = styled.div`
@@ -32,13 +33,17 @@ export const Circle = styled.div`
   justify-content: center;
 `;
 
-export const Icon = styled.div<Props>`
+export const Icon = styled.li<Props>`
   cursor: pointer;
   transition: all 0.8s;
+  list-style: none;
   transform-origin: 280px;
   position: absolute;
   left: 0;
-  transform: ${({ ammount }) => `rotate(calc(293deg / 15 * ${ammount}))`};
+  transform: ${({ index, isOpen }) =>
+    isOpen && `rotate(calc(293deg / 15 * ${index}))`};
+
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 
   &:hover {
     transform: scale(0.1);
