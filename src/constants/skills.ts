@@ -16,11 +16,12 @@ import Node from "../assets/icons/skills/node.svg";
 
 export interface SkillsProps {
   id: number;
-  name?: string;
-  description?: string;
-  element?: string;
-  icon?: string;
-  rotate?: string;
+  name: string;
+  description: string;
+  element: string;
+  icon: string;
+  rotate: string;
+  color: string;
 }
 
 export const skillsIcons: SkillsProps[] = [
@@ -31,6 +32,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Html,
     icon: Html,
     rotate: "-1.2",
+    color: "0px 15px 15px 5px rgba(229, 66, 10, 0.75);",
   },
 
   {
@@ -40,6 +42,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Css,
     icon: Css,
     rotate: "18",
+    color: " 0px 15px 15px 5px rgba(65, 132, 284, 1.75);",
   },
   {
     id: 13,
@@ -48,6 +51,7 @@ export const skillsIcons: SkillsProps[] = [
     element: JavaScript,
     icon: JavaScript,
     rotate: "37.5",
+    color: "#",
   },
   {
     id: 12,
@@ -56,6 +60,7 @@ export const skillsIcons: SkillsProps[] = [
     element: TypeScript,
     icon: TypeScript,
     rotate: "57",
+    color: " 0px 15px 15px 5px rgba(65, 132, 284, 1.75);",
   },
   {
     id: 11,
@@ -64,6 +69,7 @@ export const skillsIcons: SkillsProps[] = [
     element: React,
     icon: React,
     rotate: "17",
+    color: "#",
   },
   {
     id: 10,
@@ -72,6 +78,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Redux,
     icon: Redux,
     rotate: "94.5",
+    color: "#",
   },
   {
     id: 9,
@@ -80,6 +87,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Styled,
     icon: Styled,
     rotate: "115",
+    color: "#",
   },
   {
     id: 8,
@@ -88,6 +96,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Next,
     icon: Next,
     rotate: "135",
+    color: "-15px -16px 15px 8px rgba(45, 54, 65, 1.75);",
   },
   {
     id: 7,
@@ -96,6 +105,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Tailwind,
     icon: Tailwind,
     rotate: "140",
+    color: "#",
   },
   {
     id: 6,
@@ -104,6 +114,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Sass,
     icon: Sass,
     rotate: "181.5",
+    color: "#",
   },
   {
     id: 5,
@@ -112,6 +123,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Figma,
     icon: Figma,
     rotate: "194",
+    color: "#",
   },
   {
     id: 4,
@@ -120,6 +132,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Jest,
     icon: Jest,
     rotate: "210",
+    color: "#",
   },
   {
     id: 3,
@@ -128,6 +141,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Git,
     icon: Git,
     rotate: "277.7",
+    color: "#",
   },
   {
     id: 2,
@@ -136,6 +150,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Postgres,
     icon: Postgres,
     rotate: "255",
+    color: "#",
   },
   {
     id: 1,
@@ -144,5 +159,6 @@ export const skillsIcons: SkillsProps[] = [
     element: Node,
     icon: Node,
     rotate: "271.5",
+    color: "#",
   },
 ];

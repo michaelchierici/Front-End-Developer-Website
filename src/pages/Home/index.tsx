@@ -31,7 +31,7 @@ export default function Home() {
         </Card>
         <ContainerButton>
           <Button isOpenResume={isOpenResume} onClick={handleShowResume}>
-            {isOpenResume ? <BackArrow /> : "Resumo"}
+            {isOpenResume ? <BackArrow /> : <span>Resumo</span>}
           </Button>
         </ContainerButton>
         <Footer>

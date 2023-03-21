@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   isOpen: boolean;
   index: number;
+  boxShadow: string;
 }
 
 export const Container = styled.div`
@@ -10,7 +11,7 @@ export const Container = styled.div`
   height: 35rem;
   border-radius: 20rem;
   position: relative;
-  z-index: 0;
+  z-index: 1;
   right: 9.5%;
 
   margin-right: auto;
@@ -33,22 +34,28 @@ export const Circle = styled.div`
   justify-content: center;
 `;
 
-export const Icon = styled.li<Props>`
+export const Icon = styled.div<Props>`
   cursor: pointer;
-  transition: all 0.8s;
-  list-style: none;
-  transform-origin: 280px;
   position: absolute;
   left: 0;
   transform: ${({ index, isOpen }) =>
     isOpen && `rotate(calc(293deg / 15 * ${index}))`};
 
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  transition: all 0.8s ease-in-out;
+  transform-origin: 280px;
 
   &:hover {
-    transform: scale(0.1);
+    box-shadow: ${({ boxShadow }) => boxShadow};
+    border-radius: 50%;
   }
-  &:active {
-    transform: scale(0.95);
+
+  img {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
   }
 `;

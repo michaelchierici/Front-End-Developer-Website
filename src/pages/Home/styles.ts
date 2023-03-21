@@ -129,19 +129,47 @@ export const Button = styled.button<Partial<Props>>`
   font-weight: ${({ theme }) => theme.font.weight.light};
 
   border-radius: ${({ isOpenResume }) => (isOpenResume ? "50%" : "14px")};
-  border: none;
 
   background-color: ${({ theme }) => theme.colors.button};
   color: ${({ theme }) => theme.colors.text_primary};
 
-  transition: all 450ms;
+  margin: 20px;
+  border: none;
+
+  text-align: center;
+  background-size: 300% 100%;
+
+  -o-transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+
+  transition: all 400ms ease-in-out;
+
+  span {
+    max-width: 100%;
+  }
 
   &:hover {
-    background: ${({ theme }) => `linear-gradient(${theme.colors.gradient})`};
-    transform: translateY(-2px);
+    background-position: 150% 0;
+    -o-transition: all 400ms ease-in-out;
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #40e495,
+      #30dd8a,
+      #2bb673
+    );
+    box-shadow: 0 0px 10px 1px rgba(65, 132, 234, 0.75);
   }
   &:active {
-    box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
     transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
   }
 `;

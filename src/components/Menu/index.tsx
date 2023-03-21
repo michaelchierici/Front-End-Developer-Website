@@ -9,7 +9,6 @@ export default function Menu() {
   function handleOpenMenu() {
     setShowMenu((prevState) => !prevState);
   }
-
   return (
     <Container isOpen={showMenu}>
       <Button onClick={handleOpenMenu}>
