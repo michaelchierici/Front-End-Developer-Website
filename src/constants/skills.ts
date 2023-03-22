@@ -32,7 +32,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Html,
     icon: Html,
     rotate: "-1.2",
-    color: "0px 15px 15px 5px rgba(229, 66, 10, 0.75);",
+    color: "rgba(229, 66, 10, 0.75);",
   },
 
   {
@@ -42,7 +42,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Css,
     icon: Css,
     rotate: "18",
-    color: " 0px 15px 15px 5px rgba(65, 132, 284, 1.75);",
+    color: "rgba(65, 132, 284, 1.75);",
   },
   {
     id: 13,
@@ -51,7 +51,7 @@ export const skillsIcons: SkillsProps[] = [
     element: JavaScript,
     icon: JavaScript,
     rotate: "37.5",
-    color: "#",
+    color: "rgba(241, 192, 53, 1)",
   },
   {
     id: 12,
@@ -60,7 +60,7 @@ export const skillsIcons: SkillsProps[] = [
     element: TypeScript,
     icon: TypeScript,
     rotate: "57",
-    color: " 0px 15px 15px 5px rgba(65, 132, 284, 1.75);",
+    color: "rgba(65, 132, 284, 1.75);",
   },
   {
     id: 11,
@@ -69,7 +69,7 @@ export const skillsIcons: SkillsProps[] = [
     element: React,
     icon: React,
     rotate: "17",
-    color: "#",
+    color: "rgba(22, 127, 177, 1)",
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Redux,
     icon: Redux,
     rotate: "94.5",
-    color: "#",
+    color: "rgba(128, 39, 179, 1)",
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Styled,
     icon: Styled,
     rotate: "115",
-    color: "#",
+    color: "rgba(231, 123, 159, 1)",
   },
   {
     id: 8,
@@ -96,7 +96,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Next,
     icon: Next,
     rotate: "135",
-    color: "-15px -16px 15px 8px rgba(45, 54, 65, 1.75);",
+    color: "rgba(146, 146, 146, 1);",
   },
   {
     id: 7,
@@ -105,7 +105,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Tailwind,
     icon: Tailwind,
     rotate: "140",
-    color: "#",
+    color: "rgba(0, 186, 217, 1)",
   },
   {
     id: 6,
@@ -114,7 +114,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Sass,
     icon: Sass,
     rotate: "181.5",
-    color: "#",
+    color: "rgba(173, 21, 129, 1)",
   },
   {
     id: 5,
@@ -123,7 +123,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Figma,
     icon: Figma,
     rotate: "194",
-    color: "#",
+    color: "rgba(124, 77, 255, 1)",
   },
   {
     id: 4,
@@ -132,7 +132,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Jest,
     icon: Jest,
     rotate: "210",
-    color: "#",
+    color: "rgba(183, 72, 14, 1)",
   },
   {
     id: 3,
@@ -141,7 +141,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Git,
     icon: Git,
     rotate: "277.7",
-    color: "#",
+    color: "rgba(176, 24, 9, 1)",
   },
   {
     id: 2,
@@ -150,7 +150,7 @@ export const skillsIcons: SkillsProps[] = [
     element: Postgres,
     icon: Postgres,
     rotate: "255",
-    color: "#",
+    color: "rgba(22, 125, 179, 1)",
   },
   {
     id: 1,
@@ -159,6 +159,6 @@ export const skillsIcons: SkillsProps[] = [
     element: Node,
     icon: Node,
     rotate: "271.5",
-    color: "#",
+    color: "rgba(33, 163, 102, 1)",
   },
 ];
