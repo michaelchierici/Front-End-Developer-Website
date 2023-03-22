@@ -3,7 +3,7 @@ import { ReactComponent as OpenIcon } from "../../assets/icons/components/naviga
 import { ReactComponent as CloseIcon } from "../../assets/icons/components/close.svg";
 
 interface Props {
-  isOpen: boolean;
+  visible: boolean;
 }
 
 export const Container = styled.div<Props>`
@@ -21,9 +21,9 @@ export const Container = styled.div<Props>`
   border-radius: 16px;
 
   width: 63px;
-  height: ${({ isOpen }) => (!isOpen ? "50px" : "186px")};
-  background-color: ${({ isOpen, theme }) =>
-    isOpen && `${theme.colors.menu_background}`};
+  height: ${({ visible }) => (!visible ? "50px" : "186px")};
+  background-color: ${({ visible, theme }) =>
+    visible && `${theme.colors.menu_background}`};
 
   transition: all 400ms ease;
   transition-property: height, background-color;

@@ -1,9 +1,6 @@
+import { LoaderProps } from "../../Typings/Loader";
 import ReactPortal from "../ReactPortal";
 import { Overlay } from "./styles";
-
-interface LoaderProps {
-  isLoading: boolean;
-}
 
 export default function Loader({ isLoading }: LoaderProps) {
   if (!isLoading) {

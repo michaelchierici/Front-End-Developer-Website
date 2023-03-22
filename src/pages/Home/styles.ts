@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 interface Props {
   type: "name" | "profession" | "role";
   iconSize: number;
-  isOpenResume: boolean;
+  visible: boolean;
 }
 
 const titleVariants = {
@@ -36,38 +36,6 @@ export const Content = styled.div`
 
   width: 50%;
   height: 100%;
-`;
-
-export const Card = styled.div`
-  width: 90%;
-
-  position: relative;
-  z-index: 10;
-
-  margin-top: 60px;
-
-  background: linear-gradient(
-    103.59deg,
-    rgba(255, 255, 255, 0.01) 15.34%,
-    rgba(255, 255, 255, 0.04) 79.99%
-  );
-  backdrop-filter: blur(20px);
-  filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.2));
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    padding: 2px;
-    background: ${({ theme }) => `linear-gradient(${theme.colors.gradient})`};
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    mask: exclude;
-    pointer-events: none;
-  }
 `;
 
 export const Title = styled.h1<Partial<Props>>`
@@ -122,13 +90,13 @@ export const ContainerButton = styled.div`
 `;
 
 export const Button = styled.button<Partial<Props>>`
-  width: ${({ isOpenResume }) => (isOpenResume ? "3rem" : "9rem")};
-  height: ${({ isOpenResume }) => (isOpenResume ? "3rem" : "2.5rem")};
+  width: ${({ visible }) => (visible ? "3rem" : "9rem")};
+  height: ${({ visible }) => (visible ? "3rem" : "2.5rem")};
 
   font-size: ${({ theme }) => theme.font.size.md}px;
   font-weight: ${({ theme }) => theme.font.weight.light};
 
-  border-radius: ${({ isOpenResume }) => (isOpenResume ? "50%" : "14px")};
+  border-radius: ${({ visible }) => (visible ? "50%" : "14px")};
 
   background-color: ${({ theme }) => theme.colors.button};
   color: ${({ theme }) => theme.colors.text_primary};

@@ -1,10 +1,7 @@
 import { skillsIcons, SkillsProps } from "../../constants/skills";
+import { PhotoProps } from "../../Typings/Photo";
 
 import { Container, Circle, Icon } from "./styles";
-
-interface PhotoProps {
-  active: boolean;
-}
 
 export default function Photo({ active = false }: PhotoProps) {
   return (

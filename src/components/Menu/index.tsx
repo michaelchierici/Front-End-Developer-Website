@@ -4,16 +4,16 @@ import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.sv
 import { ReactComponent as USFlag } from "../../assets/icons/components/usa.svg";
 
 export default function Menu() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   function handleOpenMenu() {
-    setShowMenu((prevState) => !prevState);
+    setMenuIsOpen((prevState) => !prevState);
   }
   return (
-    <Container isOpen={showMenu}>
+    <Container visible={menuIsOpen}>
       <Button onClick={handleOpenMenu}>
         <Content>
-          {!showMenu ? (
+          {!menuIsOpen ? (
             <OpenMenu />
           ) : (
             <>

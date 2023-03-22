@@ -1,3 +1,9 @@
+import { Container } from "./styles";
+
 export default function Projects() {
-  return <h1>projetos</h1>;
+  return (
+    <Container>
+      <h1>PROJETOS</h1>
+    </Container>
+  );
 }
