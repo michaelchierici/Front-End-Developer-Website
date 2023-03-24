@@ -46,7 +46,6 @@ export default function Modal({ visible, disabled, isLoading }: ModalProps) {
           </Footer>
         </Container>
       </Overlay>
-      ,
     </ReactPortal>
   );
 }

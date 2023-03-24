@@ -1,9 +1,46 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 interface Props {
-  type: "name" | "profession" | "role";
+  type: "name" | "profession" | "role" | "description";
   iconSize: number;
   visible: boolean;
+}
+function textFlipUp() {
+  const up = keyframes`
+  0% {
+     opacity: 0;
+     backface-visibility: hidden
+    }
+
+  75% {
+    opacity: 0.5;
+    backface-visibility: hidden
+    }
+
+  100% {
+    opacity: 1;
+    backface-visibility: none
+  }
+  `;
+  return up;
+}
+function textFlipDown() {
+  const down = keyframes`
+  0% {
+     opacity: 0;
+     backface-visibility: none
+    }
+
+  75% {
+    backface-visibility: hidden
+    }
+
+  100% {
+    opacity: 0;
+    backface-visibility: hidden
+  }
+  `;
+  return down;
 }
 
 const titleVariants = {
@@ -16,6 +53,9 @@ const titleVariants = {
   role: css`
     font-weight: ${({ theme }) => theme.font.weight.regular};
   `,
+  description: css`
+    font-weight: ${({ theme }) => theme.font.weight.light};
+  `,
 };
 
 export const Container = styled.main`
@@ -24,7 +64,7 @@ export const Container = styled.main`
   justify-content: flex-start;
 
   position: relative;
-
+  width: 100%;
   height: 100vh;
 `;
 
@@ -41,7 +81,8 @@ export const Content = styled.div`
 export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
 
-  font-size: ${({ theme }) => theme.font.size.xxl}px;
+  font-size: ${({ theme, visible }) =>
+    !visible ? theme.font.size.xxl : theme.font.size.bg}px;
 
   background: ${({ theme }) =>
     `linear-gradient(${theme.colors.text_gradient})`};
@@ -51,6 +92,23 @@ export const Title = styled.h1<Partial<Props>>`
   -webkit-text-fill-color: transparent;
 
   margin: 15px 0 0 10px;
+  transform: ${({ visible }) =>
+    visible ? "rotateX(-180deg)" : "rotateX(0deg)"};
+
+  transition: transform 200ms;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+
+  animation: ${({ visible }) =>
+      visible
+        ? css`
+            ${textFlipDown}
+          `
+        : css`
+            ${textFlipUp}
+          `}
+    400ms ease-in;
 `;
 
 export const Footer = styled.footer`

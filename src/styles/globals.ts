@@ -1,23 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
-export interface ThemeType {
-  colors: {
-    background: string;
-    menu_background: string;
-
-    gradient: string;
-    text_gradient: string;
-
-    text_primary: string;
-    text_secondary: string;
-
-    button: string;
-    font: {
-      size: number;
-      weight: number;
-    };
-  };
-}
+import { ThemeType } from "../Typings/Theme";
 
 export default createGlobalStyle<{ theme: ThemeType }>`
 
@@ -25,16 +7,13 @@ export default createGlobalStyle<{ theme: ThemeType }>`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: 'Lato', sans-serif;
-
 
 }
 
 html, body {
   background-color: ${({ theme }) => theme.colors.background};
-  width: 100%;
-  height: 100%;
+
 }
 
 button {
@@ -66,6 +45,7 @@ export const theme = {
       md: 22,
       lg: 25,
       xl: 28,
+      bg: 48,
       xxl: 52,
     },
     weight: {
