@@ -1,4 +1,4 @@
-import { AboutMeProps } from "../Typings/Aboutme";
+import { AboutMeProps } from "../Typings/AboutMe";
 
 export const AboutMe: AboutMeProps[] = [
   { title: "MICHAEL CHIERICI,", type: "name" },

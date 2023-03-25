@@ -6,15 +6,27 @@ interface Props {
   boxShadow: string;
 }
 
+export const Overlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+`;
+
 export const Container = styled.div`
   width: 35rem;
   height: 35rem;
   border-radius: 20rem;
   position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
-  right: 9.5%;
-
-  margin-right: auto;
 
   display: flex;
   align-items: center;

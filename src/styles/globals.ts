@@ -13,7 +13,7 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 
 html, body {
   background-color: ${({ theme }) => theme.colors.background};
-
+ 
 }
 
 button {
@@ -41,12 +41,10 @@ export const theme = {
   },
   font: {
     size: {
-      sm: 12,
-      md: 22,
-      lg: 25,
-      xl: 28,
-      bg: 48,
-      xxl: 52,
+      sm: 1.5,
+      md: 2,
+      lg: 3,
+      xl: 3.5,
     },
     weight: {
       extra_light: 275,

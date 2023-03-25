@@ -1,46 +1,9 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
+import { textFlipDown, textFlipUp } from "../../styles/animations/flipText";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
-  iconSize: number;
   visible: boolean;
-}
-function textFlipUp() {
-  const up = keyframes`
-  0% {
-     opacity: 0;
-     backface-visibility: hidden
-    }
-
-  75% {
-    opacity: 0.5;
-    backface-visibility: hidden
-    }
-
-  100% {
-    opacity: 1;
-    backface-visibility: none
-  }
-  `;
-  return up;
-}
-function textFlipDown() {
-  const down = keyframes`
-  0% {
-     opacity: 0;
-     backface-visibility: none
-    }
-
-  75% {
-    backface-visibility: hidden
-    }
-
-  100% {
-    opacity: 0;
-    backface-visibility: hidden
-  }
-  `;
-  return down;
 }
 
 const titleVariants = {
@@ -60,29 +23,31 @@ const titleVariants = {
 
 export const Container = styled.main`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  flex-direction: column;
 
   position: relative;
-  width: 100%;
-  height: 100vh;
+
+  z-index: 20;
 `;
 
 export const Content = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-around;
   flex-direction: column;
-  padding-top: 80px;
-
-  width: 50%;
-  height: 100%;
+  width: 60%;
+  height: 100vh;
+  margin-left: 15px;
 `;
 
 export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
 
   font-size: ${({ theme, visible }) =>
-    !visible ? theme.font.size.xxl : theme.font.size.bg}px;
+    !visible ? theme.font.size.xl : theme.font.size.lg}em;
+  font-family: ${({ visible }) => visible && "Libre Franklin"};
 
   background: ${({ theme }) =>
     `linear-gradient(${theme.colors.text_gradient})`};
@@ -111,55 +76,25 @@ export const Title = styled.h1<Partial<Props>>`
     400ms ease-in;
 `;
 
-export const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  width: 400px;
-  margin: auto auto 20px 0px;
-`;
-
-export const Icon = styled.div<Partial<Props>>`
-  transition: all 450ms;
-  width: ${({ iconSize }) => iconSize}px;
-  height: ${({ iconSize }) => iconSize}px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
-`;
-
 export const ContainerButton = styled.div`
   display: flex;
-  justify-content: flex-start;
-
-  margin-bottom: auto;
-  padding-top: 49px;
-
-  width: 80%;
+  justify-content: center;
   transition: all 450ms;
+  height: 30%;
 `;
 
 export const Button = styled.button<Partial<Props>>`
-  width: ${({ visible }) => (visible ? "3rem" : "9rem")};
-  height: ${({ visible }) => (visible ? "3rem" : "2.5rem")};
+  width: ${({ visible }) => (visible ? "3rem" : "10rem")};
+  height: ${({ visible }) => (visible ? "3rem" : "3rem")};
 
-  font-size: ${({ theme }) => theme.font.size.md}px;
+  font-size: ${({ theme }) => theme.font.size.sm}em;
   font-weight: ${({ theme }) => theme.font.weight.light};
 
-  border-radius: ${({ visible }) => (visible ? "50%" : "14px")};
-
+  border-radius: ${({ visible }) => (visible ? "50%" : "16px")};
+  overflow: hidden;
   background-color: ${({ theme }) => theme.colors.button};
   color: ${({ theme }) => theme.colors.text_primary};
 
-  margin: 20px;
   border: none;
 
   text-align: center;
@@ -170,10 +105,6 @@ export const Button = styled.button<Partial<Props>>`
   -moz-transition: all 400ms ease-in-out;
 
   transition: all 400ms ease-in-out;
-
-  span {
-    max-width: 100%;
-  }
 
   &:hover {
     background-position: 150% 0;
@@ -197,5 +128,29 @@ export const Button = styled.button<Partial<Props>>`
 
   &:focus {
     outline: none;
+  }
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+`;
+
+export const Icon = styled.div<Partial<Props>>`
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  height: 70px;
+
+  img {
+    margin: 0 15px;
+    width: 35px;
+    &:hover {
+      transform: scale(1.1);
+    }
+    transition: all 450ms;
   }
 `;

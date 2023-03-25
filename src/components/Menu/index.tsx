@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Button, Container, Content, OpenMenu, CloseMenu } from "./styles";
+
+import { Container, Button, Content, OpenMenu, CloseMenu } from "./styles";
+
 import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.svg";
 import { ReactComponent as USFlag } from "../../assets/icons/components/usa.svg";
 

@@ -2,15 +2,20 @@ import styled from "styled-components";
 
 interface Props {
   visible: boolean;
+  width: number;
+  height: number;
 }
 
 export const Container = styled.div<Props>`
-  width: 90%;
+  width: ${({ width }) => width}%;
+  height: ${({ height }) => height}em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
 
   position: relative;
   z-index: 10;
-
-  margin-top: 60px;
 
   background: linear-gradient(
     103.59deg,
@@ -40,4 +45,5 @@ export const Container = styled.div<Props>`
     visible ? "rotateX(180deg)" : "rotateX(0deg)"};
   transition: all 1s ease;
   transform-style: preserve-3d;
+  overflow: hidden;
 `;

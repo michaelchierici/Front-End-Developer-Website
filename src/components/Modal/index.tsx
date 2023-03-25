@@ -1,18 +1,21 @@
-import { ModalProps } from "../../Typings/Modal";
-import { Input } from "../Input";
 import ReactPortal from "../ReactPortal";
-import { Container, Footer, FormGroup, Header, Overlay } from "./style";
 
-export default function Modal({ visible, disabled, isLoading }: ModalProps) {
+import { ModalProps } from "../../Typings/Modal";
+
+import { Container, Footer, FormGroup, Header, Overlay } from "./style";
+import { Input } from "../Input";
+
+export default function Modal({
+  visible,
+  disabled,
+  isLoading,
+  onClose,
+}: ModalProps) {
   if (!visible) {
     return null;
   }
 
   function handleSendMessage() {
-    return;
-  }
-
-  function handleCloseModal() {
     return;
   }
 
@@ -30,17 +33,13 @@ export default function Modal({ visible, disabled, isLoading }: ModalProps) {
           <Footer>
             <button
               type="button"
-              onClick={handleCloseModal}
+              onClick={handleSendMessage}
               disabled={disabled}
             >
               Confirmar
             </button>
 
-            <button
-              type="button"
-              onClick={handleSendMessage}
-              disabled={disabled}
-            >
+            <button type="button" onClick={onClose} disabled={disabled}>
               Cancelar
             </button>
           </Footer>

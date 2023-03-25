@@ -1,5 +1,9 @@
-import { LoaderProps } from "../../Typings/Loader";
 import ReactPortal from "../ReactPortal";
+
+import Spinner from "../Spinner";
+
+import { LoaderProps } from "../../Typings/Loader";
+
 import { Overlay } from "./styles";
 
 export default function Loader({ isLoading }: LoaderProps) {
@@ -10,7 +14,7 @@ export default function Loader({ isLoading }: LoaderProps) {
   return (
     <ReactPortal containerId="loader-root">
       <Overlay>
-        <h1>loading</h1>
+        <Spinner size={70} />
       </Overlay>
     </ReactPortal>
   );
