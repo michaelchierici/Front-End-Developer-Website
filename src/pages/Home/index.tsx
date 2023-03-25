@@ -36,11 +36,11 @@ export default function Home() {
     fakeLoading();
   }, []);
 
-  function handleShowResume() {
+  function handleOpenResume() {
     setResumeIsOpen((prevState) => !prevState);
   }
 
-  function handleShowModal() {
+  function handleToggleModal() {
     setModalIsOpen((prevState) => !prevState);
   }
 
@@ -61,7 +61,7 @@ export default function Home() {
           ))}
         </Card>
         <ContainerButton>
-          <Button visible={resumeIsOpen} onClick={handleShowResume}>
+          <Button visible={resumeIsOpen} onClick={handleOpenResume}>
             {resumeIsOpen ? <BackArrow /> : <span>Resumo</span>}
           </Button>
         </ContainerButton>
@@ -69,7 +69,11 @@ export default function Home() {
           {contactMeIcons.map((icon, index) => (
             <Icon key={index}>
               <a href={icon.link} target="_blank" rel="noreferrer">
-                <img alt={icon.name} src={icon.element} />
+                <img
+                  alt={icon.name}
+                  src={icon.element}
+                  onClick={() => icon.openModal && handleToggleModal()}
+                />
               </a>
             </Icon>
           ))}
@@ -80,7 +84,7 @@ export default function Home() {
         disabled={false}
         isLoading={false}
         visible={modalIsOpen}
-        onClose={handleShowModal}
+        onToggle={handleToggleModal}
       />
     </Container>
   );

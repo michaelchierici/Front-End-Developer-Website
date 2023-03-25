@@ -14,7 +14,7 @@ export default function Loader({ isLoading }: LoaderProps) {
   return (
     <ReactPortal containerId="loader-root">
       <Overlay>
-        <Spinner size={70} />
+        <Spinner size={120} />
       </Overlay>
     </ReactPortal>
   );

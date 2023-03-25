@@ -2,14 +2,17 @@ import ReactPortal from "../ReactPortal";
 
 import { ModalProps } from "../../Typings/Modal";
 
-import { Container, Footer, FormGroup, Header, Overlay } from "./style";
+import { Container, Footer, Header, Message, Overlay } from "./style";
 import { Input } from "../Input";
+
+import Form from "../Form";
+import Button from "../Button";
 
 export default function Modal({
   visible,
   disabled,
   isLoading,
-  onClose,
+  onToggle,
 }: ModalProps) {
   if (!visible) {
     return null;
@@ -24,24 +27,40 @@ export default function Modal({
       <Overlay>
         <Container>
           <Header>
-            <h3>Deseja entrar em contato? Me envia uma mensagem!</h3>
+            <h3>
+              Deseja entrar em contato?
+              <br />
+              Me envia uma mensagem!
+            </h3>
           </Header>
-          <FormGroup>
-            <Input />
-            <Input />
-          </FormGroup>
-          <Footer>
-            <button
-              type="button"
-              onClick={handleSendMessage}
-              disabled={disabled}
-            >
-              Confirmar
-            </button>
+          <Form isLoading={isLoading} error={false}>
+            <Input error={false} />
+            <Input error={false} />
+          </Form>
+          <Message>
+            <Input error={false} />
+          </Message>
 
-            <button type="button" onClick={onClose} disabled={disabled}>
-              Cancelar
-            </button>
+          <Footer>
+            <Button
+              title="Enviar"
+              cancel={false}
+              onClick={handleSendMessage}
+              isLoading={isLoading}
+              disabled={disabled}
+              width={8}
+              height={3.5}
+            />
+
+            <Button
+              title="Cancelar"
+              cancel={true}
+              onClick={onToggle}
+              isLoading={isLoading}
+              disabled={disabled}
+              width={8}
+              height={3.5}
+            />
           </Footer>
         </Container>
       </Overlay>

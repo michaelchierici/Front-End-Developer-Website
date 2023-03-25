@@ -126,9 +126,7 @@ export const Button = styled.button<Partial<Props>>`
     transform: scale(0.95);
   }
 
-  &:focus {
-    outline: none;
-  }
+  outline: none;
 `;
 
 export const Footer = styled.footer`

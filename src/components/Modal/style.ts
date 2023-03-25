@@ -30,25 +30,24 @@ export const Header = styled.header`
   width: 100%;
   height: 15%;
   text-align: center;
-  margin-top: 40px;
+
+  margin-top: 20px;
 
   h3 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.text_secondary};
   }
 `;
 
-export const FormGroup = styled.form`
-  width: 100%;
-  height: 40%;
-
+export const Message = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  height: 30%;
+  width: 80%;
 
   input {
-    margin: 5px 0;
+    height: 8em;
   }
 `;
 
@@ -58,12 +57,11 @@ export const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   button {
-    margin: 0 10px;
-    width: 90px;
-    height: 35px;
     border: none;
     border-radius: 6px;
+    margin: 0 15px;
   }
 `;

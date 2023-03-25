@@ -2,14 +2,12 @@ import { ReactComponent as Loading } from "../../assets/icons/components/loader.
 
 import { SpinnerProps } from "../../Typings/Spinner";
 
-import { Container, StyledSpinner } from "./style";
+import { StyledSpinner } from "./style";
 
 export default function Spinner({ size }: SpinnerProps) {
   return (
-    <Container>
-      <StyledSpinner size={size}>
-        <Loading />
-      </StyledSpinner>
-    </Container>
+    <StyledSpinner>
+      <Loading width={size} height={size} />
+    </StyledSpinner>
   );
 }
