@@ -12,7 +12,7 @@ export default function Form({
       {children}
       {isLoading && (
         <div className="loader">
-          <Spinner size={16} />
+          <Spinner size={25} />
         </div>
       )}
     </Container>

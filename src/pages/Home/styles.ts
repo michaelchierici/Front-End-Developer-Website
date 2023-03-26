@@ -74,6 +74,10 @@ export const Title = styled.h1<Partial<Props>>`
             ${textFlipUp}
           `}
     400ms ease-in;
+
+  span {
+    font-weight: 400;
+  }
 `;
 
 export const ContainerButton = styled.div`

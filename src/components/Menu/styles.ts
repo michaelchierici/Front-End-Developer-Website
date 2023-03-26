@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as OpenIcon } from "../../assets/icons/components/navigation.svg";
+import { ReactComponent as OpenIcon } from "../../assets/icons/components/menu.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/components/close.svg";
 
 interface Props {

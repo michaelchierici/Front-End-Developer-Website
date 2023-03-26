@@ -31,7 +31,7 @@ export const Header = styled.header`
   height: 15%;
   text-align: center;
 
-  margin-top: 20px;
+  margin-top: 15px;
 
   h3 {
     font-size: 1.5rem;
@@ -45,9 +45,14 @@ export const Message = styled.div`
   justify-content: center;
   height: 30%;
   width: 80%;
+  position: relative;
 
   input {
-    height: 8em;
+    position: absolute;
+    top: 0;
+    padding-left: 15px;
+    height: 9em;
+    padding-bottom: 80px;
   }
 `;
 

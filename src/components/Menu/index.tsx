@@ -6,7 +6,7 @@ import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.sv
 import { ReactComponent as USFlag } from "../../assets/icons/components/usa.svg";
 
 export default function Menu() {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
 
   function handleOpenMenu() {
     setMenuIsOpen((prevState) => !prevState);

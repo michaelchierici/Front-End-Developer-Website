@@ -24,9 +24,9 @@ import {
 } from "./styles";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [resumeIsOpen, setResumeIsOpen] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     async function fakeLoading() {
@@ -40,8 +40,11 @@ export default function Home() {
     setResumeIsOpen((prevState) => !prevState);
   }
 
-  function handleToggleModal() {
-    setModalIsOpen((prevState) => !prevState);
+  function handleToggleEvent(...event: string[]) {
+    const [value] = event;
+    if (value === "modal") {
+      setModalIsOpen((prevState) => !prevState);
+    }
   }
 
   return (
@@ -56,7 +59,7 @@ export default function Home() {
               type={person.type}
               visible={resumeIsOpen || isLoading}
             >
-              {resumeIsOpen ? person.description : person.title}
+              {resumeIsOpen ? <span>{person.description}</span> : person.title}
             </Title>
           ))}
         </Card>
@@ -72,7 +75,7 @@ export default function Home() {
                 <img
                   alt={icon.name}
                   src={icon.element}
-                  onClick={() => icon.openModal && handleToggleModal()}
+                  onClick={() => handleToggleEvent(icon.event!)}
                 />
               </a>
             </Icon>
@@ -84,7 +87,7 @@ export default function Home() {
         disabled={false}
         isLoading={false}
         visible={modalIsOpen}
-        onToggle={handleToggleModal}
+        onToggle={() => handleToggleEvent("modal")}
       />
     </Container>
   );

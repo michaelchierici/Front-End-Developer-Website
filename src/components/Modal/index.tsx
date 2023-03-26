@@ -30,15 +30,20 @@ export default function Modal({
             <h3>
               Deseja entrar em contato?
               <br />
-              Me envia uma mensagem!
+              Me envie uma mensagem!
             </h3>
           </Header>
           <Form isLoading={isLoading} error={false}>
-            <Input error={false} />
-            <Input error={false} />
+            <Input type="text" placeholder="Nome *" error={false} />
+            <Input type="text" placeholder="E-mail *" error={false} />
+            <Input type="text" placeholder="Telefone" error={false} />
           </Form>
           <Message>
-            <Input error={false} />
+            <Input
+              type="text"
+              placeholder="Escreva uma mensagem..."
+              error={false}
+            />
           </Message>
 
           <Footer>

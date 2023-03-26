@@ -34,8 +34,7 @@ export const Content = styled.button<Partial<Props>>`
   }
 
   &:hover {
-    background: ${({ theme, cancel }) =>
-      !cancel && `linear-gradient(${theme.colors.gradient})`};
+    background: ${({ theme, cancel }) => !cancel && `#12af51`};
   }
   transition: background 0.2s ease-in;
 

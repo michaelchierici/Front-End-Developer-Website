@@ -37,7 +37,8 @@ export const theme = {
     text_primary: "#000000",
     text_secondary: "#FFFFFF",
 
-    button: "#16DB65",
+    button: "#16db65",
+    border: "#0f9947",
   },
   font: {
     size: {

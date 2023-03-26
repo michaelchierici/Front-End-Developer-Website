@@ -9,7 +9,7 @@ interface ContactMeIcons {
   element: string;
   value?: string;
   link?: string;
-  openModal?: boolean;
+  event?: string;
 }
 
 export const contactMeIcons: ContactMeIcons[] = [
@@ -36,6 +36,6 @@ export const contactMeIcons: ContactMeIcons[] = [
   {
     name: "modal",
     element: Modal,
-    openModal: true,
+    event: "modal",
   },
 ];
