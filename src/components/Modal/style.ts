@@ -16,8 +16,8 @@ export const Overlay = styled.div`
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
-  width: 20vw;
-  height: 50vh;
+  width: 350px;
+  height: 500px;
   border-radius: 6px;
 
   display: flex;
