@@ -12,7 +12,7 @@ export default function Form({ children, error, isLoading }: FormProps) {
       {children}
       {isLoading && (
         <div className="loader">
-          <Spinner size={25} />
+          <Spinner size={25} color="white" />
         </div>
       )}
     </Container>

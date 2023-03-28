@@ -46,4 +46,7 @@ export const Content = styled.button<Partial<Props>>`
     cursor: not-allowed;
   }
   transition: all 0.2s ease-in;
+
+  border: none;
+  border-radius: 6px;
 `;

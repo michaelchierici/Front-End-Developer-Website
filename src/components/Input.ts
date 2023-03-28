@@ -13,7 +13,6 @@ export const Input = styled.input<Props>`
   background-color: ${({ theme }) => theme.colors.menu_background};
   outline: none;
 
-  margin: 10px 0;
   padding: 0 16px;
 
   font-size: 0.85em;
@@ -34,4 +33,9 @@ export const Input = styled.input<Props>`
   }
   transition: all 0.2s ease-in;
   border: 1px solid #b1b1b1;
+
+  &[disabled] {
+    opacity: 0.5;
+    border-color: gray;
+  }
 `;

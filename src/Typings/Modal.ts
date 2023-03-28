@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
+
 export interface ModalProps {
   visible: boolean;
-  disabled: boolean;
-  isLoading: boolean;
-  onToggle: () => void;
+  title: string;
+  children: ReactNode;
 }

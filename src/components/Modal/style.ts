@@ -32,40 +32,9 @@ export const Header = styled.header`
   text-align: center;
 
   margin-top: 15px;
-
+  white-space: pre-line;
   h3 {
     font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.text_secondary};
-  }
-`;
-
-export const Message = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30%;
-  width: 100%;
-  position: relative;
-
-  input {
-    top: 0;
-    padding-left: 15px;
-    height: 9em;
-    padding-bottom: 80px;
-  }
-`;
-
-export const Footer = styled.footer`
-  width: 100%;
-  height: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  button {
-    border: none;
-    border-radius: 6px;
-    margin: 0 15px;
   }
 `;

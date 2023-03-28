@@ -7,13 +7,10 @@ export const Container = styled.div`
   width: 80%;
   border-radius: 8px;
   position: relative;
-  input {
-  }
-
   h4 {
     display: block;
     position: absolute;
-    top: -9px;
+    top: -20px;
 
     font-family: "Libre Franklin";
     font-size: 13px;
@@ -31,6 +28,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-end;
     position: absolute;
-    top: 17px;
+    top: 8px;
   }
 `;

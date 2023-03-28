@@ -24,6 +24,7 @@ import {
   ContentIcon,
 } from "./styles";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
+import FormSendMessage from "../../components/FormSendMessage";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -84,11 +85,13 @@ export default function Home() {
       <Photo active={resumeIsOpen} />
       <Modal
         ref={ref}
-        disabled={false}
-        isLoading={false}
         visible={isComponentVisible}
-        onToggle={() => setIsComponentVisible(false)}
-      />
+        title={`Deseja entrar em contato?
+        Me envie uma mensagem!
+        `}
+      >
+        <FormSendMessage onToggle={() => setIsComponentVisible(false)} />
+      </Modal>
     </Container>
   );
 }
