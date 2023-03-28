@@ -25,8 +25,8 @@ export const Container = styled.div<Props>`
   background-color: ${({ visible, theme }) =>
     visible && `${theme.colors.menu_background}`};
 
-  transition: all 400ms ease;
-  transition-property: height, background-color;
+  -webkit-transition: all 400ms ease;
+  -webkit-transition-property: height, background-color;
 
   overflow: hidden;
 `;

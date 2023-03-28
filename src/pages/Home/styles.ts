@@ -84,7 +84,7 @@ export const ContainerButton = styled.div`
   display: flex;
   justify-content: flex-start;
   height: 30%;
-  width: 95%;
+  width: 90%;
   transition: all 450ms;
 `;
 
