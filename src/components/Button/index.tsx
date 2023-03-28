@@ -5,6 +5,7 @@ import { Content } from "./styles";
 export default function Button({
   onClick,
   title,
+  type,
   cancel = false,
   isLoading,
   disabled,
@@ -13,6 +14,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <Content
+      type={type}
       isLoading={isLoading}
       disabled={disabled}
       cancel={cancel}
@@ -20,7 +22,7 @@ export default function Button({
       width={width}
       height={height}
     >
-      {isLoading ? <Spinner size={40} /> : <span>{title}</span>}
+      {isLoading ? <Spinner size={40} color="#091612" /> : <span>{title}</span>}
     </Content>
   );
 }

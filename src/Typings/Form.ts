@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-export interface InputProps {
+export interface FormProps {
   children: ReactNode;
-  error: boolean;
+  error: any;
   isLoading: boolean;
 }

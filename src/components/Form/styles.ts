@@ -1,22 +1,32 @@
 import styled from "styled-components";
 
-interface Props {
-  error: boolean;
-}
-
-export const Container = styled.div<Props>`
+export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 80%;
   border-radius: 8px;
-  flex: 1;
   position: relative;
   input {
   }
 
+  h4 {
+    display: block;
+    position: absolute;
+    top: -9px;
+
+    font-family: "Libre Franklin";
+    font-size: 13px;
+    color: #cc0000;
+
+    margin-left: 8px;
+
+    width: 100%;
+    height: 1em;
+  }
+
   .loader {
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: flex-end;

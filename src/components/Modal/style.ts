@@ -44,11 +44,10 @@ export const Message = styled.div`
   align-items: center;
   justify-content: center;
   height: 30%;
-  width: 80%;
+  width: 100%;
   position: relative;
 
   input {
-    position: absolute;
     top: 0;
     padding-left: 15px;
     height: 9em;

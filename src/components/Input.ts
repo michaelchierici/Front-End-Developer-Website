@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  error: boolean;
+  error: void;
 }
 
 export const Input = styled.input<Props>`

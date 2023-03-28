@@ -31,15 +31,19 @@ export const Content = styled.button<Partial<Props>>`
 
   span {
     font-size: 1.25em;
+    font-family: "Libre Franklin";
+    font-weight: 500;
   }
 
   &:hover {
-    background: ${({ theme, cancel }) => !cancel && `#12af51`};
+    background: ${({ cancel }) => !cancel && `#12af51`};
   }
   transition: background 0.2s ease-in;
 
   &[disabled] {
     opacity: 0.5;
-    background-color: ${({ theme }) => theme.colors.menu_background};
+    background-color: ${({ theme }) => theme.colors.button};
+    cursor: not-allowed;
   }
+  transition: all 0.2s ease-in;
 `;

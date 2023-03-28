@@ -4,10 +4,10 @@ import { SpinnerProps } from "../../Typings/Spinner";
 
 import { StyledSpinner } from "./style";
 
-export default function Spinner({ size }: SpinnerProps) {
+export default function Spinner({ size, color }: SpinnerProps) {
   return (
     <StyledSpinner>
-      <Loading width={size} height={size} />
+      <Loading width={size} height={size} fill={color} />
     </StyledSpinner>
   );
 }
