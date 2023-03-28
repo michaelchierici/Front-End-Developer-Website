@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { textFlipDown, textFlipUp } from "../../styles/animations/flipText";
+import { devices } from "../../styles/globals";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
@@ -34,12 +35,11 @@ export const Container = styled.main`
 
 export const Content = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-evenly;
   flex-direction: column;
-  width: 60%;
   height: 100vh;
-  margin-left: 15px;
+  width: 50%;
 `;
 
 export const Title = styled.h1<Partial<Props>>`
@@ -82,9 +82,10 @@ export const Title = styled.h1<Partial<Props>>`
 
 export const ContainerButton = styled.div`
   display: flex;
-  justify-content: center;
-  transition: all 450ms;
+  justify-content: flex-start;
   height: 30%;
+  width: 95%;
+  transition: all 450ms;
 `;
 
 export const Button = styled.button<Partial<Props>>`
@@ -135,10 +136,11 @@ export const Button = styled.button<Partial<Props>>`
 
 export const Footer = styled.footer`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   position: absolute;
   bottom: 0;
+  left: 10px;
 `;
 
 export const Icon = styled.div<Partial<Props>>`

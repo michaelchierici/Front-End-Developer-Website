@@ -72,8 +72,9 @@ export default function Modal({
   async function handleSubmit(event?: FormDataProps) {
     event?.preventDefault();
 
-    let url = `https://web.whatsapp.com//ptbr/send?phone=85987892505`;
-    url += `&text=${encodeURI(message)}&app_absent=0`;
+    const url = `https://api.whatsapp.com/send?text=${encodeURI(
+      message
+    )}&app_absent=0&phone=+5585987892505`;
 
     setLoading(true);
     await delay(1000);
