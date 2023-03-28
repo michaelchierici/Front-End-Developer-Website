@@ -12,21 +12,25 @@ import Loader from "../../components/Loader";
 import delay from "../../utils/delay";
 
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
+import { ReactComponent as ModalIcon } from "../../assets/icons/components/modal.svg";
 
 import {
   Container,
   Content,
   Footer,
-  Icon,
   Title,
   ContainerButton,
   Button,
+  ContentIcon,
 } from "./styles";
+import useVisibleComponent from "../../hooks/useVisibleComponent";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
-  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useVisibleComponent(false);
 
   useEffect(() => {
     async function fakeLoading() {
@@ -38,13 +42,6 @@ export default function Home() {
 
   function handleOpenResume() {
     setResumeIsOpen((prevState) => !prevState);
-  }
-
-  function handleToggleEvent(...event: string[]) {
-    const [value] = event;
-    if (value === "modal") {
-      setModalIsOpen((prevState) => !prevState);
-    }
   }
 
   return (
@@ -70,24 +67,27 @@ export default function Home() {
         </ContainerButton>
         <Footer>
           {contactMeIcons.map((icon, index) => (
-            <Icon key={index}>
-              <a href={icon.link} target="_blank" rel="noreferrer">
-                <img
-                  alt={icon.name}
-                  src={icon.element}
-                  onClick={() => handleToggleEvent(icon.event!)}
-                />
+            <ContentIcon key={index}>
+              <a href={icon?.link} target="_blank" rel="noreferrer">
+                <img alt={icon.name} src={icon.element} />
               </a>
-            </Icon>
+            </ContentIcon>
           ))}
+          <ModalIcon
+            className="modal"
+            onClick={() => setIsComponentVisible(true)}
+            width={65}
+            height={35}
+          />
         </Footer>
       </Content>
       <Photo active={resumeIsOpen} />
       <Modal
+        ref={ref}
         disabled={false}
         isLoading={false}
-        visible={modalIsOpen}
-        onToggle={() => handleToggleEvent("modal")}
+        visible={isComponentVisible}
+        onToggle={() => setIsComponentVisible(false)}
       />
     </Container>
   );

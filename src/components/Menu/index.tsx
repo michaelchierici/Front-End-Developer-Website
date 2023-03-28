@@ -4,18 +4,20 @@ import { Container, Button, Content, OpenMenu, CloseMenu } from "./styles";
 
 import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.svg";
 import { ReactComponent as USFlag } from "../../assets/icons/components/usa.svg";
+import useVisibleComponent from "../../hooks/useVisibleComponent";
 
 export default function Menu() {
-  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useVisibleComponent(false);
 
   function handleOpenMenu() {
-    setMenuIsOpen((prevState) => !prevState);
+    setIsComponentVisible((prevState) => !prevState);
   }
   return (
-    <Container visible={menuIsOpen}>
+    <Container visible={isComponentVisible}>
       <Button onClick={handleOpenMenu}>
-        <Content>
-          {!menuIsOpen ? (
+        <Content ref={ref}>
+          {!isComponentVisible ? (
             <OpenMenu />
           ) : (
             <>

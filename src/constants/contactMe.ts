@@ -33,9 +33,4 @@ export const contactMeIcons: ContactMeIcons[] = [
     element: Gmail,
     value: "michael.chierjr@gmail.com",
   },
-  {
-    name: "modal",
-    element: Modal,
-    event: "modal",
-  },
 ];

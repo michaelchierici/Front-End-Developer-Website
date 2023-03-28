@@ -137,13 +137,19 @@ export const Button = styled.button<Partial<Props>>`
 export const Footer = styled.footer`
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
   position: absolute;
   bottom: 0;
-  left: 10px;
+  left: 30px;
+  .modal {
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    transition: all 450ms;
+  }
 `;
 
-export const Icon = styled.div<Partial<Props>>`
+export const ContentIcon = styled.div<Partial<Props>>`
   display: flex;
   justify-content: center;
   cursor: pointer;
