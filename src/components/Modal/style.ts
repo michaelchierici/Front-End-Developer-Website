@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { easeModalIn } from "../../styles/animations/easeInAndOut";
 
-export const Overlay = styled.div`
+interface Props {
+  isModalIn: boolean;
+}
+
+export const Overlay = styled.div<Props>`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
@@ -14,7 +19,7 @@ export const Overlay = styled.div`
   z-index: 50;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<Props>`
   background-color: ${({ theme }) => theme.colors.background};
   width: 350px;
   height: 500px;
@@ -24,6 +29,13 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+
+  animation: ${({ isModalIn }) =>
+      isModalIn &&
+      css`
+        ${easeModalIn}
+      `}400ms
+    ease-in-out;
 `;
 
 export const Header = styled.header`

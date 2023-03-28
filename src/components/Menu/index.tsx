@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Container, Button, Content, OpenMenu, CloseMenu } from "./styles";
 
 import { ReactComponent as BFlag } from "../../assets/icons/components/brasil.svg";

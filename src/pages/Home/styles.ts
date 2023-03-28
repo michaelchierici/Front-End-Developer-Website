@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { textFlipDown, textFlipUp } from "../../styles/animations/flipText";
+import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
 import { devices } from "../../styles/globals";
 
 interface Props {
@@ -66,12 +66,12 @@ export const Title = styled.h1<Partial<Props>>`
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
 
   animation: ${({ visible }) =>
-      visible
+      !visible
         ? css`
-            ${textFlipDown}
+            ${easeIn}
           `
         : css`
-            ${textFlipUp}
+            ${easeOut}
           `}
     400ms ease-in;
 

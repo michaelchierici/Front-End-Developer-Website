@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as OpenIcon } from "../../assets/icons/components/menu.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/components/close.svg";
+import { easeIn } from "../../styles/animations/easeInAndOut";
 
 interface Props {
   visible: boolean;
@@ -25,10 +26,12 @@ export const Container = styled.div<Props>`
   background-color: ${({ visible, theme }) =>
     visible && `${theme.colors.menu_background}`};
 
-  -webkit-transition: all 400ms ease;
-  -webkit-transition-property: height, background-color;
+  transition: all 400ms ease;
+  transition-property: height, background-color;
 
   overflow: hidden;
+
+  animation: ${easeIn} 2s ease-in;
 `;
 
 export const Content = styled.div`

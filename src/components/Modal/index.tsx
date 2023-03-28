@@ -12,8 +12,11 @@ const Modal = forwardRef(({ visible, children, title }: ModalProps, ref) => {
 
   return (
     <ReactPortal containerId="modal-root">
-      <Overlay>
-        <Container ref={ref as React.RefObject<HTMLDivElement>}>
+      <Overlay isModalIn={visible}>
+        <Container
+          isModalIn={visible}
+          ref={ref as React.RefObject<HTMLDivElement>}
+        >
           <Header>
             <h3>{title}</h3>
           </Header>
