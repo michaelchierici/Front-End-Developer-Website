@@ -207,6 +207,11 @@ export const Button = styled.button<Partial<Props>>`
 `;
 
 export const Footer = styled.footer`
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   .modal {
     &:hover {
       transform: scale(1.1);
@@ -216,41 +221,28 @@ export const Footer = styled.footer`
   }
 
   ${mobileSm(css`
-    display: flex;
-    align-items: flex-start;
-    position: absolute;
-    bottom: 0;
-    left: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   `)}
 
   ${mobileMd(css`
-    display: flex;
-    align-items: flex-start;
-    position: absolute;
-    bottom: 0;
     left: 0;
   `)}
 
   ${laptop(css`
-    display: flex;
-    align-items: flex-start;
-    position: absolute;
-    bottom: 0;
-    left: 15px;
+    left: 0;
+    justify-content: flex-start;
   `)}
 
   ${desktop(css`
-    display: flex;
-    align-items: flex-start;
-    background-color: red;
-    position: absolute;
-    bottom: 0;
     left: 15px;
   `)}
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`
   display: flex;
+  align-items: center;
   justify-content: center;
   cursor: pointer;
   height: 70px;
@@ -263,4 +255,9 @@ export const ContentIcon = styled.div<Partial<Props>>`
     }
     transition: all 450ms;
   }
+
+  ${mobileSm(css`
+    align-items: center;
+    justify-content: center;
+  `)}
 `;
