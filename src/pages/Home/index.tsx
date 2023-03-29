@@ -50,7 +50,7 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <Menu />
       <Content>
-        <Card visible={resumeIsOpen} width={90} height={15}>
+        <Card visible={resumeIsOpen} width={95} height={15}>
           {AboutMe.map((person, index) => (
             <Title
               key={index}

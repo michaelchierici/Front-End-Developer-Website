@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { desktop, laptop, mobileMd, mobileSm } from "../../styles/globals";
 
 interface Props {
   visible: boolean;
@@ -46,4 +47,28 @@ export const Container = styled.div<Props>`
   transition: all 1s ease;
   transform-style: preserve-3d;
   overflow: hidden;
+
+  ${mobileSm(css`
+    margin: 0 0 0 170px;
+    width: 80vw;
+    height: 8em;
+    text-align: center;
+  `)}
+  ${mobileMd(css`
+    width: 80vw;
+    margin: 0 0 0 170px;
+    height: 8em;
+    text-align: center;
+  `)}
+
+  ${laptop(css<Props>`
+    width: ${({ width }) => width}%;
+    height: ${({ height }) => height}em;
+    margin: 0;
+  `)}
+  ${desktop(css<Props>`
+    margin: 0;
+    width: ${({ width }) => width}%;
+    height: ${({ height }) => height}em;
+  `)}
 `;

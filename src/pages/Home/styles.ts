@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components";
 import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
-import { devices } from "../../styles/globals";
+import {
+  desktop,
+  laptop,
+  mobileLg,
+  mobileMd,
+  mobileSm,
+} from "../../styles/globals";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
@@ -78,6 +84,32 @@ export const Title = styled.h1<Partial<Props>>`
   span {
     font-weight: 400;
   }
+
+  ${mobileSm(css<Props>`
+    font-size: ${({ visible }) => (visible ? "1rem" : "1rem")};
+    font-weight: 600;
+  `)}
+
+  ${mobileMd(css<Props>`
+    font-weight: 600;
+    font-size: ${({ visible }) => (visible ? "1rem" : "1rem")};
+  `)}
+
+  ${laptop(css<Props>`
+    ${({ type }) => titleVariants[type!] || titleVariants.name};
+
+    font-size: ${({ theme, visible }) =>
+      !visible ? theme.font.size.xl : theme.font.size.lg}em;
+    font-family: ${({ visible }) => visible && "Libre Franklin"};
+  `)}
+
+  ${desktop(css<Props>`
+    ${({ type }) => titleVariants[type!] || titleVariants.name};
+
+    font-size: ${({ theme, visible }) =>
+      !visible ? theme.font.size.xl : theme.font.size.lg}em;
+    font-family: ${({ visible }) => visible && "Libre Franklin"};
+  `)}
 `;
 
 export const ContainerButton = styled.div`
@@ -86,6 +118,16 @@ export const ContainerButton = styled.div`
   height: 30%;
   width: 90%;
   transition: all 450ms;
+
+  ${mobileSm(css<Props>`
+    width: 100%;
+    padding-left: 25px;
+    height: 40%;
+  `)}
+
+  ${mobileMd(css<Props>`
+    width: 90%;
+  `)}
 `;
 
 export const Button = styled.button<Partial<Props>>`
@@ -132,14 +174,39 @@ export const Button = styled.button<Partial<Props>>`
   }
 
   outline: none;
+
+  ${mobileSm(css<Props>`
+    width: ${({ visible }) => (visible ? "2.5rem" : "6rem")};
+    height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
+    font-size: 1.2em;
+    font-weight: 300;
+  `)}
+
+  ${mobileMd(css<Props>`
+    width: ${({ visible }) => (visible ? "2.5rem" : "6rem")};
+    height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
+    font-size: 1.2em;
+    font-weight: 300;
+  `)}
+
+  ${laptop(css<Props>`
+    width: ${({ visible }) => (visible ? "3rem" : "10rem")};
+    height: ${({ visible }) => (visible ? "3rem" : "3rem")};
+
+    font-size: ${({ theme }) => theme.font.size.sm}em;
+    font-weight: ${({ theme }) => theme.font.weight.light};
+  `)}
+
+  ${desktop(css<Props>`
+    width: ${({ visible }) => (visible ? "3rem" : "10rem")};
+    height: ${({ visible }) => (visible ? "3rem" : "3rem")};
+
+    font-size: ${({ theme }) => theme.font.size.sm}em;
+    font-weight: ${({ theme }) => theme.font.weight.light};
+  `)}
 `;
 
 export const Footer = styled.footer`
-  display: flex;
-  align-items: flex-start;
-  position: absolute;
-  bottom: 0;
-  left: 30px;
   .modal {
     &:hover {
       transform: scale(1.1);
@@ -147,6 +214,39 @@ export const Footer = styled.footer`
     }
     transition: all 450ms;
   }
+
+  ${mobileSm(css`
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+  `)}
+
+  ${mobileMd(css`
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  `)}
+
+  ${laptop(css`
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+  `)}
+
+  ${desktop(css`
+    display: flex;
+    align-items: flex-start;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+  `)}
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`

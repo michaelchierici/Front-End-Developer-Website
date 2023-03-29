@@ -1,4 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import {
+  createGlobalStyle,
+  css,
+  FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
+} from "styled-components";
 import { ThemeType } from "../Typings/Theme";
 
 export default createGlobalStyle<{ theme: ThemeType }>`
@@ -67,12 +74,34 @@ export const sizes = {
   desktop: "2560px",
 };
 
-export const devices = {
-  mobileS: `(min-width: ${sizes.mobileS})`,
-  mobileM: `(min-width: ${sizes.mobileM})`,
-  mobileL: `(min-width: ${sizes.mobileL})`,
-  tablet: `(min-width: ${sizes.tablet})`,
-  laptop: `(min-width: ${sizes.laptop})`,
-  laptopL: `(min-width: ${sizes.laptopL})`,
-  desktop: `(min-width: ${sizes.desktop})`,
-};
+export const mobileSm = (inner: any) => css`
+  @media (min-width: ${sizes.mobileS}) {
+    ${inner};
+  }
+`;
+export const mobileMd = (inner: any) => css`
+  @media (min-width: ${sizes.mobileM}) {
+    ${inner};
+  }
+`;
+export const mobileLg = (inner: any) => css`
+  @media (min-width: ${sizes.mobileL}) {
+    ${inner};
+  }
+`;
+export const tablet = (inner: any) => css`
+  @media (min-width: ${sizes.tablet}) {
+    ${inner};
+  }
+`;
+export const laptop = (inner: any) => css`
+  @media (min-width: ${sizes.laptop}) {
+    ${inner};
+  }
+`;
+
+export const desktop = (inner: any) => css`
+  @media (min-width: ${sizes.desktop}) {
+    ${inner};
+  }
+`;
