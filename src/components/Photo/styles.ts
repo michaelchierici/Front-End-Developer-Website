@@ -19,7 +19,7 @@ export const Overlay = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 20rem;
+  width: 35rem;
   height: 35rem;
   border-radius: 20rem;
   position: relative;
