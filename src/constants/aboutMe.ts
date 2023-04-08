@@ -5,7 +5,7 @@ export const AboutMe: AboutMeProps[] = [
   { title: "DESENVOLVEDOR", type: "profession" },
   { title: "FRONT-END", type: "role" },
   {
-    description: `Trabalho com tecnologia há mais de 2 anos, 1 ano de experiência como desenvolvedor 
+    description: `Trabalho com tecnologia há mais de 2 anos, 1 ano de experiência como desenvolvedor front-end. Minha maior experiência é relacionada à construção de interfaces e soluções de problemas, além disso possuo experiência em aplicativos com React Native.
      `,
     type: "description",
   },

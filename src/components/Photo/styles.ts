@@ -10,49 +10,33 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
-  left: 0;
   top: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 1;
 `;
 
 export const Container = styled.div`
-  width: 35rem;
-  height: 35rem;
-  border-radius: 20rem;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transform: rotate(428.6deg);
-`;
-
-export const Circle = styled.div`
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  background-color: royalblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 15px;
 `;
 
 export const Icon = styled.div<Props>`
   cursor: pointer;
   position: absolute;
-  left: 0;
+
   transform: ${({ index, isOpen }) =>
     isOpen && `rotate(calc(293deg / 15 * ${index}))`};
 
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transform-origin: 280px;
+  transform-origin: 320px;
 
   display: flex;
   align-items: center;

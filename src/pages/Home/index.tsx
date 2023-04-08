@@ -57,7 +57,11 @@ export default function Home() {
               type={person.type}
               visible={resumeIsOpen || isLoading}
             >
-              {resumeIsOpen ? <span>{person.description}</span> : person.title}
+              {resumeIsOpen ? (
+                <div className="resume">{person.description}</div>
+              ) : (
+                person.title
+              )}
             </Title>
           ))}
         </Card>

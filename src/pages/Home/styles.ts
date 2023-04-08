@@ -1,12 +1,6 @@
 import styled, { css } from "styled-components";
 import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
-import {
-  desktop,
-  laptop,
-  mobileLg,
-  mobileMd,
-  mobileSm,
-} from "../../styles/globals";
+import { desktop, laptop, mobileMd, mobileSm } from "../../styles/globals";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
@@ -81,9 +75,11 @@ export const Title = styled.h1<Partial<Props>>`
           `}
     400ms ease-in;
 
-  span {
-    font-weight: 400;
+  div {
+    height: 100%;
+    font-weight: 600;
   }
+  text-align: start;
 
   ${mobileSm(css<Props>`
     font-size: ${({ visible }) => (visible ? "1rem" : "1rem")};
@@ -99,7 +95,7 @@ export const Title = styled.h1<Partial<Props>>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
 
     font-size: ${({ theme, visible }) =>
-      !visible ? theme.font.size.xl : theme.font.size.lg}em;
+      !visible ? theme.font.size.xl : theme.font.size.md}em;
     font-family: ${({ visible }) => visible && "Libre Franklin"};
   `)}
 
