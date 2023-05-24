@@ -1,15 +1,19 @@
 import styled, { css } from "styled-components";
-import { desktop, laptop, mobileMd, mobileSm } from "../../styles/globals";
+import {
+  desktop,
+  laptop,
+  laptopM,
+  mobileMd,
+  mobileSm,
+} from "../../styles/globals";
 
 interface Props {
   visible: boolean;
   width: number;
-  height: number;
 }
 
 export const Container = styled.div<Props>`
   width: ${({ width }) => width}%;
-  height: ${({ height }) => height}em;
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
@@ -48,27 +52,26 @@ export const Container = styled.div<Props>`
   transform-style: preserve-3d;
   overflow: hidden;
 
-  ${mobileSm(css`
-    margin: 0 0 0 170px;
+  ${mobileMd(css<Props>`
     width: 80vw;
-    height: 8em;
-    text-align: center;
-  `)}
-  ${mobileMd(css`
-    width: 80vw;
-    margin: 0 0 0 170px;
-    height: 8em;
-    text-align: center;
+    font-size: ${({ visible }) => (visible ? "32px" : "30px")};
+    height: ${({ visible }) => (visible ? "6em" : "7em")};
+    margin-left: 250px;
+    padding: 0 10px;
   `)}
 
   ${laptop(css<Props>`
     width: ${({ width }) => width}%;
-    height: ${({ height }) => height}em;
     margin: 0;
+    font-size: ${({ visible }) => (visible ? "12px" : "15px")};
+    height: ${({ visible }) => (visible ? "17em" : "15em")};
+    padding: 0 10px;
   `)}
+
   ${desktop(css<Props>`
-    margin: 0;
     width: ${({ width }) => width}%;
-    height: ${({ height }) => height}em;
+    height: ${({ visible }) => (visible ? "25em" : "15em")};
+    font-size: ${({ visible }) => (visible ? "12px" : "15px")};
+    padding: 0 10px;
   `)}
 `;

@@ -26,11 +26,7 @@ export const Container = styled.main`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-direction: column;
-
-  position: relative;
-
-  z-index: 20;
+  flex-direction: row;
 `;
 
 export const Content = styled.div`
@@ -82,13 +78,13 @@ export const Title = styled.h1<Partial<Props>>`
   text-align: start;
 
   ${mobileSm(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1rem" : "1rem")};
+    font-size: ${({ visible }) => (visible ? "1.2rem" : "2rem")};
     font-weight: 600;
   `)}
 
   ${mobileMd(css<Props>`
+    font-size: ${({ visible }) => (visible ? "1.2rem" : "2rem")};
     font-weight: 600;
-    font-size: ${({ visible }) => (visible ? "1rem" : "1rem")};
   `)}
 
   ${laptop(css<Props>`
@@ -101,7 +97,6 @@ export const Title = styled.h1<Partial<Props>>`
 
   ${desktop(css<Props>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
-
     font-size: ${({ theme, visible }) =>
       !visible ? theme.font.size.xl : theme.font.size.lg}em;
     font-family: ${({ visible }) => visible && "Libre Franklin"};
@@ -111,7 +106,6 @@ export const Title = styled.h1<Partial<Props>>`
 export const ContainerButton = styled.div`
   display: flex;
   justify-content: flex-start;
-  height: 30%;
   width: 90%;
   transition: all 450ms;
 
@@ -179,7 +173,7 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 
   ${mobileMd(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "6rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "8rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
     font-size: 1.2em;
     font-weight: 300;
@@ -231,9 +225,7 @@ export const Footer = styled.footer`
     justify-content: flex-start;
   `)}
 
-  ${desktop(css`
-    left: 15px;
-  `)}
+  ${desktop(css``)}
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`
@@ -256,4 +248,9 @@ export const ContentIcon = styled.div<Partial<Props>>`
     align-items: center;
     justify-content: center;
   `)}
+`;
+
+export const ContentPhoto = styled.div`
+  width: 40%;
+  height: 100vh;
 `;

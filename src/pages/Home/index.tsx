@@ -22,6 +22,7 @@ import {
   ContainerButton,
   Button,
   ContentIcon,
+  ContentPhoto,
 } from "./styles";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
 import FormSendMessage from "../../components/FormSendMessage";
@@ -50,7 +51,7 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <Menu />
       <Content>
-        <Card visible={resumeIsOpen} width={90} height={15}>
+        <Card visible={resumeIsOpen} width={90}>
           {AboutMe.map((person, index) => (
             <Title
               key={index}
@@ -67,7 +68,7 @@ export default function Home() {
         </Card>
         <ContainerButton>
           <Button visible={resumeIsOpen} onClick={handleOpenResume}>
-            {resumeIsOpen ? <BackArrow /> : <span>Resumo</span>}
+            {resumeIsOpen ? <BackArrow /> : <span>Sobre mim</span>}
           </Button>
         </ContainerButton>
         <Footer>
@@ -86,7 +87,10 @@ export default function Home() {
           />
         </Footer>
       </Content>
-      <Photo active={resumeIsOpen} />
+      <ContentPhoto>
+        <Photo active={resumeIsOpen} />
+      </ContentPhoto>
+
       <Modal
         ref={ref}
         visible={isComponentVisible}

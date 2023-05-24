@@ -2,11 +2,10 @@ import { CardProps } from "../../Typings/Card";
 
 import { Container } from "./styles";
 
-export default function Card({ children, visible, width, height }: CardProps) {
+export default function Card({ children, visible, width }: CardProps) {
   return (
     <Container
       width={width}
-      height={height}
       visible={visible}
       style={{
         alignItems: !visible ? "flex-start" : "center",

@@ -1,11 +1,4 @@
-import {
-  createGlobalStyle,
-  css,
-  FlattenSimpleInterpolation,
-  InterpolationFunction,
-  SimpleInterpolation,
-  ThemeProps,
-} from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import { ThemeType } from "../Typings/Theme";
 
 export default createGlobalStyle<{ theme: ThemeType }>`
@@ -50,6 +43,7 @@ export const theme = {
   },
   font: {
     size: {
+      xsm: 1.2,
       sm: 1.5,
       md: 2,
       lg: 3,
@@ -70,8 +64,9 @@ export const sizes = {
   mobileL: "425px",
   tablet: "768px",
   laptop: "1024px",
+  laptopM: "1280",
   laptopL: "1440px",
-  desktop: "2560px",
+  desktop: "1920px",
 };
 
 export const mobileSm = (inner: any) => css`
@@ -96,6 +91,12 @@ export const tablet = (inner: any) => css`
 `;
 export const laptop = (inner: any) => css`
   @media (min-width: ${sizes.laptop}) {
+    ${inner};
+  }
+`;
+
+export const laptopM = (inner: any) => css`
+  @media (min-width: ${sizes.laptopM}) {
     ${inner};
   }
 `;
