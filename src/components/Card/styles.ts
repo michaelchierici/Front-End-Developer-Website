@@ -53,16 +53,14 @@ export const Container = styled.div<Props>`
   overflow: hidden;
 
   ${mobileMd(css<Props>`
-    width: 80vw;
-    font-size: ${({ visible }) => (visible ? "32px" : "30px")};
-    height: ${({ visible }) => (visible ? "6em" : "7em")};
-    margin-left: 250px;
+    width: 85vw;
+    font-size: ${({ visible }) => (visible ? "17px" : "30px")};
+    height: ${({ visible }) => (visible ? "16em" : "8em")};
     padding: 0 10px;
   `)}
 
   ${laptop(css<Props>`
     width: ${({ width }) => width}%;
-    margin: 0;
     font-size: ${({ visible }) => (visible ? "12px" : "15px")};
     height: ${({ visible }) => (visible ? "17em" : "15em")};
     padding: 0 10px;
@@ -70,8 +68,8 @@ export const Container = styled.div<Props>`
 
   ${desktop(css<Props>`
     width: ${({ width }) => width}%;
-    height: ${({ visible }) => (visible ? "25em" : "15em")};
-    font-size: ${({ visible }) => (visible ? "12px" : "15px")};
+    height: ${({ visible }) => (visible ? "25em" : "20em")};
+    font-size: ${({ visible }) => (visible ? "12px" : "18px")};
     padding: 0 10px;
   `)}
 `;

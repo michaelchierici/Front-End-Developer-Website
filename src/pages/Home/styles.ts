@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components";
 import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
-import { desktop, laptop, mobileMd, mobileSm } from "../../styles/globals";
+import {
+  desktop,
+  laptop,
+  mobileLg,
+  mobileMd,
+  mobileSm,
+} from "../../styles/globals";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
@@ -22,20 +28,52 @@ const titleVariants = {
   `,
 };
 
-export const Container = styled.main`
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-`;
+export const Container = styled.main``;
 
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
+  justify-content: flex-start;
+  flex-direction: row;
   height: 100vh;
-  width: 50%;
+  width: 100vw;
+`;
+
+export const CardContent = styled.div`
+  padding-left: 20px;
+  width: 100vw;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+`;
+
+export const ContentPhoto = styled.div`
+  width: 35%;
+
+  ${mobileSm(css`
+    display: none;
+  `)}
+  ${mobileMd(css`
+    display: none;
+  `)}
+
+  ${mobileLg(css`
+    display: none;
+  `)}
+  ${laptop(css`
+    width: 1%;
+    height: 70vh;
+    display: flex;
+  `)}
+
+  ${desktop(css`
+    width: 40%;
+    height: 100vh;
+    display: flex;
+  `)}
 `;
 
 export const Title = styled.h1<Partial<Props>>`
@@ -105,19 +143,22 @@ export const Title = styled.h1<Partial<Props>>`
 
 export const ContainerButton = styled.div`
   display: flex;
-  justify-content: flex-start;
-  width: 90%;
+  justify-content: center;
+
+  width: 10%;
+  height: 100%;
+
+  flex-direction: column;
+
+  position: absolute;
+  bottom: 0;
+
   transition: all 450ms;
-
   ${mobileSm(css<Props>`
-    width: 100%;
     padding-left: 25px;
-    height: 40%;
   `)}
 
-  ${mobileMd(css<Props>`
-    width: 90%;
-  `)}
+  ${mobileMd(css<Props>``)}
 `;
 
 export const Button = styled.button<Partial<Props>>`
@@ -248,9 +289,4 @@ export const ContentIcon = styled.div<Partial<Props>>`
     align-items: center;
     justify-content: center;
   `)}
-`;
-
-export const ContentPhoto = styled.div`
-  width: 40%;
-  height: 100vh;
 `;

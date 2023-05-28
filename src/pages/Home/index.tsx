@@ -23,6 +23,7 @@ import {
   Button,
   ContentIcon,
   ContentPhoto,
+  CardContent,
 } from "./styles";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
 import FormSendMessage from "../../components/FormSendMessage";
@@ -51,46 +52,48 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <Menu />
       <Content>
-        <Card visible={resumeIsOpen} width={90}>
-          {AboutMe.map((person, index) => (
-            <Title
-              key={index}
-              type={person.type}
-              visible={resumeIsOpen || isLoading}
-            >
-              {resumeIsOpen ? (
-                <div className="resume">{person.description}</div>
-              ) : (
-                person.title
-              )}
-            </Title>
-          ))}
-        </Card>
-        <ContainerButton>
-          <Button visible={resumeIsOpen} onClick={handleOpenResume}>
-            {resumeIsOpen ? <BackArrow /> : <span>Sobre mim</span>}
-          </Button>
-        </ContainerButton>
-        <Footer>
-          {contactMeIcons.map((icon, index) => (
-            <ContentIcon key={index}>
-              <a href={icon?.link} target="_blank" rel="noreferrer">
-                <img alt={icon.name} src={icon.element} />
-              </a>
-            </ContentIcon>
-          ))}
-          <ModalIcon
-            className="modal"
-            onClick={() => setIsComponentVisible(true)}
-            width={65}
-            height={35}
-          />
-        </Footer>
+        <CardContent>
+          <Card visible={resumeIsOpen} width={60}>
+            {AboutMe.map((person, index) => (
+              <Title
+                key={index}
+                type={person.type}
+                visible={resumeIsOpen || isLoading}
+              >
+                {resumeIsOpen ? (
+                  <div className="resume">{person.description}</div>
+                ) : (
+                  person.title
+                )}
+              </Title>
+            ))}
+          </Card>
+          <ContentPhoto>
+            <Photo active={resumeIsOpen} />
+          </ContentPhoto>
+          <ContainerButton>
+            <Button visible={resumeIsOpen} onClick={handleOpenResume}>
+              {resumeIsOpen ? <BackArrow /> : <span>Sobre mim</span>}
+            </Button>
+          </ContainerButton>
+        </CardContent>
       </Content>
-      <ContentPhoto>
-        <Photo active={resumeIsOpen} />
-      </ContentPhoto>
 
+      <Footer>
+        {contactMeIcons.map((icon, index) => (
+          <ContentIcon key={index}>
+            <a href={icon?.link} target="_blank" rel="noreferrer">
+              <img alt={icon.name} src={icon.element} />
+            </a>
+          </ContentIcon>
+        ))}
+        <ModalIcon
+          className="modal"
+          onClick={() => setIsComponentVisible(true)}
+          width={65}
+          height={35}
+        />
+      </Footer>
       <Modal
         ref={ref}
         visible={isComponentVisible}
