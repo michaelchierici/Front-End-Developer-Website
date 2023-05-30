@@ -54,15 +54,16 @@ export const Container = styled.div<Props>`
 
   ${mobileMd(css<Props>`
     width: 85vw;
-    font-size: ${({ visible }) => (visible ? "17px" : "30px")};
-    height: ${({ visible }) => (visible ? "16em" : "8em")};
+    font-size: ${({ visible }) => (visible ? "22px" : "30px")};
+    height: ${({ visible }) => (visible ? "15em" : "8em")};
     padding: 0 10px;
+    flex-wrap: wrap;
   `)}
 
   ${laptop(css<Props>`
     width: ${({ width }) => width}%;
     font-size: ${({ visible }) => (visible ? "12px" : "15px")};
-    height: ${({ visible }) => (visible ? "17em" : "15em")};
+    height: ${({ visible }) => (visible ? "22.5em" : "18em")};
     padding: 0 10px;
   `)}
 

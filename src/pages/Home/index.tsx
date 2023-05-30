@@ -77,23 +77,23 @@ export default function Home() {
             </Button>
           </ContainerButton>
         </CardContent>
+        <Footer>
+          {contactMeIcons.map((icon, index) => (
+            <ContentIcon key={index}>
+              <a href={icon?.link} target="_blank" rel="noreferrer">
+                <img alt={icon.name} src={icon.element} />
+              </a>
+            </ContentIcon>
+          ))}
+          <ModalIcon
+            className="modal"
+            onClick={() => setIsComponentVisible(true)}
+            width={65}
+            height={35}
+          />
+        </Footer>
       </Content>
 
-      <Footer>
-        {contactMeIcons.map((icon, index) => (
-          <ContentIcon key={index}>
-            <a href={icon?.link} target="_blank" rel="noreferrer">
-              <img alt={icon.name} src={icon.element} />
-            </a>
-          </ContentIcon>
-        ))}
-        <ModalIcon
-          className="modal"
-          onClick={() => setIsComponentVisible(true)}
-          width={65}
-          height={35}
-        />
-      </Footer>
       <Modal
         ref={ref}
         visible={isComponentVisible}
