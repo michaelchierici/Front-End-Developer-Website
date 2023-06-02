@@ -30,74 +30,31 @@ const titleVariants = {
 };
 
 export const Container = styled.main`
-  height: 100%;
-  width: 100%;
-`;
-
-export const Content = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  height: 100%;
+
   width: 100%;
+  height: 100%;
 `;
 
-export const CardContent = styled.div`
-  padding-left: 20px;
+export const Content = styled.main`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  position: relative;
-  padding-top: 80px;
 
-  ${mobileSm(css`
-    padding-left: 0px;
-    justify-content: center;
-  `)}
-  ${mobileMd(css``)}
-
-  ${mobileLg(css``)}
   ${laptop(css`
-    padding-left: 20px;
     justify-content: flex-start;
   `)}
 
   ${desktop(css`
-    padding-left: 20px;
     justify-content: flex-start;
   `)}
 `;
-
-export const ContentPhoto = styled.div`
-  width: 35%;
-
-  ${mobileSm(css`
-    display: none;
-  `)}
-  ${mobileMd(css`
-    display: none;
-  `)}
-
-  ${mobileLg(css`
-    display: none;
-  `)}
-  ${laptop(css`
-    width: 1%;
-    height: 70vh;
-    display: flex;
-  `)}
-
-  ${desktop(css`
-    width: 40%;
-    height: 100vh;
-    display: flex;
-  `)}
-`;
-
 export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
 
@@ -152,14 +109,65 @@ export const Title = styled.h1<Partial<Props>>`
 
     font-size: ${({ theme, visible }) =>
       !visible ? theme.font.size.xl : theme.font.size.md}em;
-    font-family: ${({ visible }) => visible && "Libre Franklin"};
   `)}
 
   ${desktop(css<Props>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
     font-size: ${({ theme, visible }) =>
       !visible ? theme.font.size.xl : theme.font.size.lg}em;
-    font-family: ${({ visible }) => visible && "Libre Franklin"};
+  `)}
+`;
+
+export const CardContent = styled.div`
+  position: relative;
+  width: 60%;
+
+  overflow: hidden;
+  padding-top: 80px;
+  padding-left: 20px;
+
+  ${mobileSm(css`
+    padding-left: 0px;
+    justify-content: center;
+    width: 90%;
+  `)}
+  ${mobileMd(css``)}
+
+  ${mobileLg(css``)}
+  ${laptop(css`
+    padding-left: 20px;
+    justify-content: flex-start;
+    width: 60%;
+  `)}
+
+  ${desktop(css`
+    padding-left: 20px;
+    justify-content: flex-start;
+    width: 60%;
+  `)}
+`;
+
+export const ContentPhoto = styled.div`
+  ${mobileSm(css`
+    display: none;
+  `)}
+  ${mobileMd(css`
+    display: none;
+  `)}
+
+  ${mobileLg(css`
+    display: none;
+  `)}
+  ${laptop(css`
+    width: 1%;
+    height: 70vh;
+    display: flex;
+  `)}
+
+  ${desktop(css`
+    width: 40%;
+    height: 100vh;
+    display: flex;
   `)}
 `;
 
@@ -168,13 +176,8 @@ export const ContainerButton = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  width: 50%;
-  height: 100%;
-
-  position: absolute;
-  bottom: 0;
-  top: 80px;
-
+  width: 100%;
+  height: 100px;
   transition: all 450ms;
   ${mobileSm(css<Props>`
     align-items: center;
@@ -196,7 +199,6 @@ export const ContainerButton = styled.div`
   `)}
 
 ${desktop(css`
-    top: 80px;
     align-items: flex-start;
   `)}
 `;
@@ -277,12 +279,57 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 `;
 
+export const ContainerProject = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+`;
+
+export const ContentProjectInfo = styled.section`
+  width: 90%;
+  height: 80vh;
+  border-radius: 6px;
+  background-color: #222121;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: visible;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    transition: all 250ms;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 0;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 20px rgb(247, 255, 255, 8%);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(217, 217, 217, 60%);
+    border-radius: 8px;
+  }
+`;
+
+export const ContentCardProject = styled.div`
+  background-color: #ddd;
+  width: 250px;
+  height: 90%;
+  margin: 10px;
+`;
+
 export const Footer = styled.footer`
   display: flex;
-  align-items: flex-start;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
   .modal {
     &:hover {
       transform: scale(1.1);
@@ -290,31 +337,11 @@ export const Footer = styled.footer`
     }
     transition: all 450ms;
   }
-
-  ${mobileSm(css`
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  `)}
-
-  ${mobileMd(css`
-    left: 0;
-  `)}
-
-  ${laptop(css`
-    left: 0;
-    justify-content: flex-start;
-  `)}
-
-  ${desktop(css``)}
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  height: 70px;
+  height: 50px;
 
   img {
     margin: 0 15px;
@@ -324,9 +351,4 @@ export const ContentIcon = styled.div<Partial<Props>>`
     }
     transition: all 450ms;
   }
-
-  ${mobileSm(css`
-    align-items: center;
-    justify-content: center;
-  `)}
 `;

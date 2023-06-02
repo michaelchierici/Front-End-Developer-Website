@@ -14,6 +14,24 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 
 html, body {
   background-color: ${({ theme }) => theme.colors.background};
+
+  ::-webkit-scrollbar {
+    width: 15px;
+    transition: all 250ms;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 0;
+
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0 rgb(247, 255, 255, 8%);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+  }
  
 }
 

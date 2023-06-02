@@ -24,6 +24,9 @@ import {
   ContentIcon,
   ContentPhoto,
   CardContent,
+  ContainerProject,
+  ContentProjectInfo,
+  ContentCardProject,
 } from "./styles";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
 import FormSendMessage from "../../components/FormSendMessage";
@@ -53,7 +56,7 @@ export default function Home() {
       <Menu />
       <Content>
         <CardContent>
-          <Card visible={resumeIsOpen} width={60}>
+          <Card visible={resumeIsOpen}>
             {AboutMe.map((person, index) => (
               <Title
                 key={index}
@@ -68,22 +71,30 @@ export default function Home() {
               </Title>
             ))}
           </Card>
-          <ContentPhoto>
-            <Photo active={resumeIsOpen} />
-          </ContentPhoto>
           <ContainerButton>
             <Button visible={resumeIsOpen} onClick={handleOpenResume}>
               {resumeIsOpen ? <BackArrow /> : <span>Sobre mim</span>}
             </Button>
           </ContainerButton>
         </CardContent>
-        <Footer>
+        <ContentPhoto>
+          <Photo active={resumeIsOpen} />
+        </ContentPhoto>
+      </Content>
+      <ContainerProject>
+        <ContentProjectInfo>
+          <ContentCardProject />
+          <ContentCardProject />
+          <ContentCardProject />
+        </ContentProjectInfo>
+      </ContainerProject>
+
+      <Footer>
+        <ContentIcon>
           {contactMeIcons.map((icon, index) => (
-            <ContentIcon key={index}>
-              <a href={icon?.link} target="_blank" rel="noreferrer">
-                <img alt={icon.name} src={icon.element} />
-              </a>
-            </ContentIcon>
+            <a key={index} href={icon?.link} target="_blank" rel="noreferrer">
+              <img alt={icon.name} src={icon.element} />
+            </a>
           ))}
           <ModalIcon
             className="modal"
@@ -91,8 +102,8 @@ export default function Home() {
             width={65}
             height={35}
           />
-        </Footer>
-      </Content>
+        </ContentIcon>
+      </Footer>
 
       <Modal
         ref={ref}
