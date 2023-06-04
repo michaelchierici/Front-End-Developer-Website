@@ -14,6 +14,10 @@ interface Props {
   visible: boolean;
 }
 
+interface ScrollProps {
+  scrollPosition: boolean;
+}
+
 const titleVariants = {
   name: css`
     font-weight: ${({ theme }) => theme.font.weight.main};
@@ -33,7 +37,6 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
   height: 100%;
 `;
@@ -46,6 +49,7 @@ export const Content = styled.main`
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 
   ${laptop(css`
     justify-content: flex-start;
@@ -277,6 +281,29 @@ export const Button = styled.button<Partial<Props>>`
     font-size: ${({ theme }) => theme.font.size.sm}em;
     font-weight: ${({ theme }) => theme.font.weight.light};
   `)}
+`;
+
+export const ContentScroll = styled.div<ScrollProps>`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 450ms;
+
+  .arrows {
+    transform: ${({ scrollPosition }) =>
+      scrollPosition ? "rotate(180deg)" : "rotate(0deg)"};
+    transition: all 850ms;
+    margin-top: 4px;
+    width: 100%;
+  }
 `;
 
 export const ContainerProject = styled.div`

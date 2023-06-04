@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
@@ -12,7 +12,7 @@ import Loader from "../../components/Loader";
 import delay from "../../utils/delay";
 
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
-import { ReactComponent as ModalIcon } from "../../assets/icons/components/modal.svg";
+import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 
 import {
   Container,
@@ -27,16 +27,45 @@ import {
   ContainerProject,
   ContentProjectInfo,
   ContentCardProject,
+  ContentScroll,
 } from "./styles";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
 import FormSendMessage from "../../components/FormSendMessage";
+import { ReactComponent as Mouse } from "../../assets/icons/components/mouse.svg";
+import { ReactComponent as MouseArrows } from "../../assets/icons/components/mouseArrows.svg";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
+
+  let lastKnownScrollPosition = 0;
+  let ticking = false;
+
+  const handleChangeScrollDirection = useCallback(
+    (scrollPosition: number) => {
+      setScrollPosition(scrollPosition);
+    },
+    [scrollPosition, lastKnownScrollPosition]
+  );
+  document.addEventListener("scroll", () => {
+    lastKnownScrollPosition = window.scrollY;
+
+    if (
+      (!ticking && lastKnownScrollPosition >= 570) ||
+      lastKnownScrollPosition === 0
+    ) {
+      window.requestAnimationFrame(() => {
+        handleChangeScrollDirection(lastKnownScrollPosition);
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  });
 
   useEffect(() => {
     async function fakeLoading() {
@@ -49,7 +78,7 @@ export default function Home() {
   function handleOpenResume() {
     setResumeIsOpen((prevState) => !prevState);
   }
-
+  console.log(scrollPosition);
   return (
     <Container>
       <Loader isLoading={isLoading} />
@@ -80,7 +109,12 @@ export default function Home() {
         <ContentPhoto>
           <Photo active={resumeIsOpen} />
         </ContentPhoto>
+        <ContentScroll scrollPosition={!!scrollPosition}>
+          <Mouse />
+          <MouseArrows className="arrows" />
+        </ContentScroll>
       </Content>
+
       <ContainerProject>
         <ContentProjectInfo>
           <ContentCardProject />
@@ -96,7 +130,7 @@ export default function Home() {
               <img alt={icon.name} src={icon.element} />
             </a>
           ))}
-          <ModalIcon
+          <WhatsappIcon
             className="modal"
             onClick={() => setIsComponentVisible(true)}
             width={65}

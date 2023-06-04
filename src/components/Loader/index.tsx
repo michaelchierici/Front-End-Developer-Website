@@ -2,7 +2,7 @@ import ReactPortal from "../ReactPortal";
 
 import Spinner from "../Spinner";
 
-import { LoaderProps } from "../../Typings/Loader";
+import { LoaderProps } from "../../types/Loader";
 
 import { Overlay } from "./styles";
 

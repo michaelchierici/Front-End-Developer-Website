@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useErrors from "../../hooks/useErrors";
 
-import { FormDataProps } from "../../Typings/FormMessage";
+import { FormDataProps } from "../../types/FormMessage";
 import { Container, Content, Footer, Message } from "./styles";
 
 import { Input } from "../Input";

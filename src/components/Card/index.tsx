@@ -1,4 +1,4 @@
-import { CardProps } from "../../Typings/Card";
+import { CardProps } from "../../types/Card";
 
 import { Container } from "./styles";
 

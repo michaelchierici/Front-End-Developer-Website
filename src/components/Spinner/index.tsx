@@ -1,6 +1,6 @@
 import { ReactComponent as Loading } from "../../assets/icons/components/loader.svg";
 
-import { SpinnerProps } from "../../Typings/Spinner";
+import { SpinnerProps } from "../../types/Spinner";
 
 import { StyledSpinner } from "./style";
 

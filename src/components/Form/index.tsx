@@ -1,5 +1,5 @@
 import Spinner from "../Spinner";
-import { FormProps } from "../../Typings/Form";
+import { FormProps } from "../../types/Form";
 import { Container } from "./styles";
 
 export default function Form({ children, error, isLoading }: FormProps) {

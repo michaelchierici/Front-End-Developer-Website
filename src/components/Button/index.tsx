@@ -1,4 +1,4 @@
-import { ButtonProps } from "../../Typings/Button";
+import { ButtonProps } from "../../types/Button";
 import Spinner from "../Spinner";
 import { Content } from "./styles";
 

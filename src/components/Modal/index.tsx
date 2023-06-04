@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import ReactPortal from "../ReactPortal";
 
-import { ModalProps } from "../../Typings/Modal";
+import { ModalProps } from "../../types/Modal";
 
 import { Container, Header, Overlay } from "./style";
 

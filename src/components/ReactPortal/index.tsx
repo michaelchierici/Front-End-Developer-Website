@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-import { ReactPortalProps } from "../../Typings/ReactPortals";
+import { ReactPortalProps } from "../../types/ReactPortals";
 
 export default function ReactPortal({
   containerId,

@@ -2,7 +2,7 @@ import ReactPortal from "../ReactPortal";
 
 import { skillsIcons, SkillsProps } from "../../constants/skills";
 
-import { PhotoProps } from "../../Typings/Photo";
+import { PhotoProps } from "../../types/Photo";
 
 import { Container, Icon } from "./styles";
 

@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import { ThemeType } from "../Typings/Theme";
+import { ThemeType } from "../types/Theme";
 
 export default createGlobalStyle<{ theme: ThemeType }>`
 
