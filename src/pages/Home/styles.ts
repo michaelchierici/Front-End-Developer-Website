@@ -122,7 +122,7 @@ export const Title = styled.h1<Partial<Props>>`
   `)}
 `;
 
-export const CardContent = styled.div`
+export const ContentCardResume = styled.div`
   position: relative;
   width: 60%;
 
@@ -299,7 +299,7 @@ export const ContentScroll = styled.div<ScrollProps>`
 
   .arrows {
     transform: ${({ scrollPosition }) =>
-      scrollPosition ? "rotate(180deg)" : "rotate(0deg)"};
+      scrollPosition ? "rotate(-180deg)" : "rotate(0deg)"};
     transition: all 850ms;
     margin-top: 4px;
     width: 100%;
@@ -313,7 +313,7 @@ export const ContainerProject = styled.div`
   padding: 20px;
 `;
 
-export const ContentProjectInfo = styled.section`
+export const ContentProject = styled.section`
   width: 90%;
   height: 80vh;
   border-radius: 6px;
@@ -324,6 +324,41 @@ export const ContentProjectInfo = styled.section`
   flex-wrap: wrap;
   overflow: hidden;
   overflow-y: visible;
+  position: relative;
+
+  svg {
+    &:hover {
+      transform: scale(1.1);
+    }
+    transition: all 450ms;
+
+    cursor: pointer;
+  }
+
+  .chevron-left {
+    position: absolute;
+    left: 0;
+
+    width: 5%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(180deg);
+  }
+
+  .chevron-right {
+    position: absolute;
+    right: 0;
+
+    width: 5%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   ::-webkit-scrollbar {
     width: 5px;
@@ -345,32 +380,38 @@ export const ContentProjectInfo = styled.section`
 `;
 
 export const ContentCardProject = styled.div`
-  background-color: #ddd;
+  background-color: royalblue;
   width: 250px;
   height: 90%;
   margin: 10px;
 `;
 
+export const Borders = styled.div``;
+
+export const ChevronButton = styled.button`
+  border: none;
+  flex: 1;
+  background-color: transparent;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
+
 export const Footer = styled.footer`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   width: 100%;
-
-  .modal {
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-    transition: all 450ms;
-  }
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`
   cursor: pointer;
   height: 50px;
 
-  img {
+  img,
+  svg {
     margin: 0 15px;
     width: 35px;
     &:hover {
