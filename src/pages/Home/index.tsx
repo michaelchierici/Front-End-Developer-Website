@@ -30,6 +30,7 @@ import {
   ContentProject,
   Borders,
   ChevronButton,
+  Board,
 } from "./styles";
 import { ReactComponent as Mouse } from "../../assets/icons/components/mouse.svg";
 import { ReactComponent as MouseArrows } from "../../assets/icons/components/mouseArrows.svg";
@@ -41,7 +42,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [selectedProject, setSelectedProject] = useState(0);
+  const [sliderDirection, setSliderDirection] = useState<number>(0);
 
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
@@ -121,38 +122,35 @@ export default function Home() {
       </ContentScroll>
 
       <ContainerProject>
-        {projects.map(
-          (project, index: number) =>
-            selectedProject === index && (
-              <ContentProject key={index}>
-                <Borders className="chevron-left">
-                  <ChevronButton
-                    type="button"
-                    onClick={() =>
-                      setSelectedProject((prevState) => prevState - 1)
-                    }
-                    disabled={selectedProject === 0}
-                  >
-                    <Chevron />
-                  </ChevronButton>
-                </Borders>
+        <ContentProject>
+          <Borders className="chevron-left">
+            <ChevronButton
+              type="button"
+              onClick={() => setSliderDirection((prevState) => prevState + 300)}
+              disabled={sliderDirection === 300}
+            >
+              <Chevron />
+            </ChevronButton>
+          </Borders>
+          <Board direction={sliderDirection}>
+            {projects.map((project) => (
+              <>
                 <ContentCardProject>{project.photo}</ContentCardProject>
                 <ContentCardProject>{project.description}</ContentCardProject>
                 <ContentCardProject>{project.tools}</ContentCardProject>
-                <Borders className="chevron-right">
-                  <ChevronButton
-                    type="button"
-                    onClick={() =>
-                      setSelectedProject((prevState) => prevState + 1)
-                    }
-                    disabled={index + 1 === projects.length}
-                  >
-                    <Chevron color="white" />
-                  </ChevronButton>
-                </Borders>
-              </ContentProject>
-            )
-        )}
+              </>
+            ))}
+          </Board>
+          <Borders className="chevron-right">
+            <ChevronButton
+              type="button"
+              onClick={() => setSliderDirection((prevState) => prevState - 300)}
+              disabled={sliderDirection === -300}
+            >
+              <Chevron />
+            </ChevronButton>
+          </Borders>
+        </ContentProject>
       </ContainerProject>
 
       <Footer>

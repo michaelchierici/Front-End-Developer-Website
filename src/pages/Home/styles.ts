@@ -18,6 +18,10 @@ interface ScrollProps {
   scrollPosition: boolean;
 }
 
+interface SlideProps {
+  direction: any;
+}
+
 const titleVariants = {
   name: css`
     font-weight: ${({ theme }) => theme.font.weight.main};
@@ -307,14 +311,15 @@ export const ContentScroll = styled.div<ScrollProps>`
 `;
 
 export const ContainerProject = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: 20px;
 `;
 
 export const ContentProject = styled.section`
-  width: 90%;
+  width: 100%;
   height: 80vh;
   border-radius: 6px;
   background-color: #222121;
@@ -325,6 +330,7 @@ export const ContentProject = styled.section`
   overflow: hidden;
   overflow-y: visible;
   position: relative;
+  padding: 0 60px;
 
   svg {
     &:hover {
@@ -379,11 +385,30 @@ export const ContentProject = styled.section`
   }
 `;
 
+export const Board = styled.div<SlideProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  transition: all 200ms ease 2ms;
+
+  div {
+    transform: ${({ direction }) => `translateX(${direction}%)`};
+
+    text-align: center;
+    transition: transform 400ms ease-in-out;
+  }
+`;
+
 export const ContentCardProject = styled.div`
   background-color: royalblue;
-  width: 250px;
+  min-width: 30%;
   height: 90%;
   margin: 10px;
+  box-shadow: 0 6px 10px rgb(0, 0, 60);
+  border-radius: 4px;
 `;
 
 export const Borders = styled.div``;
@@ -394,7 +419,6 @@ export const ChevronButton = styled.button`
   background-color: transparent;
 
   &[disabled] {
-    cursor: not-allowed;
     opacity: 0.5;
   }
 `;
