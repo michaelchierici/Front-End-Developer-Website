@@ -23,26 +23,20 @@ import {
   Button,
   ContentIcon,
   ContentPhoto,
-  ContainerProject,
-  ContentCardProject,
   ContentScroll,
   ContentCardResume,
-  ContentProject,
-  Borders,
-  ChevronButton,
-  Board,
 } from "./styles";
 import { ReactComponent as Mouse } from "../../assets/icons/components/mouse.svg";
 import { ReactComponent as MouseArrows } from "../../assets/icons/components/mouseArrows.svg";
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
-import { ReactComponent as Chevron } from "../../assets/icons/components/chevron.svg";
+
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
+import Slider from "../../components/Slider";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [sliderDirection, setSliderDirection] = useState<number>(0);
 
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
@@ -120,39 +114,7 @@ export default function Home() {
         <Mouse />
         <MouseArrows className="arrows" />
       </ContentScroll>
-
-      <ContainerProject>
-        <ContentProject>
-          <Borders className="chevron-left">
-            <ChevronButton
-              type="button"
-              onClick={() => setSliderDirection((prevState) => prevState + 300)}
-              disabled={sliderDirection === 300}
-            >
-              <Chevron />
-            </ChevronButton>
-          </Borders>
-          <Board direction={sliderDirection}>
-            {projects.map((project) => (
-              <>
-                <ContentCardProject>{project.photo}</ContentCardProject>
-                <ContentCardProject>{project.description}</ContentCardProject>
-                <ContentCardProject>{project.tools}</ContentCardProject>
-              </>
-            ))}
-          </Board>
-          <Borders className="chevron-right">
-            <ChevronButton
-              type="button"
-              onClick={() => setSliderDirection((prevState) => prevState - 300)}
-              disabled={sliderDirection === -300}
-            >
-              <Chevron />
-            </ChevronButton>
-          </Borders>
-        </ContentProject>
-      </ContainerProject>
-
+      <Slider items={projects} />
       <Footer>
         <ContentIcon>
           {contactMeIcons.map((icon, index) => (

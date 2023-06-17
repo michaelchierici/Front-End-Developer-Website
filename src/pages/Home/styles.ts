@@ -18,10 +18,6 @@ interface ScrollProps {
   scrollPosition: boolean;
 }
 
-interface SlideProps {
-  direction: any;
-}
-
 const titleVariants = {
   name: css`
     font-weight: ${({ theme }) => theme.font.weight.main};
@@ -307,119 +303,6 @@ export const ContentScroll = styled.div<ScrollProps>`
     transition: all 850ms;
     margin-top: 4px;
     width: 100%;
-  }
-`;
-
-export const ContainerProject = styled.div`
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-`;
-
-export const ContentProject = styled.section`
-  width: 100%;
-  height: 80vh;
-  border-radius: 6px;
-  background-color: #222121;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  overflow: hidden;
-  overflow-y: visible;
-  position: relative;
-  padding: 0 60px;
-
-  svg {
-    &:hover {
-      transform: scale(1.1);
-    }
-    transition: all 450ms;
-
-    cursor: pointer;
-  }
-
-  .chevron-left {
-    position: absolute;
-    left: 0;
-
-    width: 5%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(180deg);
-  }
-
-  .chevron-right {
-    position: absolute;
-    right: 0;
-
-    width: 5%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    transition: all 250ms;
-    scroll-behavior: smooth;
-    position: relative;
-    z-index: 0;
-  }
-
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 20px rgb(247, 255, 255, 8%);
-    border-radius: 6px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgb(217, 217, 217, 60%);
-    border-radius: 8px;
-  }
-`;
-
-export const Board = styled.div<SlideProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  transition: all 200ms ease 2ms;
-
-  div {
-    transform: ${({ direction }) => `translateX(${direction}%)`};
-
-    text-align: center;
-    transition: transform 400ms ease-in-out;
-  }
-`;
-
-export const ContentCardProject = styled.div`
-  background-color: royalblue;
-  min-width: 30%;
-  height: 90%;
-  margin: 10px;
-  box-shadow: 0 6px 10px rgb(0, 0, 60);
-  border-radius: 4px;
-`;
-
-export const Borders = styled.div``;
-
-export const ChevronButton = styled.button`
-  border: none;
-  flex: 1;
-  background-color: transparent;
-
-  &[disabled] {
-    opacity: 0.5;
   }
 `;
 
