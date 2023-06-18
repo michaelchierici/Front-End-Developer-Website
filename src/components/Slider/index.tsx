@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 import {
   Board,
@@ -29,6 +29,11 @@ export default function Slider({ items }: SliderProps) {
     setSliderDirection(true);
   }
 
+  const keysFromArray = useMemo(() => {
+    const keys = items.map((key) => Object.keys(key));
+    return keys[0];
+  }, [items]);
+
   return (
     <Container>
       <Content>
@@ -42,15 +47,12 @@ export default function Slider({ items }: SliderProps) {
           </ChevronButton>
         </Borders>
         <Board direction={sliderDirection}>
-          {items.map((project, index) => (
+          {items.map((slide, index) => (
             <>
-              {slideSelected === index && (
-                <>
-                  <Card>{project.photo}</Card>
-                  <Card>{project.description}</Card>
-                  <Card>{project.tools}</Card>
-                </>
-              )}
+              {slideSelected === index &&
+                keysFromArray.map((key) => (
+                  <Card key={index}>{slide[key]}</Card>
+                ))}
             </>
           ))}
         </Board>
