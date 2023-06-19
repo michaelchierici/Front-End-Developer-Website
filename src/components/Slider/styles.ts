@@ -122,6 +122,11 @@ export const Card = styled.div`
   margin: 10px;
   box-shadow: 0 6px 10px rgb(0, 0, 60);
   border-radius: 4px;
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
 `;
 
 export const Borders = styled.div``;

@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   Board,
@@ -9,6 +9,7 @@ import {
   Content,
 } from "./styles";
 import { ReactComponent as Chevron } from "../../assets/icons/components/chevron.svg";
+import { omit, pick } from "lodash";
 
 interface SliderProps {
   items: Array<any>;
@@ -34,6 +35,29 @@ export default function Slider({ items }: SliderProps) {
     return keys[0];
   }, [items]);
 
+  const images = useMemo(() => {
+    const images = items.map((item) => item[keysFromArray[0]]);
+
+    return images.map((url, index) => (
+      <Card key={index}>
+        <img src={url} />
+      </Card>
+    ));
+  }, [items]);
+
+  const content = useMemo(() => {
+    const cards = items.map((item) => ({
+      description: item[keysFromArray[1]],
+      tools: item[keysFromArray[2]],
+    }));
+    return cards.map((item) => (
+      <>
+        <Card>{item.description}</Card>
+        <Card>{item.tools}</Card>
+      </>
+    ));
+  }, [items]);
+
   return (
     <Container>
       <Content>
@@ -47,14 +71,8 @@ export default function Slider({ items }: SliderProps) {
           </ChevronButton>
         </Borders>
         <Board direction={sliderDirection}>
-          {items.map((slide, index) => (
-            <>
-              {slideSelected === index &&
-                keysFromArray.map((key) => (
-                  <Card key={index}>{slide[key]}</Card>
-                ))}
-            </>
-          ))}
+          {images.map((image, index) => slideSelected === index && image)}
+          {content.map((card, index) => slideSelected === index && card)}
         </Board>
         <Borders className="chevron-right">
           <ChevronButton
