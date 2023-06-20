@@ -115,17 +115,48 @@ export const Board = styled.div<SlideProps>`
   `)}
 `;
 
+export const ContainerCard = styled.div`
+  display: flex;
+  .card-tools {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    img {
+      width: 50%;
+    }
+  }
+`;
+
 export const Card = styled.div`
-  background-color: royalblue;
   width: 100%;
   height: 90%;
   margin: 10px;
-  box-shadow: 0 6px 10px rgb(0, 0, 60);
   border-radius: 4px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 30px;
+  font-family: "Montserrat";
+  padding: 0 10px;
+
   img {
-    width: 50%;
-    height: 50%;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    font-family: "Montserrat";
+    font-weight: 400;
   }
 `;
 

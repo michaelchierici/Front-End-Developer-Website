@@ -33,15 +33,6 @@ const titleVariants = {
   `,
 };
 
-export const CardProject = styled.div`
-  background-color: royalblue;
-  width: 100%;
-  height: 90%;
-  margin: 10px;
-  box-shadow: 0 6px 10px rgb(0, 0, 60);
-  border-radius: 4px;
-`;
-
 export const Container = styled.main`
   display: flex;
   flex-direction: column;
