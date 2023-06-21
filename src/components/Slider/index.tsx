@@ -46,7 +46,9 @@ export default function Slider({ items }: SliderProps) {
         <Card>
           <img src={item.photo} />
         </Card>
-        <Card>{item.description}</Card>
+        <Card>
+          <h2>{item.description}</h2>
+        </Card>
         <Card className="card-tools">
           <h1>Tecnologias utilizadas</h1>
           <img src={item.tools} />

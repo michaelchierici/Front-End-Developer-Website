@@ -48,8 +48,8 @@ export const Container = styled.div<Props>`
   ${mobileMd(css<Props>`
     width: 100%;
 
-    font-size: ${({ visible }) => (visible ? "28px" : "30px")};
-    height: ${({ visible }) => (visible ? "9em" : "8em")};
+    font-size: ${({ visible }) => (visible ? "50px" : "20px")};
+    height: ${({ visible }) => (visible ? "5em" : "8em")};
     flex-wrap: wrap;
     padding: 0 15px;
   `)}
@@ -57,8 +57,9 @@ export const Container = styled.div<Props>`
   ${laptop(css<Props>`
     width: 100%;
 
-    font-size: ${({ visible }) => (visible ? "12px" : "15px")};
-    height: ${({ visible }) => (visible ? "22.5em" : "18em")};
+    font-size: ${({ visible }) => (visible ? "15px" : "15px")};
+    height: ${({ visible }) => (visible ? "25.5em" : "18em")};
+
     padding: 0 10px;
   `)}
 

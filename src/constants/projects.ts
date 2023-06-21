@@ -4,7 +4,7 @@ export const projects = [
   {
     photo: App,
     description:
-      "Esse projeto se trata de um e-commerce voltado para venda de tênis, nessa aplicação é possível adicionar item ao carrinho, alterar quantidade, remover e finalizar a compra. Também é possível adicionar item aos favoritos. Toda a parte de autentição foi feita em ambas camadas (back e mobile) com node utilizei JWT e no react native é possível criar conta e acessar a aplicação diante da validação de cadastro.",
+      "Esse projeto se trata de um e-commerce voltado para venda de tênis, nessa aplicação é possível adicionar item ao carrinho, alterar quantidade, remover e finalizar a compra. Também é possível adicionar itens aos favoritos. O fluxo de autenticação foi realizado no back e mobile com node utilizei JWT e no react native foi estruturado com Redux. onde é possível criar uma conta que ficará salva no PostgreSQL.",
     tools: AppTools,
   },
   {
