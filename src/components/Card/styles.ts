@@ -48,7 +48,7 @@ export const Container = styled.div<Props>`
   ${mobileMd(css<Props>`
     width: 100%;
 
-    font-size: ${({ visible }) => (visible ? "50px" : "20px")};
+    font-size: ${({ visible }) => (visible ? "50px" : "25px")};
     height: ${({ visible }) => (visible ? "5em" : "8em")};
     flex-wrap: wrap;
     padding: 0 15px;
