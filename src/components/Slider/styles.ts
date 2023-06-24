@@ -10,7 +10,7 @@ interface SlideProps {
 }
 
 export const Container = styled.div`
-  width: 90%;
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@ export const Content = styled.section`
     position: absolute;
     left: 0;
 
-    width: 5%;
+    width: 8%;
     height: 100%;
 
     display: flex;
@@ -57,7 +57,7 @@ export const Content = styled.section`
     position: absolute;
     right: 0;
 
-    width: 5%;
+    width: 8%;
     height: 100%;
 
     display: flex;
@@ -67,15 +67,46 @@ export const Content = styled.section`
 
   ${mobileSm(css`
     padding: 0 30px;
+    .chevron-left {
+      width: 8%;
+    }
+
+    .chevron-right {
+      width: 8%;
+    }
   `)}
   ${mobileMd(css`
     padding: 0 30px;
+
+    .chevron-left {
+      width: 8%;
+    }
+
+    .chevron-right {
+      width: 8%;
+    }
   `)}
   ${laptop(css`
     padding: 0 50px;
+
+    .chevron-left {
+      width: 8%;
+    }
+
+    .chevron-right {
+      width: 8%;
+    }
   `)}
   ${desktop(css`
     padding: 0 80px;
+
+    .chevron-left {
+      width: 5%;
+    }
+
+    .chevron-right {
+      width: 5%;
+    }
   `)}
 `;
 
@@ -114,11 +145,9 @@ export const Board = styled.div<SlideProps>`
       z-index: 0;
     }
     ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 20px rgb(247, 255, 255, 8%);
       border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgb(217, 217, 217, 60%);
       border-radius: 8px;
     }
   `)}
@@ -128,6 +157,7 @@ export const Board = styled.div<SlideProps>`
     transition: all 200ms ease 2ms;
     display: flex;
     justify-content: flex-start;
+
     ::-webkit-scrollbar {
       width: 5px;
       transition: all 250ms;
@@ -136,11 +166,9 @@ export const Board = styled.div<SlideProps>`
       z-index: 0;
     }
     ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 20px rgb(247, 255, 255, 8%);
       border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgb(217, 217, 217, 60%);
       border-radius: 8px;
     }
   `)}
@@ -150,6 +178,7 @@ export const Board = styled.div<SlideProps>`
     transition: all 200ms ease 2ms;
     display: flex;
     justify-content: flex-start;
+
     ::-webkit-scrollbar {
       width: 5px;
       transition: all 250ms;
@@ -158,14 +187,12 @@ export const Board = styled.div<SlideProps>`
       z-index: 0;
     }
     ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 20px rgb(247, 255, 255, 8%);
       border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgb(217, 217, 217, 60%);
       border-radius: 8px;
     }
-    img {
+    svg {
       width: 100%;
       height: 100%;
     }
@@ -178,7 +205,10 @@ export const Board = styled.div<SlideProps>`
 export const ContainerCard = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: row;
+  flex: 1;
+
   .card-tools {
     width: 100%;
     flex: 1;
@@ -186,12 +216,8 @@ export const ContainerCard = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    img {
-      width: 250px;
-      flex: 1;
-    }
+
     h1 {
-      margin-top: 20px;
       font-size: 32px;
     }
   }
@@ -207,7 +233,7 @@ export const ContainerCard = styled.div`
     overflow-y: visible;
     transition: all 200ms ease 2ms;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   `)}
   ${desktop(css`
     flex-direction: row;
@@ -229,8 +255,8 @@ export const Card = styled.div`
   font-size: 30px;
   font-family: "Montserrat";
   padding: 0 10px;
-
-  img {
+  flex: 1;
+  svg {
   }
 
   h1 {
@@ -251,6 +277,10 @@ export const Card = styled.div`
       font-weight: 400;
       padding: 0 60px;
     }
+
+    img {
+      width: 80%;
+    }
   `)}
   ${mobileMd(css`
     flex-direction: row;
@@ -265,7 +295,7 @@ export const Card = styled.div`
     display: flex;
 
     img {
-      width: 200px;
+      width: 65%;
     }
   `)}
   ${laptop(css`
@@ -275,10 +305,16 @@ export const Card = styled.div`
       font-family: "Montserrat";
       font-weight: 400;
       padding: 0 60px;
+      margin-bottom: 20px;
     }
-    img {
+    svg {
       width: 100%;
       height: 100%;
+    }
+    img {
+      width: 50%;
+      height: 100%;
+      margin-bottom: 20px;
     }
   `)}
   ${desktop(css`
@@ -292,7 +328,6 @@ export const Card = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
     }
   `)}
 `;

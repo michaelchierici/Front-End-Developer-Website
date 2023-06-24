@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import {
+  desktop,
+  laptop,
+  mobileLg,
+  mobileMd,
+  mobileSm,
+} from "../../styles/globals";
 
 interface Props {
   isOpen: boolean;
@@ -14,11 +21,9 @@ export const Container = styled.div`
   justify-content: center;
   position: relative;
   transform: rotate(428.6deg);
-  margin-top: 15px;
 `;
 
 export const Icon = styled.div<Props>`
-  cursor: pointer;
   position: absolute;
 
   transform: ${({ index, isOpen }) =>
@@ -32,8 +37,9 @@ export const Icon = styled.div<Props>`
   justify-content: center;
 
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
 
   &:hover {
     background-position: 150% 0;
@@ -59,4 +65,69 @@ export const Icon = styled.div<Props>`
     border-radius: 6px;
   }
   transition: all 450ms ease-in-out;
+
+  ${mobileSm(css`
+    transform-origin: 170px;
+
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${mobileMd(css`
+    transform-origin: 200px;
+
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${mobileLg(css`
+    transform-origin: 200px;
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${laptop(css`
+    transform-origin: 230px;
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${desktop(css`
+    transform-origin: 320px;
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+    }
+  `)}
 `;

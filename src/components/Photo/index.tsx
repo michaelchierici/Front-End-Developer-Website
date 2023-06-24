@@ -1,5 +1,3 @@
-import ReactPortal from "../ReactPortal";
-
 import { skillsIcons, SkillsProps } from "../../constants/skills";
 
 import { PhotoProps } from "../../types/Photo";

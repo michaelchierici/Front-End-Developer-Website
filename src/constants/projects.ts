@@ -1,4 +1,4 @@
-import App from "../assets/images/app.png";
+import App from "../assets/images/app.svg";
 import AppTools from "../assets/images/app-tools.svg";
 export const projects = [
   {

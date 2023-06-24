@@ -50,13 +50,35 @@ export const Content = styled.main`
   height: 100vh;
   overflow: hidden;
   position: relative;
+  ${mobileSm(css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `)}
+  ${mobileMd(css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `)}
+
+  ${mobileLg(css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `)}
 
   ${laptop(css`
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
   `)}
 
   ${desktop(css`
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
   `)}
 `;
 export const Title = styled.h1<Partial<Props>>`
@@ -125,13 +147,12 @@ export const Title = styled.h1<Partial<Props>>`
 export const ContentCardResume = styled.div`
   position: relative;
   width: 60%;
-
+  height: 100%;
   overflow: hidden;
   padding-top: 80px;
   padding-left: 20px;
 
   ${mobileSm(css`
-    padding-left: 0px;
     justify-content: center;
     width: 90%;
   `)}
@@ -152,26 +173,28 @@ export const ContentCardResume = styled.div`
 `;
 
 export const ContentPhoto = styled.div`
+  padding-right: 80px;
   ${mobileSm(css`
-    display: none;
+    width: 100%;
+    height: 100vh;
   `)}
   ${mobileMd(css`
-    display: none;
+    width: 100%;
+    height: 100vh;
   `)}
 
   ${mobileLg(css`
-    display: none;
+    width: 100%;
+    height: 100vh;
   `)}
   ${laptop(css`
-    width: 1%;
-    height: 70vh;
-    display: flex;
+    width: 40%;
+    height: 100vh;
   `)}
 
   ${desktop(css`
     width: 40%;
     height: 100vh;
-    display: flex;
   `)}
 `;
 
@@ -182,6 +205,7 @@ export const ContainerButton = styled.div`
 
   width: 100%;
   height: 100px;
+
   transition: all 450ms;
   ${mobileSm(css<Props>`
     align-items: center;
@@ -288,13 +312,11 @@ export const ContentScroll = styled.div<ScrollProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  display: grid;
+  place-items: center;
   flex-direction: column;
   height: 100px;
 
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   transition: all 450ms;
 
   .arrows {
@@ -303,6 +325,7 @@ export const ContentScroll = styled.div<ScrollProps>`
     transition: all 850ms;
     margin-top: 4px;
     width: 100%;
+    margin-right: 1px;
   }
 `;
 
