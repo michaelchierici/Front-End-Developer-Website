@@ -23,6 +23,11 @@ export const Container = styled.div`
   transform: rotate(428.6deg);
 `;
 
+export const Circle = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 export const Icon = styled.div<Props>`
   position: absolute;
 
