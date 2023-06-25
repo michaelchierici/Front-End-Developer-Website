@@ -211,10 +211,7 @@ export const ContainerCard = styled.div`
 
   .card-tools {
     width: 100%;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
     flex-direction: column;
 
     h1 {

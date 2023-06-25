@@ -32,6 +32,7 @@ import { ReactComponent as BackArrow } from "../../assets/icons/components/backA
 
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import Slider from "../../components/Slider";
+import Me from "../../assets/images/me.jpg";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);

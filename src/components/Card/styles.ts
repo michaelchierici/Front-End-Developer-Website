@@ -56,7 +56,8 @@ export const Container = styled.div<Props>`
   ${laptop(css<Props>`
     width: 100%;
 
-    flex: 1;
+    height: ${({ visible }) => (visible ? "18em" : "20em")};
+
     padding: 0 10px;
   `)}
 
@@ -64,7 +65,6 @@ export const Container = styled.div<Props>`
     width: 100%;
 
     height: ${({ visible }) => (visible ? "25em" : "20em")};
-    font-size: ${({ visible }) => (visible ? "12px" : "18px")};
     padding: 0 10px;
   `)}
 `;

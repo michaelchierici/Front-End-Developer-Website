@@ -1,5 +1,7 @@
 import App from "../assets/images/app.svg";
+import Spotify from "../assets/images/spotify.svg";
 import AppTools from "../assets/images/app-tools.svg";
+import SpotifyTools from "../assets/images/spotify-tools.svg";
 export const projects = [
   {
     photo: App,
@@ -8,13 +10,9 @@ export const projects = [
     tools: AppTools,
   },
   {
-    photo: "projeto 2",
-    description: "projeto feito com react e node",
-    tools: "",
-  },
-  {
-    photo: "projeto 3",
-    description: "website feito com react",
-    tools: "",
+    photo: Spotify,
+    description:
+      "Esse site é um redesign simples dos novos lançamentos da semana do spotify, o objetivo de fazer esse projeto veio da necessida de aprendizado em como consumir uma API pública, nesse projeto é possível logar com sua conta do spotify e ouvir os lançamentos da semana",
+    tools: SpotifyTools,
   },
 ];
