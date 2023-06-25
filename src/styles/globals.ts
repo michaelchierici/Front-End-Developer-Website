@@ -13,10 +13,11 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 }
 
 html, body {
+  
   background-color: ${({ theme }) => theme.colors.background};
 
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 0px;
     transition: all 250ms;
     scroll-behavior: smooth;
     position: relative;

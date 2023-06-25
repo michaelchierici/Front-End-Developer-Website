@@ -43,7 +43,7 @@ export const Container = styled.main`
 
 export const Content = styled.main`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: row;
   width: 100%;
@@ -85,7 +85,7 @@ export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
 
   font-size: ${({ theme, visible }) =>
-    !visible ? theme.font.size.xl : theme.font.size.lg}em;
+    visible ? theme.font.size.lg : theme.font.size.xl}em;
   font-family: ${({ visible }) => visible && "Raleway"};
 
   background: ${({ theme, visible }) =>
@@ -121,39 +121,35 @@ export const Title = styled.h1<Partial<Props>>`
   text-align: start;
 
   ${mobileSm(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1.2rem" : "2rem")};
-    font-weight: 600;
+    font-size: ${({ visible }) => (visible ? "1rem" : "2rem")};
   `)}
 
   ${mobileMd(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1.2rem" : "2rem")};
-    font-weight: 600;
+    font-size: ${({ visible }) => (visible ? "1rem" : "2rem")};
   `)}
 
   ${laptop(css<Props>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
 
     font-size: ${({ theme, visible }) =>
-      !visible ? theme.font.size.xl : theme.font.size.md}em;
+      visible ? theme.font.size.md : theme.font.size.xl}em;
   `)}
 
   ${desktop(css<Props>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
     font-size: ${({ theme, visible }) =>
-      !visible ? theme.font.size.xl : theme.font.size.lg}em;
+      visible ? theme.font.size.lg : theme.font.size.xl}em;
   `)}
 `;
 
 export const ContentCardResume = styled.div`
   position: relative;
-  width: 60%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   padding-top: 80px;
-  padding-left: 20px;
 
   ${mobileSm(css`
-    justify-content: center;
     width: 90%;
   `)}
   ${mobileMd(css``)}
@@ -173,14 +169,16 @@ export const ContentCardResume = styled.div`
 `;
 
 export const ContentPhoto = styled.div`
-  padding-right: 80px;
+  padding-right: 95px;
   ${mobileSm(css`
     width: 100%;
     height: 100vh;
+    padding-right: 75px;
   `)}
   ${mobileMd(css`
     width: 100%;
     height: 100vh;
+    padding-right: 80px;
   `)}
 
   ${mobileLg(css`
@@ -204,17 +202,18 @@ export const ContainerButton = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 100px;
-
   transition: all 450ms;
+
   ${mobileSm(css<Props>`
     align-items: center;
     justify-content: center;
+    height: 60px;
   `)}
 
   ${mobileMd(css<Props>`
     align-items: center;
     justify-content: center;
+    height: 60px;
   `)}
 
   ${laptop(css<Props>`
@@ -224,10 +223,12 @@ export const ContainerButton = styled.div`
 
   ${laptopM(css<Props>`
     align-items: flex-start;
+    height: 100px;
   `)}
 
 ${desktop(css`
     align-items: flex-start;
+    height: 100px;
   `)}
 `;
 

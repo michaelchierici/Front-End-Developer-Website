@@ -270,16 +270,18 @@ export const Card = styled.div`
   ${mobileSm(css`
     flex-direction: row;
 
+    h1,
     h2 {
       text-align: center;
-      font-size: 12px;
+      font-size: 15px;
       font-family: "Montserrat";
       font-weight: 400;
-      padding: 0 60px;
+      padding: 0 90px;
     }
 
     img {
-      width: 80%;
+      width: 50%;
+      height: 100%;
     }
   `)}
   ${mobileMd(css`
@@ -290,12 +292,12 @@ export const Card = styled.div`
       font-size: 15px;
       font-family: "Montserrat";
       font-weight: 400;
-      padding: 0 60px;
+      padding: 0 90px;
     }
     display: flex;
 
     img {
-      width: 65%;
+      width: 55%;
     }
   `)}
   ${laptop(css`

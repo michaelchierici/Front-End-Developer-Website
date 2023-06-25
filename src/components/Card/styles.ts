@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { desktop, laptop, mobileMd } from "../../styles/globals";
+import { desktop, laptop, mobileMd, mobileSm } from "../../styles/globals";
 
 interface Props {
   visible: boolean;
@@ -48,16 +48,13 @@ export const Container = styled.div<Props>`
   ${mobileMd(css<Props>`
     width: 100%;
 
-    font-size: ${({ visible }) => (visible ? "50.5px" : "25px")};
-    flex: 1;
-    flex-wrap: wrap;
+    height: 200px;
     padding: 0 15px;
   `)}
 
   ${laptop(css<Props>`
     width: 100%;
 
-    font-size: ${({ visible }) => (visible ? "15px" : "15px")};
     flex: 1;
     padding: 0 10px;
   `)}

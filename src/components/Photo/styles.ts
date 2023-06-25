@@ -67,7 +67,7 @@ export const Icon = styled.div<Props>`
   transition: all 450ms ease-in-out;
 
   ${mobileSm(css`
-    transform-origin: 170px;
+    transform-origin: 155px;
 
     width: 50px;
     height: 50px;
@@ -80,7 +80,7 @@ export const Icon = styled.div<Props>`
     }
   `)}
   ${mobileMd(css`
-    transform-origin: 200px;
+    transform-origin: 185px;
 
     width: 50px;
     height: 50px;
