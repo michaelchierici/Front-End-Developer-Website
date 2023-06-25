@@ -95,7 +95,6 @@ export const Title = styled.h1<Partial<Props>>`
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  margin: 15px 0 0 10px;
   transform: ${({ visible }) =>
     visible ? "rotateX(-180deg)" : "rotateX(0deg)"};
 
