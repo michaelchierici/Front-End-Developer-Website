@@ -64,7 +64,7 @@ export const Container = styled.div<Props>`
   ${desktop(css<Props>`
     width: 100%;
 
-    height: ${({ visible }) => (visible ? "25em" : "20em")};
+    height: ${({ visible }) => (visible ? "25em" : "25em")};
     padding: 0 10px;
   `)}
 `;

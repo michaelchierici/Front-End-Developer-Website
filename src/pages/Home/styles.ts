@@ -18,15 +18,21 @@ interface ScrollProps {
   scrollPosition: boolean;
 }
 
+interface IconProps {
+  visible: boolean;
+  index: number;
+  boxShadow: string;
+}
+
 const titleVariants = {
   name: css`
-    font-weight: ${({ theme }) => theme.font.weight.main};
+    font-weight: ${({ theme }) => theme.font.weight.regular};
   `,
   profession: css`
     font-weight: ${({ theme }) => theme.font.weight.light};
   `,
   role: css`
-    font-weight: ${({ theme }) => theme.font.weight.regular};
+    font-weight: ${({ theme }) => theme.font.weight.light};
   `,
   description: css`
     font-weight: ${({ theme }) => theme.font.weight.light};
@@ -44,12 +50,10 @@ export const Container = styled.main`
 export const Content = styled.main`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+  flex: 1;
   ${mobileSm(css`
     display: flex;
     flex-direction: column;
@@ -83,7 +87,6 @@ export const Content = styled.main`
 `;
 export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
-
   font-size: ${({ theme, visible }) =>
     visible ? theme.font.size.lg : theme.font.size.xl}em;
   font-family: ${({ visible }) => visible && "Raleway"};
@@ -117,14 +120,15 @@ export const Title = styled.h1<Partial<Props>>`
     height: 100%;
     font-weight: 600;
   }
-  text-align: start;
 
   ${mobileSm(css<Props>`
     font-size: ${({ visible }) => (visible ? "1rem" : "2rem")};
+    text-align: center;
   `)}
 
   ${mobileMd(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1rem" : "2rem")};
+    font-size: ${({ visible }) => (visible ? "1rem" : "2.2rem")};
+    text-align: center;
   `)}
 
   ${laptop(css<Props>`
@@ -189,20 +193,15 @@ export const ContentPhoto = styled.div`
     height: 100vh;
   `)}
 
-  ${desktop(css`
-    width: 40%;
-    height: 100vh;
-  `)}
+  ${desktop(css``)}
 `;
 
 export const ContainerButton = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 100%;
   transition: all 450ms;
-
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
   ${mobileSm(css<Props>`
     align-items: center;
     justify-content: center;
@@ -232,8 +231,8 @@ ${desktop(css`
 `;
 
 export const Button = styled.button<Partial<Props>>`
-  width: ${({ visible }) => (visible ? "3rem" : "10rem")};
-  height: ${({ visible }) => (visible ? "3rem" : "3rem")};
+  width: ${({ visible }) => (visible ? "3rem" : "15rem")};
+  height: ${({ visible }) => (visible ? "3rem" : "5rem")};
 
   font-size: ${({ theme }) => theme.font.size.sm}em;
   font-weight: ${({ theme }) => theme.font.weight.light};
@@ -277,14 +276,14 @@ export const Button = styled.button<Partial<Props>>`
   outline: none;
 
   ${mobileSm(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "6rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "6.5rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
     font-size: 1.2em;
     font-weight: 300;
   `)}
 
   ${mobileMd(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "8rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "15rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
     font-size: 1.2em;
     font-weight: 300;
@@ -299,11 +298,235 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 
   ${desktop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "10rem")};
-    height: ${({ visible }) => (visible ? "3rem" : "3rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "18.2rem")};
+    height: ${({ visible }) => (visible ? "3rem" : "rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;
     font-weight: ${({ theme }) => theme.font.weight.light};
+  `)}
+`;
+
+export const ContentAboutMe = styled.main<Partial<Props>>`
+  width: 98%;
+  flex: ${({ visible }) => (visible ? "1" : "0em")};
+  transition: flex 400ms ease-in-out;
+
+  overflow: hidden;
+  background-color: #222121;
+  /* box-shadow: 1px 1px 1px rgb(0, 200, 0, 0.9); */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+
+  div {
+    margin: 0 5px;
+    padding: 15px 0;
+    height: 100%;
+  }
+
+  .about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    h1 {
+      width: 500px;
+      line-height: 35px;
+      font-size: 25px;
+      color: gray;
+      font-family: "Montserrat";
+      font-weight: bold;
+    }
+  }
+  .about-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+
+    header {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        color: gray;
+      }
+    }
+    div {
+      margin: 2px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        color: gray;
+        width: 400px;
+        font-size: 20px;
+        font-family: "Montserrat";
+      }
+    }
+  }
+  .tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+
+    div {
+      height: 75px;
+      border-radius: 50%;
+      flex: 1;
+    }
+    div:last-child {
+      width: 260px;
+      height: 70px;
+      border-radius: 50%;
+    }
+    .card-tools {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      width: 350px;
+      height: 200px;
+    }
+  }
+
+  ${mobileSm(css`
+    .about-me {
+      h1 {
+        line-height: 35px;
+        font-size: 18px;
+      }
+    }
+  `)}
+
+  ${mobileMd(css`
+    .about-me {
+      h1 {
+        line-height: 35px;
+        font-size: 18px;
+      }
+    }
+  `)}
+
+  ${laptop(css`
+    .about-me {
+      h1 {
+        line-height: 35px;
+        font-size: 28px;
+      }
+    }
+  `)}
+
+  ${desktop(css<Props>`
+    .about-me {
+      h1 {
+        width: 500px;
+        line-height: 35px;
+        font-size: 25px;
+      }
+    }
+  `)}
+`;
+
+export const Icon = styled.div<IconProps>`
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-position: 150% 0;
+
+    box-shadow: ${({ boxShadow }) => `0 0px 10px 1px ${boxShadow}`};
+
+    background: linear-gradient(
+      103.59deg,
+      rgba(255, 255, 255, 0.01) 15.34%,
+      rgba(255, 255, 255, 0.04) 19.99%
+    );
+    backdrop-filter: blur(20px);
+    filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.4));
+    transition: all 250ms ease-in-out;
+  }
+
+  img {
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+  }
+  transition: all 450ms ease-in-out;
+
+  ${mobileSm(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${mobileMd(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${mobileLg(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${laptop(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${desktop(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+    }
   `)}
 `;
 

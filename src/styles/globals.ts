@@ -66,7 +66,7 @@ export const theme = {
       sm: 1.5,
       md: 2,
       lg: 3,
-      xl: 3.5,
+      xl: 7,
     },
     weight: {
       extra_light: 275,

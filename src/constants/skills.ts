@@ -24,10 +24,10 @@ export interface SkillsProps {
   color: string;
 }
 
-export const skillsIcons: SkillsProps[] = [
+export const iconsFirstRow: SkillsProps[] = [
   {
     id: 15,
-    name: "ícone html",
+    name: "HTML",
     description: "",
     element: Html,
     icon: Html,
@@ -37,7 +37,7 @@ export const skillsIcons: SkillsProps[] = [
 
   {
     id: 14,
-    name: "ícone css",
+    name: "CSS",
     description: "",
     element: Css,
     icon: Css,
@@ -46,7 +46,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 13,
-    name: "ícone javascript",
+    name: "JAVASCRIPT",
     description: "",
     element: JavaScript,
     icon: JavaScript,
@@ -55,16 +55,18 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 12,
-    name: "ícone typescript",
+    name: "TYPESCRIPT",
     description: "",
     element: TypeScript,
     icon: TypeScript,
     rotate: "57",
     color: "rgba(65, 132, 284, 1.75);",
   },
+];
+export const iconsSecondRow: SkillsProps[] = [
   {
     id: 11,
-    name: "ícone react",
+    name: "REACT",
     description: "",
     element: React,
     icon: React,
@@ -73,7 +75,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 10,
-    name: "ícone redux",
+    name: "REDUX",
     description: "",
     element: Redux,
     icon: Redux,
@@ -82,7 +84,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 9,
-    name: "ícone styled",
+    name: "STYLED COMPONENTS",
     description: "",
     element: Styled,
     icon: Styled,
@@ -91,16 +93,18 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 8,
-    name: "ícone next",
+    name: "NEXT",
     description: "",
     element: Next,
     icon: Next,
     rotate: "135",
     color: "rgba(146, 146, 146, 1);",
   },
+];
+export const iconsThirdRow: SkillsProps[] = [
   {
     id: 7,
-    name: "ícone tailwind",
+    name: "TAILWIND",
     description: "",
     element: Tailwind,
     icon: Tailwind,
@@ -109,7 +113,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 6,
-    name: "ícone sass",
+    name: "SASS",
     description: "",
     element: Sass,
     icon: Sass,
@@ -118,7 +122,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 5,
-    name: "ícone figma",
+    name: "FIGMA",
     description: "",
     element: Figma,
     icon: Figma,
@@ -127,16 +131,19 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 4,
-    name: "ícone jest",
+    name: "JEST",
     description: "",
     element: Jest,
     icon: Jest,
     rotate: "210",
     color: "rgba(183, 72, 14, 1)",
   },
+];
+
+export const iconsFourthRow: SkillsProps[] = [
   {
     id: 3,
-    name: "ícone git",
+    name: "GIT",
     description: "",
     element: Git,
     icon: Git,
@@ -145,7 +152,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 2,
-    name: "ícone postgres",
+    name: "POSTGRESQL",
     description: "",
     element: Postgres,
     icon: Postgres,
@@ -154,7 +161,7 @@ export const skillsIcons: SkillsProps[] = [
   },
   {
     id: 1,
-    name: "ícone node",
+    name: "NODE",
     description: "",
     element: Node,
     icon: Node,
