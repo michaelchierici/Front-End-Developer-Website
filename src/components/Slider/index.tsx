@@ -50,8 +50,12 @@ export default function Slider({ items }: SliderProps) {
           <h2>{item.description}</h2>
         </Card>
         <Card className="card-tools">
-          <h1>Tecnologias utilizadas</h1>
-          <img style={{ width: "250px", height: "250px" }} src={item.tools} />
+          <div className="title-tools">
+            <h1>Tecnologias utilizadas</h1>
+          </div>
+          <div className="image-tools">
+            <img src={item.tools} />
+          </div>
         </Card>
       </ContainerCard>
     ));

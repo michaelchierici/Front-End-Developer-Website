@@ -1,9 +1,10 @@
 import { Container } from "./styles";
+import Me from "../../assets/images/me.svg";
 
 export default function Photo() {
   return (
     <Container>
-      <img />
+      <img src={Me} />
     </Container>
   );
 }

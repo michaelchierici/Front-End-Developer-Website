@@ -12,6 +12,7 @@ import {
 interface Props {
   type: "name" | "profession" | "role" | "description";
   visible: boolean;
+  boxShadow: string;
 }
 
 interface ScrollProps {
@@ -50,8 +51,8 @@ export const Container = styled.main`
 export const Content = styled.main`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
   flex: 1;
   ${mobileSm(css`
@@ -75,8 +76,8 @@ export const Content = styled.main`
 
   ${laptop(css`
     justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
   `)}
 
   ${desktop(css`
@@ -134,8 +135,7 @@ export const Title = styled.h1<Partial<Props>>`
   ${laptop(css<Props>`
     ${({ type }) => titleVariants[type!] || titleVariants.name};
 
-    font-size: ${({ theme, visible }) =>
-      visible ? theme.font.size.md : theme.font.size.xl}em;
+    font-size: 4em;
   `)}
 
   ${desktop(css<Props>`
@@ -145,7 +145,7 @@ export const Title = styled.h1<Partial<Props>>`
   `)}
 `;
 
-export const ContentCardResume = styled.div`
+export const ContentTitle = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -290,7 +290,7 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 
   ${laptop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "10rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "18.2rem")};
     height: ${({ visible }) => (visible ? "3rem" : "3rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;
@@ -308,7 +308,7 @@ export const Button = styled.button<Partial<Props>>`
 
 export const ContentAboutMe = styled.main<Partial<Props>>`
   width: 98%;
-  flex: ${({ visible }) => (visible ? "1" : "0em")};
+  flex: ${({ visible }) => (visible ? "80em" : "0em")};
   transition: flex 400ms ease-in-out;
 
   overflow: hidden;
@@ -320,11 +320,15 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-
+  border-radius: 6px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
   div {
     margin: 0 5px;
     padding: 15px 0;
-    height: 100%;
+    height: 400px;
   }
 
   .about-me {
@@ -333,12 +337,12 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
     justify-content: center;
     flex: 1;
     h1 {
-      width: 500px;
       line-height: 35px;
       font-size: 25px;
       color: gray;
       font-family: "Montserrat";
       font-weight: bold;
+      padding: 0 20px;
     }
   }
   .about-tools {
@@ -347,7 +351,12 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
     justify-content: center;
     flex-direction: column;
     flex: 1;
-
+    border: 1px;
+    box-shadow: ${({ boxShadow }) => `0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 1.5px 10px ${boxShadow},
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 1.8px 33.4px ${boxShadow},
+    0 100px 80px rgba(0, 0, 0, 0.12)`};
+    border-radius: 6px;
     header {
       width: 100%;
       text-align: center;
@@ -385,11 +394,7 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
       border-radius: 50%;
       flex: 1;
     }
-    div:last-child {
-      width: 260px;
-      height: 70px;
-      border-radius: 50%;
-    }
+
     .card-tools {
       display: flex;
       align-items: center;
@@ -400,39 +405,54 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
     }
   }
 
-  ${mobileSm(css`
+  ${mobileSm(css<Partial<Props>>`
+    width: 90%;
+
     .about-me {
       h1 {
         line-height: 35px;
         font-size: 18px;
+        text-align: center;
       }
     }
+    flex: ${({ visible }) => (visible ? "75em" : "0em")};
   `)}
 
-  ${mobileMd(css`
+  ${mobileMd(css<Partial<Props>>`
+    flex: ${({ visible }) => (visible ? "75em" : "0em")};
+
     .about-me {
       h1 {
         line-height: 35px;
-        font-size: 18px;
+        font-size: 15px;
+        text-align: center;
       }
     }
   `)}
 
-  ${laptop(css`
+  ${laptop(css<Partial<Props>>`
+    width: 95%;
+
+    flex: ${({ visible }) => (visible ? "30em" : "0em")};
+    flex-wrap: nowrap;
+
     .about-me {
       h1 {
         line-height: 35px;
-        font-size: 28px;
+        font-size: 20px;
+        text-align: center;
       }
     }
   `)}
 
-  ${desktop(css<Props>`
+  ${desktop(css<Partial<Props>>`
+    flex: ${({ visible }) => (visible ? "28em" : "0em")};
     .about-me {
       h1 {
         width: 500px;
         line-height: 35px;
         font-size: 25px;
+        text-align: left;
       }
     }
   `)}

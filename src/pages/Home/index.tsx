@@ -20,9 +20,8 @@ import {
   ContainerButton,
   Button,
   ContentIcon,
-  ContentPhoto,
   ContentScroll,
-  ContentCardResume,
+  ContentTitle,
   ContentAboutMe,
   Icon,
 } from "./styles";
@@ -32,7 +31,6 @@ import { ReactComponent as BackArrow } from "../../assets/icons/components/backA
 
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import Slider from "../../components/Slider";
-import Me from "../../assets/images/me.jpg";
 import {
   SkillsProps,
   iconsFirstRow,
@@ -42,13 +40,21 @@ import {
 } from "../../constants/skills";
 import Photo from "../../components/Photo";
 
+interface ToolProps {
+  name: string;
+  description: string;
+  shadow: string;
+}
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [selectedToolIcon, setSelectedToolIcon] = useState<any>({
-    name: "JAVASCRIPT",
-    description: "",
+  const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
+    name: "React",
+    description:
+      "Biblioteca da qual tenho maior experiência, sou muito familirizado com React e React Native, conseguindo construir interfaces do zero com muita agilidade, com auxílio de um grande recurso do react que são os hooks e custom hooks.",
+    shadow: "rgba(22, 127, 177, 1)",
   });
 
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -57,10 +63,9 @@ export default function Home() {
   let lastKnownScrollPosition = 0;
   let ticking = false;
 
-  const handleShowToolInfo = useCallback((event: any) => {
-    console.log(event);
-    const { name, info } = event;
-    setSelectedToolIcon({ name, info });
+  const handleShowToolInfo = useCallback((event: ToolProps) => {
+    const { name, description, shadow } = event;
+    setSelectedToolIcon({ name, description, shadow });
   }, []);
   const handleChangeScrollDirection = useCallback(
     (scrollPosition: number) => {
@@ -101,23 +106,26 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <Menu />
       <Content>
-        <ContentCardResume>
+        <ContentTitle>
           {AboutMe.map((person, index) => (
             <Title key={index} type={person.type} visible={isLoading}>
               {person.title}
             </Title>
           ))}
-        </ContentCardResume>
+        </ContentTitle>
         <Photo />
       </Content>
-      <ContentAboutMe visible={resumeIsOpen}>
+      <ContentAboutMe
+        visible={resumeIsOpen}
+        boxShadow={selectedToolIcon?.shadow}
+      >
         <div className="about-me">
           <h1>
             Formado em análise e desenvolvimento de sistemas, trabalho com
             tecnologia há mais de 2 anos, atualmente atuo como desenvolvedor
-            front-end e mobile. Possuo grande capacidade em construir interfaces
-            do absoluto zero, resolver problemas do dia a dia entregando
-            demandas dentro do prazo.
+            fullstack. Possuo grande capacidade em construir interfaces do
+            absoluto zero, resolver problemas do dia a dia entregando demandas
+            dentro do prazo.
           </h1>
         </div>
         <div className="about-tools">
@@ -125,10 +133,7 @@ export default function Home() {
             <h1>{selectedToolIcon?.name}</h1>
           </header>
           <div>
-            <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-              commodi eos iure impedit
-            </h3>
+            <h3>{selectedToolIcon?.description}</h3>
           </div>
         </div>
         <div className="tools">
@@ -142,7 +147,8 @@ export default function Home() {
                 onMouseEnter={() =>
                   handleShowToolInfo({
                     name: item.name,
-                    info: item?.description,
+                    description: item?.description,
+                    shadow: item.color,
                   })
                 }
               >
@@ -160,7 +166,8 @@ export default function Home() {
                 onMouseEnter={() =>
                   handleShowToolInfo({
                     name: item.name,
-                    info: item?.description,
+                    description: item?.description,
+                    shadow: item.color,
                   })
                 }
               >
@@ -178,7 +185,8 @@ export default function Home() {
                 onMouseEnter={() =>
                   handleShowToolInfo({
                     name: item.name,
-                    info: item?.description,
+                    description: item?.description,
+                    shadow: item.color,
                   })
                 }
               >
@@ -196,7 +204,8 @@ export default function Home() {
                 onMouseEnter={() =>
                   handleShowToolInfo({
                     name: item.name,
-                    info: item?.description,
+                    description: item?.description,
+                    shadow: item.color,
                   })
                 }
               >
