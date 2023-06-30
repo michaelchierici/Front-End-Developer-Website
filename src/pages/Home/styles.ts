@@ -376,7 +376,7 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
 
       h3 {
         color: gray;
-        width: 400px;
+        width: 300px;
         font-size: 20px;
         font-family: "Montserrat";
       }
@@ -424,8 +424,16 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
     .about-me {
       h1 {
         line-height: 35px;
-        font-size: 15px;
+        font-size: 18px;
         text-align: center;
+      }
+    }
+    .about-tools {
+      div {
+        h3 {
+          font-size: 20px;
+          text-align: center;
+        }
       }
     }
   `)}
@@ -453,6 +461,14 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
         line-height: 35px;
         font-size: 25px;
         text-align: left;
+      }
+    }
+
+    .about-tools {
+      div {
+        h3 {
+          font-size: 22px;
+        }
       }
     }
   `)}

@@ -83,7 +83,7 @@ export const iconsSecondRow: SkillsProps[] = [
     id: 10,
     name: "Redux",
     description:
-      "Para gerenciamento de estado costumo usar Redux ou Redux/Saga/Tool-kit, tenho grande experiência com gerenciamento de estado utilizando essa ferramenta.",
+      "Para gerenciamento de estado costumo usar Redux/Saga/Tool-kit, tenho grande experiência com gerenciamento de estado utilizando essa ferramenta.",
     element: Redux,
     icon: Redux,
     rotate: "94.5",
