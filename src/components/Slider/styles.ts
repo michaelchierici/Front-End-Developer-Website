@@ -256,7 +256,7 @@ export const ContainerCard = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  height: 90%;
+  height: 600px;
   margin: 10px;
   border-radius: 4px;
 
@@ -296,8 +296,11 @@ export const Card = styled.div`
       height: 100%;
     }
   `)}
+  box-shadow: none;
   ${mobileMd(css`
+    padding: 15px 0;
     flex-direction: row;
+    box-shadow: none;
 
     h1,
     h2 {
@@ -313,6 +316,9 @@ export const Card = styled.div`
     }
   `)}
   ${laptop(css`
+    padding: 10px 0;
+    box-shadow: none;
+
     flex-direction: row;
     h1 {
       font-size: 15px;
@@ -335,14 +341,20 @@ export const Card = styled.div`
     flex-direction: row;
     h1,
     h2 {
-      font-size: 25px;
+      font-size: 23px;
       font-family: "Montserrat";
       font-weight: 400;
+      text-align: left;
     }
 
     img {
-      width: 100%;
+      width: 95%;
+      border-radius: 6px;
     }
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
   `)}
 `;
 

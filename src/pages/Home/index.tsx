@@ -51,10 +51,10 @@ export default function Home() {
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
-    name: "React",
+    name: "Javascript",
     description:
-      "Biblioteca da qual tenho maior experiência, sou muito familirizado com React e React Native, conseguindo construir interfaces do zero com muita agilidade, com auxílio de um grande recurso do react que são os hooks e custom hooks.",
-    shadow: "rgba(22, 127, 177, 1)",
+      "Mantenho meu foco em javascript como linguagem primária de programação, busco melhorar e estudar cada vez mais, tenho grande experiência com a linguagem e os frameworks mais usados no mercado.",
+    shadow: "rgba(241, 192, 53, 1)",
   });
 
   const { ref, isComponentVisible, setIsComponentVisible } =
