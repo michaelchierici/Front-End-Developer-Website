@@ -11,9 +11,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  flex: 1;
-  padding: 10px 0;
+  width: 80%;
+  height: 100%;
   ${mobileSm(css`
     img {
       width: 70%;
@@ -36,15 +35,15 @@ export const Container = styled.div`
 
   ${laptop(css`
     img {
-      width: 50%;
-      height: 50%;
+      width: 100%;
+      height: 100%;
     }
   `)}
 
   ${desktop(css`
     img {
-      width: 92%;
-      height: 92%;
+      width: 100%;
+      height: 100%;
     }
   `)}
 `;

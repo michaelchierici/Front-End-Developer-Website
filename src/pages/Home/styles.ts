@@ -8,10 +8,12 @@ import {
   mobileMd,
   mobileSm,
 } from "../../styles/globals";
+import SVGBackground from "../../assets/images/svg-section.svg";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
   visible: boolean;
+  hasAnimation: boolean;
   boxShadow: string;
 }
 
@@ -54,24 +56,36 @@ export const Content = styled.main`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  flex: 1;
+  height: 100%;
   ${mobileSm(css`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img {
+      width: 300px;
+      padding: 20px;
+    }
   `)}
   ${mobileMd(css`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img {
+      width: 300px;
+      padding: 20px;
+    }
   `)}
 
   ${mobileLg(css`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    img {
+      width: 300px;
+      padding: 20px;
+    }
   `)}
 
   ${laptop(css`
@@ -81,70 +95,23 @@ export const Content = styled.main`
   `)}
 
   ${desktop(css`
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
+    .photo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      padding-top: 80px;
+      img {
+        width: 459px;
+        height: 402.13px;
+        padding: 0;
+      }
+    }
   `)}
 `;
-export const Title = styled.h1<Partial<Props>>`
-  ${({ type }) => titleVariants[type!] || titleVariants.name};
-  font-size: ${({ theme, visible }) =>
-    visible ? theme.font.size.lg : theme.font.size.xl}em;
-  font-family: ${({ visible }) => visible && "Raleway"};
-
-  background: ${({ theme, visible }) =>
-    !visible ? `linear-gradient(${theme.colors.text_gradient})` : "#F1F8F3"};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  transform: ${({ visible }) =>
-    visible ? "rotateX(-180deg)" : "rotateX(0deg)"};
-
-  transition: transform 200ms;
-  transform-style: preserve-3d;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-
-  animation: ${({ visible }) =>
-      !visible
-        ? css`
-            ${easeIn}
-          `
-        : css`
-            ${easeOut}
-          `}
-    400ms ease-in;
-
-  div {
-    height: 100%;
-    font-weight: 600;
-  }
-
-  ${mobileSm(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1rem" : "2rem")};
-    text-align: center;
-  `)}
-
-  ${mobileMd(css<Props>`
-    font-size: ${({ visible }) => (visible ? "1rem" : "2.2rem")};
-    text-align: center;
-  `)}
-
-  ${laptop(css<Props>`
-    ${({ type }) => titleVariants[type!] || titleVariants.name};
-
-    font-size: 4em;
-  `)}
-
-  ${desktop(css<Props>`
-    ${({ type }) => titleVariants[type!] || titleVariants.name};
-    font-size: ${({ theme, visible }) =>
-      visible ? theme.font.size.lg : theme.font.size.xl}em;
-  `)}
-`;
-
 export const ContentTitle = styled.div`
   position: relative;
   width: 100%;
@@ -167,33 +134,57 @@ export const ContentTitle = styled.div`
   ${desktop(css`
     padding-left: 20px;
     justify-content: flex-start;
-    width: 60%;
+    width: 100%;
   `)}
 `;
+export const Title = styled.h1<Partial<Props>>`
+  ${({ type }) => titleVariants[type!] || titleVariants.name};
+  font-size: ${({ theme }) => theme.font.size.xl}em;
 
-export const ContentPhoto = styled.div`
-  padding-right: 95px;
-  ${mobileSm(css`
-    width: 100%;
-    height: 100vh;
-    padding-right: 75px;
-  `)}
-  ${mobileMd(css`
-    width: 100%;
-    height: 100vh;
-    padding-right: 80px;
+  filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(20px);
+
+  background: linear-gradient(109.87deg, #16db65 15.49%, #1462bc 60.35%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  animation: ${({ hasAnimation }) =>
+      !hasAnimation
+        ? css`
+            ${easeIn}
+          `
+        : css`
+            ${easeOut}
+          `}
+    400ms ease-in;
+
+  div {
+    height: 100%;
+    font-weight: 600;
+  }
+
+  ${mobileSm(css<Props>`
+    font-size: 2rem;
+    text-align: center;
   `)}
 
-  ${mobileLg(css`
-    width: 100%;
-    height: 100vh;
-  `)}
-  ${laptop(css`
-    width: 40%;
-    height: 100vh;
+  ${mobileMd(css<Props>`
+    font-size: 2.2rem;
+    text-align: center;
   `)}
 
-  ${desktop(css``)}
+  ${laptop(css<Props>`
+    ${({ type }) => titleVariants[type!] || titleVariants.name};
+
+    font-size: 4em;
+  `)}
+
+  ${desktop(css<Props>`
+    ${({ type }) => titleVariants[type!] || titleVariants.name};
+    font-size: ${({ theme }) => theme.font.size.xl}em;
+    text-align: left;
+  `)}
 `;
 
 export const ContainerButton = styled.div`
@@ -472,6 +463,106 @@ export const ContentAboutMe = styled.main<Partial<Props>>`
       }
     }
   `)}
+`;
+
+export const ContainerAboutMe = styled.section`
+  width: 100%;
+  flex: 1;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    h1 {
+      font-weight: 275;
+      font-size: ${({ theme }) => theme.font.size.xl}em;
+      text-align: center;
+      font-family: "Lato";
+      color: #ffffff;
+
+      text-shadow: -46px 46px 92px rgba(230, 230, 230, 0.2),
+        46px -46px 92px rgba(230, 230, 230, 0.2),
+        -46px -46px 92px rgba(255, 255, 255, 0.9),
+        46px 46px 115px rgba(230, 230, 230, 0.9);
+    }
+  }
+  .content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    h2 {
+      font-size: 3em;
+      width: 100%;
+      font-weight: 300;
+      font-family: "Montserrat";
+      text-align: center;
+
+      background: linear-gradient(135deg, #ffffff 0%, #2c2e43 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+`;
+export const ContainerSkills = styled.section`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: url(${SVGBackground});
+  background-repeat: repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+  .me-container,
+  .experience-container,
+  .skill-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px 0;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    h3 {
+      font-weight: 600;
+      font-size: 40px;
+      color: #ffffff;
+      margin-right: auto;
+      width: 100%;
+      font-family: "Montserrat";
+    }
+    p {
+      text-align: left;
+      font-weight: 300;
+      font-size: 22px;
+      color: #ffffff;
+      margin-right: 10px;
+      line-height: 32px;
+      height: 150px;
+      font-family: "Montserrat";
+    }
+  }
+
+  .me-container {
+    border-right: 2px solid rgb(24, 96, 202, 100);
+  }
+  .experience-container {
+    border-right: 2px solid rgb(24, 202, 117, 100);
+  }
+
+  .skill-container {
+    border-right: 2px solid rgb(55, 239, 228, 100);
+  }
 `;
 
 export const Icon = styled.div<IconProps>`

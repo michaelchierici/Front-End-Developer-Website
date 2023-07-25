@@ -22,8 +22,9 @@ import {
   ContentIcon,
   ContentScroll,
   ContentTitle,
-  ContentAboutMe,
   Icon,
+  ContainerAboutMe,
+  ContainerSkills,
 } from "./styles";
 import { ReactComponent as Mouse } from "../../assets/icons/components/mouse.svg";
 import { ReactComponent as MouseArrows } from "../../assets/icons/components/mouseArrows.svg";
@@ -38,7 +39,8 @@ import {
   iconsSecondRow,
   iconsThirdRow,
 } from "../../constants/skills";
-import Photo from "../../components/Photo";
+import Me from "../../assets/images/me.svg";
+import MeSection from "../../assets/images/me-section.svg";
 
 interface ToolProps {
   name: string;
@@ -108,113 +110,16 @@ export default function Home() {
       <Content>
         <ContentTitle>
           {AboutMe.map((person, index) => (
-            <Title key={index} type={person.type} visible={isLoading}>
+            <Title key={index} type={person.type} hasAnimation={isLoading}>
               {person.title}
             </Title>
           ))}
         </ContentTitle>
-        <Photo />
+        <div className="photo-container">
+          <img src={Me} />
+        </div>
       </Content>
-      <ContentAboutMe
-        visible={resumeIsOpen}
-        boxShadow={selectedToolIcon?.shadow}
-      >
-        <div className="about-me">
-          <h1>
-            Formado em análise e desenvolvimento de sistemas, trabalho com
-            tecnologia há mais de 2 anos, atualmente atuo como desenvolvedor
-            fullstack. Possuo grande capacidade em construir interfaces do
-            absoluto zero, resolver problemas do dia a dia entregando demandas
-            dentro do prazo.
-          </h1>
-        </div>
-        <div className="about-tools">
-          <header>
-            <h1>{selectedToolIcon?.name}</h1>
-          </header>
-          <div>
-            <h3>{selectedToolIcon?.description}</h3>
-          </div>
-        </div>
-        <div className="tools">
-          <div className="card-tools">
-            {iconsFirstRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsSecondRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsThirdRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsFourthRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-        </div>
-      </ContentAboutMe>
+
       <ContainerButton>
         <Button visible={resumeIsOpen} onClick={handleOpenResume}>
           {resumeIsOpen ? (
@@ -255,4 +160,142 @@ export default function Home() {
       </Modal>
     </Container>
   );
+}
+
+{
+  /* <ContainerAboutMe>
+<div className="title-container">
+  <h1>Sobre mim</h1>
+</div>
+<div className="content-section">
+  <h2>Formado em análise e desenvolvimento de sistemas</h2>
+  <img src={MeSection} />
+</div>
+</ContainerAboutMe>
+<ContainerSkills>
+<div className="me-container">
+  <h3>Soft skills</h3>
+  <p>
+    Apaixonado por tecnologia e novos desafios, sou um profissional
+    comunicativo, entrego resultados dentro do prazo com eficiência.
+    Sempre busco aperfeiçoar meus conhecimentos e me matenho atualizado
+    com objetivo de atender as necessidades com maior qualidade.
+  </p>
+</div>
+<div className="experience-container">
+  <h3>Experiências</h3>
+  <p>
+    Trabalho na área de tecnologia há mais 2 anos, atualmente como
+    desenvolvedor fullstack, com participação na criação e manuntenção
+    de projetos robustos que atendem uma grande variedade de clientes.
+  </p>
+</div>
+<div className="skill-container">
+  <h3>Habilidades</h3>
+  <p>
+    Especilazado no Front-End e atualizado com as tecnologias do
+    mercado, trabalho com Javascript e seus frameworks, além de criar
+    animações e interfaces do absoluto zero, tenho capacidade para
+    construir API's e também aplicativos.
+  </p>
+</div>
+</ContainerSkills> */
+}
+
+{
+  /* <div className="about-me">
+<h1>
+  Formado em análise e desenvolvimento de sistemas, trabalho com
+  tecnologia há mais de 2 anos, atualmente atuo como desenvolvedor
+  fullstack. Possuo grande capacidade em construir interfaces do
+  absoluto zero, resolver problemas do dia a dia entregando demandas
+  dentro do prazo.
+</h1>
+</div>
+<div className="about-tools">
+<header>
+  <h1>{selectedToolIcon?.name}</h1>
+</header>
+<div>
+  <h3>{selectedToolIcon?.description}</h3>
+</div>
+</div>
+<div className="tools">
+<div className="card-tools">
+  {iconsFirstRow.map((item: SkillsProps, index: number) => (
+    <Icon
+      boxShadow={item.color}
+      visible={true}
+      index={item.id}
+      key={index}
+      onMouseEnter={() =>
+        handleShowToolInfo({
+          name: item.name,
+          description: item?.description,
+          shadow: item.color,
+        })
+      }
+    >
+      <img alt={item.name} src={item.icon} />
+    </Icon>
+  ))}
+</div>
+<div className="card-tools">
+  {iconsSecondRow.map((item: SkillsProps, index: number) => (
+    <Icon
+      boxShadow={item.color}
+      visible={true}
+      index={item.id}
+      key={index}
+      onMouseEnter={() =>
+        handleShowToolInfo({
+          name: item.name,
+          description: item?.description,
+          shadow: item.color,
+        })
+      }
+    >
+      <img alt={item.name} src={item.icon} />
+    </Icon>
+  ))}
+</div>
+<div className="card-tools">
+  {iconsThirdRow.map((item: SkillsProps, index: number) => (
+    <Icon
+      boxShadow={item.color}
+      visible={true}
+      index={item.id}
+      key={index}
+      onMouseEnter={() =>
+        handleShowToolInfo({
+          name: item.name,
+          description: item?.description,
+          shadow: item.color,
+        })
+      }
+    >
+      <img alt={item.name} src={item.icon} />
+    </Icon>
+  ))}
+</div>
+<div className="card-tools">
+  {iconsFourthRow.map((item: SkillsProps, index: number) => (
+    <Icon
+      boxShadow={item.color}
+      visible={true}
+      index={item.id}
+      key={index}
+      onMouseEnter={() =>
+        handleShowToolInfo({
+          name: item.name,
+          description: item?.description,
+          shadow: item.color,
+        })
+      }
+    >
+      <img alt={item.name} src={item.icon} />
+    </Icon>
+  ))}
+</div>
+</div> */
 }
