@@ -187,12 +187,154 @@ export const Title = styled.h1<Partial<Props>>`
   `)}
 `;
 
+export const ContainerAboutMe = styled.section`
+  width: 600px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom-width: 1px;
+  border-image: linear-gradient(to right, #30d95f 0%, #2976c6 100%) 0 0 100% 0;
+  border-bottom-style: solid;
+
+  ${mobileSm(css`
+    width: 400px;
+    height: 400px;
+    justify-content: flex-start;
+  `)}
+  ${mobileMd(css`
+    width: 400px;
+    height: 350px;
+    justify-content: flex-start;
+  `)}
+
+  ${mobileLg(css`
+    width: 400px;
+    height: 350px;
+    justify-content: flex-start;
+  `)}
+  ${laptop(css`
+    width: 600px;
+    height: 400px;
+    justify-content: center;
+  `)}
+
+  ${desktop(css`
+    width: 600px;
+    height: 400px;
+    justify-content: center;
+  `)}
+
+
+  .content-experience {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    margin-right: auto;
+
+    ${mobileSm(css`
+      margin: 0;
+    `)}
+    ${mobileMd(css`
+      margin: 0;
+    `)}
+
+  ${mobileLg(css`
+      margin: 0;
+    `)}
+  ${laptop(css`
+      margin-right: auto;
+    `)}
+
+  ${desktop(css`
+      margin-right: auto;
+    `)}
+    h1 {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 60px;
+
+      color: #ffffff;
+
+      text-shadow: 0px 0px 126.945px #476cff, 0px 0px 72.54px #476cff,
+        0px 0px 42.315px #476cff, 0px 0px 21.1575px #476cff,
+        0px 0px 6.045px #476cff, 0px 0px 3.0225px #476cff;
+    }
+    h3 {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 24px;
+      margin-left: auto;
+      color: #ffffff;
+
+      text-shadow: 2px 10px 10px #000000;
+    }
+  }
+  .content-graduation {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    margin-left: auto;
+
+    ${mobileSm(css`
+      margin-left: 0;
+    `)}
+    ${mobileMd(css`
+      margin-left: 0;
+    `)}
+
+  ${mobileLg(css`
+      margin-left: 0;
+    `)}
+  ${laptop(css`
+      margin-left: auto;
+    `)}
+
+  ${desktop(css`
+      margin-left: auto;
+    `)}
+    .neon-title {
+      font-family: "Lato";
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 28px;
+      padding: 5px 0;
+      color: #ffffff;
+
+      text-shadow: 0px 0px 153.468px #0081fa, 0px 0px 87.696px #0081fa,
+        0px 0px 51.156px #0081fa, 0px 0px 25.578px #0081fa,
+        0px 0px 7.308px #0081fa, 0px 0px 3.654px #0081fa;
+
+      font-family: "Lato";
+      font-weight: 300;
+      font-size: 40px;
+
+      color: #ffffff;
+    }
+    h3 {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 40px;
+
+      color: #ffffff;
+    }
+  }
+`;
+
 export const ContainerButton = styled.div`
-  transition: all 450ms;
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  justify-content: center;
+  padding: 100px 0;
+  transition: all 450ms;
+
   ${mobileSm(css<Props>`
     align-items: center;
     justify-content: center;
@@ -220,9 +362,8 @@ ${desktop(css`
     height: 100px;
   `)}
 `;
-
 export const Button = styled.button<Partial<Props>>`
-  width: ${({ visible }) => (visible ? "3rem" : "15rem")};
+  width: ${({ visible }) => (visible ? "3rem" : "15.5rem")};
   height: ${({ visible }) => (visible ? "3rem" : "5rem")};
 
   font-size: ${({ theme }) => theme.font.size.sm}em;
@@ -267,14 +408,14 @@ export const Button = styled.button<Partial<Props>>`
   outline: none;
 
   ${mobileSm(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "6.5rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "8.5rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
     font-size: 1.2em;
     font-weight: 300;
   `)}
 
   ${mobileMd(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "15rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "17rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
     font-size: 1.2em;
     font-weight: 300;
@@ -289,7 +430,7 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 
   ${desktop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "18.2rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "20rem")};
     height: ${({ visible }) => (visible ? "3rem" : "rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;
@@ -297,271 +438,27 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 `;
 
-export const ContentAboutMe = styled.main<Partial<Props>>`
-  width: 98%;
-  flex: ${({ visible }) => (visible ? "80em" : "0em")};
-  transition: flex 400ms ease-in-out;
+export const ContainerDownloadCV = styled.div`
+  width: 100%;
+  height: 100px;
 
-  overflow: hidden;
-  background-color: #222121;
-  /* box-shadow: 1px 1px 1px rgb(0, 200, 0, 0.9); */
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-  border-radius: 6px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  div {
-    margin: 0 5px;
-    padding: 15px 0;
-    height: 400px;
-  }
-
-  .about-me {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    h1 {
-      line-height: 35px;
-      font-size: 25px;
-      color: gray;
-      font-family: "Montserrat";
-      font-weight: bold;
-      padding: 0 20px;
-    }
-  }
-  .about-tools {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1;
-    border: 1px;
-    box-shadow: ${({ boxShadow }) => `0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 1.5px 10px ${boxShadow},
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 1.8px 33.4px ${boxShadow},
-    0 100px 80px rgba(0, 0, 0, 0.12)`};
-    border-radius: 6px;
-    header {
-      width: 100%;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      h1 {
-        color: gray;
-      }
-    }
-    div {
-      margin: 2px 0px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      h3 {
-        color: gray;
-        width: 300px;
-        font-size: 20px;
-        font-family: "Montserrat";
-      }
-    }
-  }
-  .tools {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1;
-
-    div {
-      height: 75px;
-      border-radius: 50%;
-      flex: 1;
-    }
-
-    .card-tools {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
-      width: 350px;
-      height: 200px;
-    }
-  }
-
-  ${mobileSm(css<Partial<Props>>`
-    width: 90%;
-
-    .about-me {
-      h1 {
-        line-height: 35px;
-        font-size: 18px;
-        text-align: center;
-      }
-    }
-    flex: ${({ visible }) => (visible ? "75em" : "0em")};
-  `)}
-
-  ${mobileMd(css<Partial<Props>>`
-    flex: ${({ visible }) => (visible ? "75em" : "0em")};
-
-    .about-me {
-      h1 {
-        line-height: 35px;
-        font-size: 18px;
-        text-align: center;
-      }
-    }
-    .about-tools {
-      div {
-        h3 {
-          font-size: 20px;
-          text-align: center;
-        }
-      }
-    }
-  `)}
-
-  ${laptop(css<Partial<Props>>`
-    width: 95%;
-
-    flex: ${({ visible }) => (visible ? "30em" : "0em")};
-    flex-wrap: nowrap;
-
-    .about-me {
-      h1 {
-        line-height: 35px;
-        font-size: 20px;
-        text-align: center;
-      }
-    }
-  `)}
-
-  ${desktop(css<Partial<Props>>`
-    flex: ${({ visible }) => (visible ? "28em" : "0em")};
-    .about-me {
-      h1 {
-        width: 500px;
-        line-height: 35px;
-        font-size: 25px;
-        text-align: left;
-      }
-    }
-
-    .about-tools {
-      div {
-        h3 {
-          font-size: 22px;
-        }
-      }
-    }
-  `)}
-`;
-
-export const ContainerAboutMe = styled.section`
-  width: 100%;
-  flex: 1;
-  padding: 100px;
-  display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  .title-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  h3 {
+    padding: 10px 0;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
 
-    h1 {
-      font-weight: 275;
-      font-size: ${({ theme }) => theme.font.size.xl}em;
-      text-align: center;
-      font-family: "Lato";
-      color: #ffffff;
+    color: #ffffff;
 
-      text-shadow: -46px 46px 92px rgba(230, 230, 230, 0.2),
-        46px -46px 92px rgba(230, 230, 230, 0.2),
-        -46px -46px 92px rgba(255, 255, 255, 0.9),
-        46px 46px 115px rgba(230, 230, 230, 0.9);
-    }
-  }
-  .content-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    h2 {
-      font-size: 3em;
-      width: 100%;
-      font-weight: 300;
-      font-family: "Montserrat";
-      text-align: center;
-
-      background: linear-gradient(135deg, #ffffff 0%, #2c2e43 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-`;
-export const ContainerSkills = styled.section`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-image: url(${SVGBackground});
-  background-repeat: repeat;
-  background-size: cover;
-  flex-wrap: wrap;
-  .me-container,
-  .experience-container,
-  .skill-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 20px;
-    padding: 20px 0;
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    h3 {
-      font-weight: 600;
-      font-size: 40px;
-      color: #ffffff;
-      margin-right: auto;
-      width: 100%;
-      font-family: "Montserrat";
-    }
-    p {
-      text-align: left;
-      font-weight: 300;
-      font-size: 22px;
-      color: #ffffff;
-      margin-right: 10px;
-      line-height: 32px;
-      height: 150px;
-      font-family: "Montserrat";
-    }
-  }
-
-  .me-container {
-    border-right: 2px solid rgb(24, 96, 202, 100);
-  }
-  .experience-container {
-    border-right: 2px solid rgb(24, 202, 117, 100);
-  }
-
-  .skill-container {
-    border-right: 2px solid rgb(55, 239, 228, 100);
+    text-shadow: -61px 61px 122px rgba(173, 173, 173, 0.2),
+      61px -61px 122px rgba(173, 173, 173, 0.2),
+      -61px -61px 122px rgba(255, 255, 255, 0.9),
+      61px 61px 153px rgba(173, 173, 173, 0.9);
+    cursor: pointer;
   }
 `;
 
@@ -655,28 +552,6 @@ export const Icon = styled.div<IconProps>`
       border-radius: 6px;
     }
   `)}
-`;
-
-export const ContentScroll = styled.div<ScrollProps>`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: grid;
-  place-items: center;
-  flex-direction: column;
-  height: 100px;
-
-  transition: all 450ms;
-
-  .arrows {
-    transform: ${({ scrollPosition }) =>
-      scrollPosition ? "rotate(-180deg)" : "rotate(0deg)"};
-    transition: all 850ms;
-    margin-top: 4px;
-    width: 100%;
-    margin-right: 1px;
-  }
 `;
 
 export const Footer = styled.footer`

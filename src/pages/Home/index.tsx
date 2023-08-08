@@ -20,17 +20,16 @@ import {
   ContainerButton,
   Button,
   ContentIcon,
-  ContentScroll,
   ContentTitle,
   Icon,
   ContainerAboutMe,
-  ContainerSkills,
+  ContainerDownloadCV,
 } from "./styles";
-import { ReactComponent as Mouse } from "../../assets/icons/components/mouse.svg";
-import { ReactComponent as MouseArrows } from "../../assets/icons/components/mouseArrows.svg";
+
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
 
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
+import { ReactComponent as Lines } from "../../assets/images/lines.svg";
 import Slider from "../../components/Slider";
 import {
   SkillsProps,
@@ -40,7 +39,6 @@ import {
   iconsThirdRow,
 } from "../../constants/skills";
 import Me from "../../assets/images/me.svg";
-import MeSection from "../../assets/images/me-section.svg";
 
 interface ToolProps {
   name: string;
@@ -119,20 +117,31 @@ export default function Home() {
           <img src={Me} />
         </div>
       </Content>
+      <ContainerAboutMe>
+        <div className="content-experience">
+          <h1>+02 ANOS</h1>
+          <h3>DE EXPERIÊNCIA</h3>
+        </div>
+        <div className="content-graduation">
+          <h3>ANALISTA E {"\n"}</h3>
+          <h3 className="neon-title">DESENVOLVEDOR{"\n"}</h3>
+          <h3>DE SISTEMAS</h3>
+        </div>
+      </ContainerAboutMe>
 
       <ContainerButton>
         <Button visible={resumeIsOpen} onClick={handleOpenResume}>
           {resumeIsOpen ? (
             <BackArrow />
           ) : (
-            <span>Veja como posso te ajudar!</span>
+            <span>Veja mais e entre em contato!</span>
           )}
         </Button>
       </ContainerButton>
-      <ContentScroll scrollPosition={!!scrollPosition}>
-        <Mouse />
-        <MouseArrows className="arrows" />
-      </ContentScroll>
+      <ContainerDownloadCV>
+        <h3>Baixar CV</h3>
+        <Lines />
+      </ContainerDownloadCV>
       <Slider items={projects} />
       <Footer>
         <ContentIcon>
