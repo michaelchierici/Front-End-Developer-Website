@@ -63,8 +63,8 @@ export const Content = styled.main`
     justify-content: center;
     align-items: center;
     img {
-      width: 300px;
-      padding: 20px;
+      width: 315px;
+      padding: 15px;
     }
   `)}
   ${mobileMd(css`
@@ -73,8 +73,8 @@ export const Content = styled.main`
     justify-content: center;
     align-items: center;
     img {
-      width: 300px;
-      padding: 20px;
+      width: 315px;
+      padding: 15px;
     }
   `)}
 
@@ -83,8 +83,8 @@ export const Content = styled.main`
     flex-direction: column;
     justify-content: center;
     img {
-      width: 300px;
-      padding: 20px;
+      width: 315px;
+      padding: 15px;
     }
   `)}
 
@@ -200,19 +200,19 @@ export const ContainerAboutMe = styled.section`
   border-bottom-style: solid;
 
   ${mobileSm(css`
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 280px;
     justify-content: flex-start;
   `)}
   ${mobileMd(css`
-    width: 400px;
-    height: 350px;
+    width: 300px;
+    height: 280px;
     justify-content: flex-start;
   `)}
 
   ${mobileLg(css`
-    width: 400px;
-    height: 350px;
+    width: 300px;
+    height: 280px;
     justify-content: flex-start;
   `)}
   ${laptop(css`
@@ -262,6 +262,24 @@ export const ContainerAboutMe = styled.section`
       text-shadow: 0px 0px 126.945px #476cff, 0px 0px 72.54px #476cff,
         0px 0px 42.315px #476cff, 0px 0px 21.1575px #476cff,
         0px 0px 6.045px #476cff, 0px 0px 3.0225px #476cff;
+
+      ${mobileSm(css`
+        font-size: 40px;
+      `)}
+      ${mobileMd(css`
+        font-size: 40px;
+      `)}
+
+  ${mobileLg(css`
+        font-size: 40px;
+      `)}
+  ${laptop(css`
+        font-size: 60px;
+      `)}
+
+  ${desktop(css`
+        font-size: 60px;
+      `)}
     }
     h3 {
       font-family: "Lato";
@@ -273,6 +291,24 @@ export const ContainerAboutMe = styled.section`
       color: #ffffff;
 
       text-shadow: 2px 10px 10px #000000;
+
+      ${mobileSm(css`
+        font-size: 25px;
+      `)}
+      ${mobileMd(css`
+        font-size: 25px;
+      `)}
+
+  ${mobileLg(css`
+        font-size: 25px;
+      `)}
+  ${laptop(css`
+        font-size: 30px;
+      `)}
+
+  ${desktop(css`
+        font-size: 30px;
+      `)}
     }
   }
   .content-graduation {
@@ -315,6 +351,24 @@ export const ContainerAboutMe = styled.section`
       font-size: 40px;
 
       color: #ffffff;
+
+      ${mobileSm(css`
+        font-size: 30px;
+      `)}
+      ${mobileMd(css`
+        font-size: 30px;
+      `)}
+
+  ${mobileLg(css`
+        font-size: 30px;
+      `)}
+  ${laptop(css`
+        font-size: 40px;
+      `)}
+
+  ${desktop(css`
+        font-size: 40px;
+      `)}
     }
     h3 {
       font-family: "Lato";
@@ -323,6 +377,27 @@ export const ContainerAboutMe = styled.section`
       font-size: 40px;
 
       color: #ffffff;
+
+      ${mobileSm(css`
+        font-size: 30px;
+        text-align: center;
+      `)}
+      ${mobileMd(css`
+        font-size: 30px;
+        text-align: center;
+      `)}
+
+  ${mobileLg(css`
+        font-size: 30px;
+        text-align: center;
+      `)}
+  ${laptop(css`
+        font-size: 40px;
+      `)}
+
+  ${desktop(css`
+        font-size: 40px;
+      `)}
     }
   }
 `;
