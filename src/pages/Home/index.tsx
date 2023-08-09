@@ -24,12 +24,23 @@ import {
   Icon,
   ContainerAboutMe,
   ContainerDownloadCV,
+  ContainerInfo,
+  Card,
 } from "./styles";
 
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
 
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import { ReactComponent as Lines } from "../../assets/images/lines.svg";
+import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/smartphone.svg";
+import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computer.svg";
+import { ReactComponent as ZapIcon } from "../../assets/icons/components/zap.svg";
+ZapIcon;
+import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghost.svg";
+ZapIcon;
+
+ComputerIcon;
+
 import Slider from "../../components/Slider";
 import {
   SkillsProps,
@@ -104,7 +115,6 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
-      <Menu />
       <Content>
         <ContentTitle>
           {AboutMe.map((person, index) => (
@@ -128,6 +138,25 @@ export default function Home() {
           <h3>DE SISTEMAS</h3>
         </div>
       </ContainerAboutMe>
+      <ContainerInfo>
+        <Card>
+          <SmartphoneIcon />
+          <h2>APLICATIVOS</h2>
+        </Card>
+
+        <Card>
+          <ZapIcon />
+          <h2>LANDING PAGES</h2>
+        </Card>
+        <Card>
+          <ComputerIcon />
+          <h2>SISTEMAS WEB</h2>
+        </Card>
+        <Card>
+          <GhostIcon />
+          <h2>ANIMAÇÕES E DESIGN</h2>
+        </Card>
+      </ContainerInfo>
 
       <ContainerButton>
         <Button visible={resumeIsOpen} onClick={handleOpenResume}>
@@ -142,6 +171,8 @@ export default function Home() {
         <h3>Baixar CV</h3>
         <Lines />
       </ContainerDownloadCV>
+      <ContainerButton></ContainerButton>
+
       <Slider items={projects} />
       <Footer>
         <ContentIcon>

@@ -103,7 +103,7 @@ export const Content = styled.main`
       align-items: center;
       justify-content: center;
       width: 80%;
-      padding-top: 80px;
+      padding-top: 100px;
       img {
         width: 459px;
         height: 402.13px;
@@ -117,7 +117,6 @@ export const ContentTitle = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding-top: 80px;
 
   ${mobileSm(css`
     width: 90%;
@@ -135,6 +134,7 @@ export const ContentTitle = styled.div`
     padding-left: 20px;
     justify-content: flex-start;
     width: 100%;
+    padding-top: 100px;
   `)}
 `;
 export const Title = styled.h1<Partial<Props>>`
@@ -402,12 +402,122 @@ export const ContainerAboutMe = styled.section`
   }
 `;
 
+export const ContainerInfo = styled.div`
+  flex: 1;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  margin: 20px;
+
+  ${mobileSm(css<Props>`
+    div {
+      margin: 10px 0;
+      padding: 0 20px;
+    }
+  `)}
+
+  ${mobileMd(css<Props>`
+    padding: 20px 0;
+
+    div {
+      margin-top: 15px;
+
+      padding: 0 20px;
+    }
+  `)}
+
+  ${laptop(css<Props>`
+    div {
+      margin: 10px 0;
+      padding: 0 20px;
+    }
+  `)}
+
+  ${laptopM(css<Props>`
+    div {
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+  `)}
+
+${desktop(css`
+    div {
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+  `)}
+`;
+
+export const Card = styled.div`
+  width: 320px;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  background: linear-gradient(#1d1e18, #1d1e18) padding-box,
+    linear-gradient(to right, #30d95f 0%, #2976c6 100%) 100%;
+  border-radius: 50em;
+  border: 1.5px solid transparent;
+
+  border-image: linear-gradient(to right, #30d95f 0%, #2976c6 100%) 1%;
+
+  box-shadow: 0px 8px 6px 1px rgba(0, 0, 0, 0.79);
+  margin: 15px 0;
+  h2 {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    text-align: center;
+    color: #ffffff;
+    margin: auto;
+    text-shadow: 0px 0px 291.06px #153fe5, 0px 0px 166.32px #153fe5,
+      0px 0px 97.02px #153fe5, 0px 0px 48.51px #153fe5, 0px 0px 13.86px #153fe5,
+      0px 0px 6.93px #153fe5;
+  }
+
+  ${mobileSm(css`
+    h2 {
+      font-size: 22px;
+    }
+  `)}
+
+  ${mobileMd(css`
+    h2 {
+      font-size: 22px;
+    }
+  `)}
+
+  ${laptop(css`
+    h2 {
+      font-size: 25px;
+    }
+  `)}
+
+  ${laptopM(css`
+    h2 {
+      font-size: 25px;
+    }
+  `)}
+
+${desktop(css`
+    h2 {
+    }
+  `)}
+`;
+
 export const ContainerButton = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
   transition: all 450ms;
 
   ${mobileSm(css<Props>`
