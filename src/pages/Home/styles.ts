@@ -468,7 +468,7 @@ export const Card = styled.div`
 
   border-image: linear-gradient(to right, #30d95f 0%, #2976c6 100%) 1%;
 
-  box-shadow: 0px 8px 6px 1px rgba(0, 0, 0, 0.79);
+  box-shadow: 0px 20px 8px 2px rgba(0, 0, 0, 0.5);
   margin: 15px 0;
   h2 {
     font-family: "Lato";
