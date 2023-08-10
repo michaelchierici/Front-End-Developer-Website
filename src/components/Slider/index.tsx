@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 
 import {
   Board,
-  Borders,
   Card,
   ChevronButton,
   Container,
@@ -46,46 +45,35 @@ export default function Slider({ items }: SliderProps) {
         <Card>
           <img src={item.photo} />
         </Card>
-        <Card>
-          <h2>{item.description}</h2>
-        </Card>
-        <Card className="card-tools">
-          <div className="title-tools">
-            <h1>Tecnologias utilizadas</h1>
-          </div>
-          <div className="image-tools">
-            <img src={item.tools} />
-          </div>
-        </Card>
       </ContainerCard>
     ));
   }, [items]);
 
   return (
     <Container>
+      <div className="chevron-left">
+        <ChevronButton
+          type="button"
+          onClick={handleChangeSlideLeft}
+          disabled={slideSelected === 0}
+        >
+          <Chevron />
+        </ChevronButton>
+      </div>
       <Content>
-        <Borders className="chevron-left">
-          <ChevronButton
-            type="button"
-            onClick={handleChangeSlideLeft}
-            disabled={slideSelected === 0}
-          >
-            <Chevron />
-          </ChevronButton>
-        </Borders>
         <Board direction={sliderDirection}>
           {slide.map((card, index) => slideSelected === index && card)}
         </Board>
-        <Borders className="chevron-right">
-          <ChevronButton
-            type="button"
-            onClick={handleChangeSlideRight}
-            disabled={slideSelected === lenght - 1}
-          >
-            <Chevron />
-          </ChevronButton>
-        </Borders>
       </Content>
+      <div className="chevron-right">
+        <ChevronButton
+          type="button"
+          onClick={handleChangeSlideRight}
+          disabled={slideSelected === lenght - 1}
+        >
+          <Chevron />
+        </ChevronButton>
+      </div>
     </Container>
   );
 }

@@ -8,17 +8,13 @@ import {
   mobileMd,
   mobileSm,
 } from "../../styles/globals";
-import SVGBackground from "../../assets/images/svg-section.svg";
+import SVGBackground from "../../assets/images/projects_background.svg";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
   visible: boolean;
   hasAnimation: boolean;
   boxShadow: string;
-}
-
-interface ScrollProps {
-  scrollPosition: boolean;
 }
 
 interface IconProps {
@@ -112,7 +108,7 @@ export const Content = styled.main`
     }
   `)}
 `;
-export const ContentTitle = styled.div`
+export const ContainerTitle = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -647,6 +643,71 @@ export const ContainerDownloadCV = styled.div`
   }
 `;
 
+export const ContainerProjects = styled.div`
+  width: 100%;
+  height: 800px;
+  background-image: url(${SVGBackground});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .container-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    h1 {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 275;
+      font-size: 75px;
+      color: #ffffff;
+
+      text-shadow: -46px 46px 92px rgba(230, 230, 230, 0.2),
+        46px -46px 92px rgba(230, 230, 230, 0.2),
+        -46px -46px 92px rgba(255, 255, 255, 0.9),
+        46px 46px 115px rgba(230, 230, 230, 0.9);
+    }
+  }
+
+  ${mobileSm(css`
+    height: 550px;
+    .container-title {
+      h1 {
+        font-size: 45px;
+      }
+    }
+  `)}
+  ${mobileMd(css`
+    height: 550px;
+    .container-title {
+      h1 {
+        font-size: 45px;
+      }
+    }
+  `)}
+  ${laptop(css`
+    height: 800px;
+    .container-title {
+      h1 {
+        font-size: 75px;
+      }
+    }
+  `)}
+  ${desktop(css`
+    height: 800px;
+    .container-title {
+      h1 {
+        font-size: 75px;
+      }
+    }
+  `)}
+`;
+
 export const Icon = styled.div<IconProps>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};
 
@@ -744,12 +805,12 @@ export const Footer = styled.footer`
   align-items: flex-end;
   justify-content: center;
   width: 100%;
+  height: 180px;
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`
   cursor: pointer;
-  height: 50px;
-
+  height: 70px;
   img,
   svg {
     margin: 0 15px;

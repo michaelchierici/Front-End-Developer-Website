@@ -12,10 +12,10 @@ import isEmailValid from "../../utils/isEmailValid";
 import delay from "../../utils/delay";
 
 interface Props {
-  onToggle: () => void;
+  onClose: () => void;
 }
 
-export default function FormSendMessage({ onToggle }: Props) {
+export default function FormSendMessage({ onClose }: Props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -132,7 +132,7 @@ export default function FormSendMessage({ onToggle }: Props) {
         <Button
           title="Cancelar"
           type="button"
-          onClick={onToggle}
+          onClick={onClose}
           isLoading={loading}
           disabled={false}
           cancel={true}

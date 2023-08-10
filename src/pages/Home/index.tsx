@@ -4,9 +4,9 @@ import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
 import { projects } from "../../constants/projects";
 
-import Menu from "../../components/Menu";
-import Modal from "../../components/Modal";
 import Loader from "../../components/Loader";
+import Modal from "../../components/Modal";
+import Slider from "../../components/Slider";
 import FormSendMessage from "../../components/FormSendMessage";
 
 import delay from "../../utils/delay";
@@ -15,33 +15,27 @@ import useVisibleComponent from "../../hooks/useVisibleComponent";
 import {
   Container,
   Content,
-  Footer,
+  ContainerTitle,
   Title,
+  ContainerAboutMe,
+  ContainerInfo,
   ContainerButton,
   Button,
-  ContentIcon,
-  ContentTitle,
-  Icon,
-  ContainerAboutMe,
   ContainerDownloadCV,
-  ContainerInfo,
+  ContainerProjects,
   Card,
+  Footer,
+  ContentIcon,
 } from "./styles";
 
 import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
-
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import { ReactComponent as Lines } from "../../assets/images/lines.svg";
 import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/smartphone.svg";
 import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computer.svg";
 import { ReactComponent as ZapIcon } from "../../assets/icons/components/zap.svg";
-ZapIcon;
 import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghost.svg";
-ZapIcon;
 
-ComputerIcon;
-
-import Slider from "../../components/Slider";
 import {
   SkillsProps,
   iconsFirstRow,
@@ -58,9 +52,11 @@ interface ToolProps {
 }
 
 export default function Home() {
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useVisibleComponent(false);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [resumeIsOpen, setResumeIsOpen] = useState<boolean>(false);
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
     name: "Javascript",
     description:
@@ -68,37 +64,10 @@ export default function Home() {
     shadow: "rgba(241, 192, 53, 1)",
   });
 
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useVisibleComponent(false);
-
-  let lastKnownScrollPosition = 0;
-  let ticking = false;
-
   const handleShowToolInfo = useCallback((event: ToolProps) => {
     const { name, description, shadow } = event;
     setSelectedToolIcon({ name, description, shadow });
   }, []);
-  const handleChangeScrollDirection = useCallback(
-    (scrollPosition: number) => {
-      setScrollPosition(scrollPosition);
-    },
-    [scrollPosition, lastKnownScrollPosition]
-  );
-  document.addEventListener("scroll", () => {
-    lastKnownScrollPosition = window.scrollY;
-
-    if (
-      (!ticking && lastKnownScrollPosition >= 570) ||
-      lastKnownScrollPosition === 0
-    ) {
-      window.requestAnimationFrame(() => {
-        handleChangeScrollDirection(lastKnownScrollPosition);
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  });
 
   useEffect(() => {
     async function fakeLoading() {
@@ -116,13 +85,13 @@ export default function Home() {
     <Container>
       <Loader isLoading={isLoading} />
       <Content>
-        <ContentTitle>
+        <ContainerTitle>
           {AboutMe.map((person, index) => (
             <Title key={index} type={person.type} hasAnimation={isLoading}>
               {person.title}
             </Title>
           ))}
-        </ContentTitle>
+        </ContainerTitle>
         <div className="photo-container">
           <img src={Me} />
         </div>
@@ -171,9 +140,13 @@ export default function Home() {
         <h3>Baixar CV</h3>
         <Lines />
       </ContainerDownloadCV>
-      <ContainerButton></ContainerButton>
 
-      <Slider items={projects} />
+      <ContainerProjects>
+        <div className="container-title">
+          <h1>PROJETOS</h1>
+        </div>
+        <Slider items={projects} />
+      </ContainerProjects>
       <Footer>
         <ContentIcon>
           {contactMeIcons.map((icon, index) => (
@@ -196,7 +169,7 @@ export default function Home() {
         Me envie uma mensagem!
         `}
       >
-        <FormSendMessage onToggle={() => setIsComponentVisible(false)} />
+        <FormSendMessage onClose={() => setIsComponentVisible(false)} />
       </Modal>
     </Container>
   );
