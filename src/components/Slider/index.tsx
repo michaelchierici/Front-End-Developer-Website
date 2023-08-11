@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 
 import {
   Board,
@@ -9,6 +9,7 @@ import {
   Content,
 } from "./styles";
 import { ReactComponent as Chevron } from "../../assets/icons/components/chevron.svg";
+import Loader from "../Loader";
 
 interface SliderProps {
   items: Array<any>;
@@ -43,7 +44,9 @@ export default function Slider({ items }: SliderProps) {
     return cards.map((item, index) => (
       <ContainerCard key={index}>
         <Card>
-          <img src={item.photo} />
+          <Suspense fallback={<Loader isLoading={true} />}>
+            <img src={item.photo} />
+          </Suspense>
         </Card>
       </ContainerCard>
     ));

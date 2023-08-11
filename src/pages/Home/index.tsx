@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
 import { projects } from "../../constants/projects";
 
 import Loader from "../../components/Loader";
-import Modal from "../../components/Modal";
-import Slider from "../../components/Slider";
 import FormSendMessage from "../../components/FormSendMessage";
+
+const Modal = React.lazy(() => import("../../components/Modal"));
+const Slider = React.lazy(() => import("../../components/Slider"));
 
 import delay from "../../utils/delay";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
@@ -93,7 +94,9 @@ export default function Home() {
           ))}
         </ContainerTitle>
         <div className="photo-container">
-          <img src={Me} />
+          <Suspense fallback={<Loader isLoading={isLoading} />}>
+            <img src={Me} />
+          </Suspense>
         </div>
       </Content>
       <ContainerAboutMe>
