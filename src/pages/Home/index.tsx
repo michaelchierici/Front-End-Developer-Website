@@ -146,7 +146,7 @@ export default function Home() {
         <div className="container-title">
           <h1>PROJETOS</h1>
         </div>
-        <Slider items={projects} />
+        {/* <Slider items={projects} /> */}
       </ContainerProjects>
       <Footer>
         <ContentIcon>
