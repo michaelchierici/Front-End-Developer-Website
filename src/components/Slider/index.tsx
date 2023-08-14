@@ -29,26 +29,20 @@ export default function Slider({ items }: SliderProps) {
     setSliderDirection(true);
   }
 
-  const keysFromArray = useMemo(() => {
-    const keys = items.map((key) => Object.keys(key));
-    return keys[0];
-  }, [items]);
-
   const slide = useMemo(() => {
-    const cards = items.map((item) => ({
-      photo: item[keysFromArray[0]],
-      description: item[keysFromArray[1]],
-      tools: item[keysFromArray[2]],
-    }));
-    return cards.map((item, index) => (
-      <ContainerCard key={index}>
-        <Card>
-          <img src={item.photo} />
-        </Card>
-      </ContainerCard>
-    ));
-  }, [items]);
+    const cards = items.map((item) => {
+      const key = Object.keys(item);
+      const [photo, description, tools] = key;
+      const card = {
+        photo: item[photo],
+        description: item[description],
+        tools: item[tools],
+      };
+      return card;
+    });
 
+    return cards;
+  }, [items]);
   return (
     <Container>
       <div className="chevron-left">
@@ -62,7 +56,16 @@ export default function Slider({ items }: SliderProps) {
       </div>
       <Content>
         <Board direction={sliderDirection}>
-          {slide.map((card, index) => slideSelected === index && card)}
+          {slide.map(
+            (card, index) =>
+              slideSelected === index && (
+                <ContainerCard key={index}>
+                  <Card>
+                    <img src={card.photo} />
+                  </Card>
+                </ContainerCard>
+              )
+          )}
         </Board>
       </Content>
       <div className="chevron-right">
