@@ -621,7 +621,7 @@ export const Button = styled.button<Partial<Props>>`
 
 export const ContainerDownloadCV = styled.div`
   width: 100%;
-  height: 100px;
+  height: 120px;
 
   display: flex;
   align-items: center;
@@ -645,11 +645,10 @@ export const ContainerDownloadCV = styled.div`
 
 export const ContainerProjects = styled.div`
   width: 100%;
-  height: 800px;
   background-image: url(${SVGBackground});
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: bottom;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -659,7 +658,7 @@ export const ContainerProjects = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    flex: 1;
+    height: 100px;
     h1 {
       font-family: "Lato";
       font-style: normal;
@@ -691,7 +690,7 @@ export const ContainerProjects = styled.div`
     }
   `)}
   ${laptop(css`
-    height: 800px;
+    height: 855px;
     .container-title {
       h1 {
         font-size: 75px;
@@ -699,7 +698,7 @@ export const ContainerProjects = styled.div`
     }
   `)}
   ${desktop(css`
-    height: 800px;
+    height: 855px;
     .container-title {
       h1 {
         font-size: 75px;

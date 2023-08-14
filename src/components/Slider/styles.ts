@@ -11,10 +11,11 @@ interface SlideProps {
 
 export const Container = styled.div`
   width: 100%;
+  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+
   .chevron-left {
     transform: rotate(180deg);
     display: flex;
@@ -62,7 +63,7 @@ export const Content = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  height: 100%;
   svg {
     &:hover {
       transform: scale(1.1);
@@ -76,7 +77,7 @@ export const Board = styled.div<SlideProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  height: 100%;
   div {
     text-align: center;
     transition: transform 400ms ease-in-out;
@@ -128,7 +129,7 @@ export const ContainerCard = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  height: 600px;
+  height: 100%;
   margin: 10px;
   border-radius: 4px;
 

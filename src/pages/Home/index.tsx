@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
@@ -7,8 +7,8 @@ import { projects } from "../../constants/projects";
 import Loader from "../../components/Loader";
 import FormSendMessage from "../../components/FormSendMessage";
 
-const Modal = React.lazy(() => import("../../components/Modal"));
-const Slider = React.lazy(() => import("../../components/Slider"));
+import Modal from "../../components/Modal";
+import Slider from "../../components/Slider";
 
 import delay from "../../utils/delay";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
@@ -44,7 +44,7 @@ import {
   iconsSecondRow,
   iconsThirdRow,
 } from "../../constants/skills";
-import Me from "../../assets/images/me.svg";
+import Me from "../../assets/images/me.png";
 
 interface ToolProps {
   name: string;
@@ -94,9 +94,7 @@ export default function Home() {
           ))}
         </ContainerTitle>
         <div className="photo-container">
-          <Suspense fallback={<Loader isLoading={isLoading} />}>
-            <img src={Me} />
-          </Suspense>
+          <img src={Me} />
         </div>
       </Content>
       <ContainerAboutMe>

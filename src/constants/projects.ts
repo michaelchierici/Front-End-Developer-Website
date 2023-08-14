@@ -1,5 +1,5 @@
-import App from "../assets/images/app.svg";
-import Spotify from "../assets/images/spotify.svg";
+import App from "../assets/images/app.png";
+import Spotify from "../assets/images/spotify.png";
 import AppTools from "../assets/images/app-tools.svg";
 import SpotifyTools from "../assets/images/spotify-tools.svg";
 export const projects = [

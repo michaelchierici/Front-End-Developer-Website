@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   Board,
@@ -44,9 +44,7 @@ export default function Slider({ items }: SliderProps) {
     return cards.map((item, index) => (
       <ContainerCard key={index}>
         <Card>
-          <Suspense fallback={<Loader isLoading={true} />}>
-            <img src={item.photo} />
-          </Suspense>
+          <img src={item.photo} />
         </Card>
       </ContainerCard>
     ));
