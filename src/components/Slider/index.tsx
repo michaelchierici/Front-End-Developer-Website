@@ -9,7 +9,6 @@ import {
   Content,
 } from "./styles";
 import { ReactComponent as Chevron } from "../../assets/icons/components/chevron.svg";
-import Loader from "../Loader";
 
 interface SliderProps {
   items: Array<any>;

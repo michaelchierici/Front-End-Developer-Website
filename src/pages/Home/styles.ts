@@ -645,7 +645,7 @@ export const ContainerDownloadCV = styled.div`
 
 export const ContainerProjects = styled.div`
   width: 100%;
-  background-image: url(${SVGBackground});
+  /* background-image: url(${SVGBackground}); */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
