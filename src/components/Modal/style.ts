@@ -1,8 +1,13 @@
 import styled, { css } from "styled-components";
-import { easeModalIn } from "../../styles/animations/easeInAndOut";
+import {
+  easeIn,
+  modalIn,
+  modalOut,
+  easeOut,
+} from "../../styles/animations/easeInAndOut";
 
 interface Props {
-  isModalIn: boolean;
+  isLeaving: boolean;
 }
 
 export const Overlay = styled.div<Props>`
@@ -17,6 +22,12 @@ export const Overlay = styled.div<Props>`
   align-items: center;
   justify-content: center;
   z-index: 50;
+  animation: ${easeIn} 600ms;
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${easeOut} 400ms;
+    `}
 `;
 
 export const Container = styled.div<Props>`
@@ -30,12 +41,13 @@ export const Container = styled.div<Props>`
   flex-direction: column;
   justify-content: space-between;
 
-  animation: ${({ isModalIn }) =>
-      isModalIn &&
-      css`
-        ${easeModalIn}
-      `}400ms
-    ease-in-out;
+  animation: ${modalIn} 600ms;
+
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${modalOut} 400ms;
+    `}
 `;
 
 export const Header = styled.header`

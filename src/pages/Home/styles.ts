@@ -509,6 +509,88 @@ ${desktop(css`
   `)}
 `;
 
+export const ContainerSkills = styled.div<Partial<Props>>`
+  overflow: hidden;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: ${({ visible }) => (visible ? "32em" : "0em")};
+  transition: flex 400ms ease-in-out;
+  background-color: #222121;
+
+  .tools {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    h1 {
+      color: #fff;
+      font-family: "Lato";
+      font-size: 35px;
+    }
+  }
+  .card-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+  }
+
+  ${mobileSm(css`
+    .tools {
+      h1 {
+        color: #fff;
+        font-family: "Lato";
+        font-size: 25px;
+      }
+    }
+  `)}
+  ${mobileMd(css`
+    .tools {
+      h1 {
+        color: #fff;
+        font-family: "Lato";
+        font-size: 25px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  `)}
+
+  ${mobileLg(css`
+    .tools {
+      h1 {
+        color: #fff;
+        font-family: "Lato";
+        font-size: 25px;
+      }
+    }
+  `)}
+  ${laptop(css`
+    .tools {
+      h1 {
+        color: #fff;
+        font-family: "Lato";
+        font-size: 35px;
+      }
+    }
+  `)}
+
+  ${desktop(css`
+    .tools {
+      h1 {
+        color: #fff;
+        font-family: "Lato";
+        font-size: 35px;
+        text-align: center;
+      }
+    }
+  `)}
+`;
+
 export const ContainerButton = styled.div`
   width: 100%;
   display: flex;
@@ -713,9 +795,8 @@ export const Icon = styled.div<IconProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
-
+  margin: 0 10px;
   &:hover {
     background-position: 150% 0;
 
@@ -726,9 +807,9 @@ export const Icon = styled.div<IconProps>`
       rgba(255, 255, 255, 0.01) 15.34%,
       rgba(255, 255, 255, 0.04) 19.99%
     );
-    backdrop-filter: blur(20px);
     filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.4));
-    transition: all 250ms ease-in-out;
+    transition: box-shadow 250ms;
+    border-radius: 10%;
   }
 
   img {
@@ -787,8 +868,9 @@ export const Icon = styled.div<IconProps>`
   `)}
 
   ${desktop(css`
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 70px;
+
     img {
       border: none;
       outline: none;

@@ -43,6 +43,7 @@ export default function Slider({ items }: SliderProps) {
 
     return cards;
   }, [items]);
+
   return (
     <Container>
       <div className="chevron-left">

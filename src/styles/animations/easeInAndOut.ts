@@ -1,45 +1,25 @@
 import { keyframes } from "styled-components";
 
-export function easeIn() {
-  const on = keyframes`
-  0% {
-     opacity: 0;
-     backface-visibility: hidden
-    }
-
-  75% {
-    opacity: 0.5;
-    backface-visibility: hidden
-    }
-
-  100% {
-    opacity: 1;
-    backface-visibility: none
-  }
-  `;
-  return on;
-}
-export function easeOut() {
-  const off = keyframes`
-  0% {
-     opacity: 0;
-     backface-visibility: none
-    }
-
-  75% {
-    backface-visibility: hidden
-    }
-
-  100% {
+export const easeIn = keyframes`
+  from {
     opacity: 0;
-    backface-visibility: hidden
+  }
+  to {
+    opacity: 1;
   }
   `;
-  return off;
-}
 
-export function easeModalIn() {
-  const modalIn = keyframes`
+export const easeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+
+  }
+  `;
+
+export const modalIn = keyframes`
 from {
     opacity: 0;
     transform: translateY(400px);
@@ -47,58 +27,42 @@ from {
 
 to {
     opacity: 1;
-    transform: translateY(0px);
-
   }
   `;
-  return modalIn;
-}
 
-export function easeModalOut() {
-  const modalOut = keyframes`
+export const modalOut = keyframes`
 
 from {
-    opacity: 0;
-    transform: translateY(-400px);
+    opacity: 1;
   }
 
 to {
-    opacity: 1;
-    transform: translateY(0px);
+    opacity: 0;
+    transform: translateY(400px);
 
   }
 `;
-  return modalOut;
-}
 
-export function easeSlideMoveLeft() {
-  const slideLeft = keyframes`
+export const easeSlideMoveLeft = keyframes`
 from {
     opacity: 0;
-    transform: translateX(200%);
+    transform: translateX(20px);
   }
 
 to {
     opacity: 1;
-    transform: translateX(0%);
 
   }
   `;
-  return slideLeft;
-}
 
-export function easeSlideMoveRight() {
-  const slideRight = keyframes`
+export const easeSlideMoveRight = keyframes`
 from {
     opacity: 0;
-    transform: translateX(-200px);
+    transform: translateX(-20px);
   }
 
 to {
     opacity: 1;
-    transform: translateY(-0px);
 
   }
   `;
-  return slideRight;
-}

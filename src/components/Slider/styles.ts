@@ -81,15 +81,14 @@ export const Board = styled.div<SlideProps>`
   div {
     text-align: center;
     transition: transform 400ms ease-in-out;
-    animation: ${({ direction }) =>
-        direction
-          ? css`
-              ${easeSlideMoveLeft}
-            `
-          : css`
-              ${easeSlideMoveRight}
-            `}
-      400ms ease-in-out;
+    ${({ direction }) =>
+      direction
+        ? css`
+            animation: ${easeSlideMoveLeft} 400ms ease;
+          `
+        : css`
+            animation: ${easeSlideMoveRight} 400ms ease;
+          `}
   }
 
   ${mobileSm(css`
