@@ -501,15 +501,15 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   flex: ${({ visible }) => (visible ? "32em" : "0em")};
   transition: flex 400ms ease-in-out;
   background-color: #222121;
+  font-family: "Lato";
 
   .tools {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     h1 {
       color: #fff;
-      font-family: "Lato";
       font-size: 35px;
     }
   }
@@ -526,7 +526,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     .tools {
       h1 {
         color: #fff;
-        font-family: "Lato";
         font-size: 25px;
       }
     }
@@ -535,7 +534,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     .tools {
       h1 {
         color: #fff;
-        font-family: "Lato";
         font-size: 25px;
         text-align: center;
         width: 100%;
@@ -547,7 +545,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     .tools {
       h1 {
         color: #fff;
-        font-family: "Lato";
         font-size: 25px;
       }
     }
@@ -556,7 +553,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     .tools {
       h1 {
         color: #fff;
-        font-family: "Lato";
         font-size: 35px;
       }
     }
@@ -566,7 +562,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     .tools {
       h1 {
         color: #fff;
-        font-family: "Lato";
         font-size: 35px;
         text-align: center;
       }
@@ -799,7 +794,7 @@ export const Icon = styled.div<IconProps>`
     }
   `)}
   ${mobileMd(css`
-    width: 50px;
+    width: 120px;
     height: 50px;
     img {
       border: none;
