@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
@@ -72,6 +72,91 @@ export default function Home() {
     setSelectedToolIcon({ name, description, shadow });
   }, []);
 
+  const skills = useMemo(() => {
+    const cardSkill = (
+      <div className="tools">
+        <h1>{selectedToolIcon?.name}</h1>
+        <div className="card-tools">
+          {iconsFirstRow.map((item: SkillsProps, index: number) => (
+            <Icon
+              boxShadow={item.color}
+              visible={true}
+              index={item.id}
+              key={index}
+              onMouseEnter={() =>
+                handleShowToolInfo({
+                  name: item.name,
+                  description: item?.description,
+                  shadow: item.color,
+                })
+              }
+            >
+              <img alt={item.name} src={item.icon} />
+            </Icon>
+          ))}
+        </div>
+        <div className="card-tools">
+          {iconsSecondRow.map((item: SkillsProps, index: number) => (
+            <Icon
+              boxShadow={item.color}
+              visible={true}
+              index={item.id}
+              key={index}
+              onMouseEnter={() =>
+                handleShowToolInfo({
+                  name: item.name,
+                  description: item?.description,
+                  shadow: item.color,
+                })
+              }
+            >
+              <img alt={item.name} src={item.icon} />
+            </Icon>
+          ))}
+        </div>
+        <div className="card-tools">
+          {iconsThirdRow.map((item: SkillsProps, index: number) => (
+            <Icon
+              boxShadow={item.color}
+              visible={true}
+              index={item.id}
+              key={index}
+              onMouseEnter={() =>
+                handleShowToolInfo({
+                  name: item.name,
+                  description: item?.description,
+                  shadow: item.color,
+                })
+              }
+            >
+              <img alt={item.name} src={item.icon} />
+            </Icon>
+          ))}
+        </div>
+        <div className="card-tools">
+          {iconsFourthRow.map((item: SkillsProps, index: number) => (
+            <Icon
+              boxShadow={item.color}
+              visible={true}
+              index={item.id}
+              key={index}
+              onMouseEnter={() =>
+                handleShowToolInfo({
+                  name: item.name,
+                  description: item?.description,
+                  shadow: item.color,
+                })
+              }
+            >
+              <img alt={item.name} src={item.icon} />
+            </Icon>
+          ))}
+        </div>
+      </div>
+    );
+    return cardSkill;
+  }, []);
+
   useEffect(() => {
     async function fakeLoading() {
       await delay(1000);
@@ -130,85 +215,7 @@ export default function Home() {
         </Card>
       </ContainerInfo>
       <ContainerSkills visible={skillsIInfoisOpen}>
-        <div className="tools">
-          <h1>{selectedToolIcon?.name}</h1>
-          <div className="card-tools">
-            {iconsFirstRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsSecondRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsThirdRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-          <div className="card-tools">
-            {iconsFourthRow.map((item: SkillsProps, index: number) => (
-              <Icon
-                boxShadow={item.color}
-                visible={true}
-                index={item.id}
-                key={index}
-                onMouseEnter={() =>
-                  handleShowToolInfo({
-                    name: item.name,
-                    description: item?.description,
-                    shadow: item.color,
-                  })
-                }
-              >
-                <img alt={item.name} src={item.icon} />
-              </Icon>
-            ))}
-          </div>
-        </div>
+        {skillsIInfoisOpen && skills}
       </ContainerSkills>
       <ContainerButton>
         <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
