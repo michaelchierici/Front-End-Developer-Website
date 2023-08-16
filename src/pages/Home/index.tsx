@@ -31,13 +31,13 @@ import {
   ContainerSkills,
 } from "./styles";
 
-import { ReactComponent as BackArrow } from "../../assets/icons/components/backArrow.svg";
+import BackArrow from "../../assets/icons/components/backArrow.svg";
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
-import { ReactComponent as Lines } from "../../assets/images/lines.svg";
-import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/smartphone.svg";
-import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computer.svg";
-import { ReactComponent as ZapIcon } from "../../assets/icons/components/zap.svg";
-import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghost.svg";
+import Lines from "../../assets/images/lines.svg";
+import SmartphoneIcon from "../../assets/icons/components/smartphone.svg";
+import ComputerIcon from "../../assets/icons/components/computer.svg";
+import ZapIcon from "../../assets/icons/components/zap.svg";
+import GhostIcon from "../../assets/icons/components/ghost.svg";
 
 import {
   SkillsProps,
@@ -112,20 +112,20 @@ export default function Home() {
       </ContainerAboutMe>
       <ContainerInfo>
         <Card>
-          <SmartphoneIcon />
+          <img src={SmartphoneIcon} />
           <h2>APLICATIVOS</h2>
         </Card>
 
         <Card>
-          <ZapIcon />
+          <img src={ZapIcon} />
           <h2>LANDING PAGES</h2>
         </Card>
         <Card>
-          <ComputerIcon />
+          <img src={ComputerIcon} />
           <h2>SISTEMAS WEB</h2>
         </Card>
         <Card>
-          <GhostIcon />
+          <img src={GhostIcon} />
           <h2>ANIMAÇÕES E DESIGN</h2>
         </Card>
       </ContainerInfo>
@@ -213,15 +213,17 @@ export default function Home() {
       <ContainerButton>
         <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
           {skillsIInfoisOpen ? (
-            <BackArrow />
+            <img src={BackArrow} />
           ) : (
             <span>Veja mais e entre em contato!</span>
           )}
         </Button>
       </ContainerButton>
       <ContainerDownloadCV>
-        <h3>Baixar CV</h3>
-        <Lines />
+        <a href="src/assets/files/cv.pdf" target="_blank">
+          Baixar CV
+        </a>
+        <img src={Lines} />
       </ContainerDownloadCV>
 
       <ContainerProjects>

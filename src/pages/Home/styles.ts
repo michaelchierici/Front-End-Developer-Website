@@ -490,23 +490,6 @@ export const Card = styled.div`
       font-size: 22px;
     }
   `)}
-
-  ${laptop(css`
-    h2 {
-      font-size: 25px;
-    }
-  `)}
-
-  ${laptopM(css`
-    h2 {
-      font-size: 25px;
-    }
-  `)}
-
-${desktop(css`
-    h2 {
-    }
-  `)}
 `;
 
 export const ContainerSkills = styled.div<Partial<Props>>`
@@ -708,7 +691,8 @@ export const ContainerDownloadCV = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  h3 {
+  a {
+    text-decoration: none;
     padding: 10px 0;
     font-family: "Lato";
     font-style: normal;
@@ -742,16 +726,8 @@ export const ContainerProjects = styled.div`
     width: 100%;
     height: 100px;
     h1 {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 275;
-      font-size: 75px;
+      font-weight: 300;
       color: #ffffff;
-
-      text-shadow: -46px 46px 92px rgba(230, 230, 230, 0.2),
-        46px -46px 92px rgba(230, 230, 230, 0.2),
-        -46px -46px 92px rgba(255, 255, 255, 0.9),
-        46px 46px 115px rgba(230, 230, 230, 0.9);
     }
   }
 
@@ -767,25 +743,15 @@ export const ContainerProjects = styled.div`
     height: 550px;
     .container-title {
       h1 {
-        font-size: 45px;
+        font-size: 3em;
       }
     }
   `)}
   ${laptop(css`
     height: 855px;
-    .container-title {
-      h1 {
-        font-size: 75px;
-      }
-    }
   `)}
   ${desktop(css`
     height: 855px;
-    .container-title {
-      h1 {
-        font-size: 75px;
-      }
-    }
   `)}
 `;
 
