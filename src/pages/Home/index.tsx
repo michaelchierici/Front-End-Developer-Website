@@ -27,8 +27,9 @@ import {
   Card,
   Footer,
   ContentIcon,
-  Icon,
   ContainerSkills,
+  Section,
+  IconSkillsCard,
 } from "./styles";
 
 import BackArrow from "../../assets/icons/components/backArrow.svg";
@@ -78,7 +79,7 @@ export default function Home() {
         <h1>{selectedToolIcon?.name}</h1>
         <div className="card-tools">
           {iconsFirstRow.map((item: SkillsProps, index: number) => (
-            <Icon
+            <IconSkillsCard
               boxShadow={item.color}
               visible={true}
               index={item.id}
@@ -92,12 +93,12 @@ export default function Home() {
               }
             >
               <img alt={item.name} src={item.icon} />
-            </Icon>
+            </IconSkillsCard>
           ))}
         </div>
         <div className="card-tools">
           {iconsSecondRow.map((item: SkillsProps, index: number) => (
-            <Icon
+            <IconSkillsCard
               boxShadow={item.color}
               visible={true}
               index={item.id}
@@ -111,12 +112,12 @@ export default function Home() {
               }
             >
               <img alt={item.name} src={item.icon} />
-            </Icon>
+            </IconSkillsCard>
           ))}
         </div>
         <div className="card-tools">
           {iconsThirdRow.map((item: SkillsProps, index: number) => (
-            <Icon
+            <IconSkillsCard
               boxShadow={item.color}
               visible={true}
               index={item.id}
@@ -130,12 +131,12 @@ export default function Home() {
               }
             >
               <img alt={item.name} src={item.icon} />
-            </Icon>
+            </IconSkillsCard>
           ))}
         </div>
         <div className="card-tools">
           {iconsFourthRow.map((item: SkillsProps, index: number) => (
-            <Icon
+            <IconSkillsCard
               boxShadow={item.color}
               visible={true}
               index={item.id}
@@ -149,7 +150,7 @@ export default function Home() {
               }
             >
               <img alt={item.name} src={item.icon} />
-            </Icon>
+            </IconSkillsCard>
           ))}
         </div>
       </div>
@@ -215,28 +216,30 @@ export default function Home() {
       <ContainerSkills visible={skillsIInfoisOpen}>
         {skillsIInfoisOpen && skills}
       </ContainerSkills>
-      <ContainerButton>
-        <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
-          {skillsIInfoisOpen ? (
-            <img src={BackArrow} />
-          ) : (
-            <span>Veja mais e entre em contato!</span>
-          )}
-        </Button>
-      </ContainerButton>
-      <ContainerDownloadCV>
-        <a href="src/assets/files/cv.pdf" target="_blank">
-          Baixar CV
-        </a>
-        <img src={Lines} />
-      </ContainerDownloadCV>
+      <Section>
+        <ContainerButton>
+          <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
+            {skillsIInfoisOpen ? (
+              <img src={BackArrow} />
+            ) : (
+              <span>Veja mais e entre em contato!</span>
+            )}
+          </Button>
+        </ContainerButton>
+        <ContainerDownloadCV>
+          <a href="src/assets/files/cv.pdf" target="_blank">
+            Baixar CV
+          </a>
+          <img src={Lines} />
+        </ContainerDownloadCV>
 
-      <ContainerProjects>
-        <div className="container-title">
-          <h1>PROJETOS</h1>
-        </div>
-        <Slider items={projects} />
-      </ContainerProjects>
+        <ContainerProjects>
+          <div className="container-title">
+            <h1>PROJETOS</h1>
+          </div>
+          <Slider items={projects} />
+        </ContainerProjects>
+      </Section>
       <Footer>
         <ContentIcon>
           {contactMeIcons.map((icon, index) => (

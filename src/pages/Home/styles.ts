@@ -137,9 +137,6 @@ export const Title = styled.h1<Partial<Props>>`
   ${({ type }) => titleVariants[type!] || titleVariants.name};
   font-size: ${({ theme }) => theme.font.size.xl}em;
 
-  filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.2));
-  backdrop-filter: blur(20px);
-
   background: linear-gradient(109.87deg, #16db65 15.49%, #1462bc 60.35%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -445,13 +442,15 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: ${({ visible }) => (visible ? "32em" : "0em")};
-  transition: flex 400ms ease-in-out;
+  height: ${({ visible }) => (visible ? "32em" : "0em")};
+
+  transition: all 400ms;
   background-color: #222121;
   border-radius: 8px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
   font-family: "Lato";
   margin: 15px 0;
+
   .tools {
     display: flex;
     align-items: center;
@@ -528,9 +527,110 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   `)}
 `;
 
+export const IconSkillsCard = styled.div<IconProps>`
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 10px;
+  &:hover {
+    background-position: 150% 0;
+
+    box-shadow: ${({ boxShadow }) => `0 0px 10px 1px ${boxShadow}`};
+
+    background: linear-gradient(
+      103.59deg,
+      rgba(255, 255, 255, 0.01) 15.34%,
+      rgba(255, 255, 255, 0.04) 19.99%
+    );
+    filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.4));
+    transition: box-shadow 250ms;
+    border-radius: 10%;
+  }
+
+  img {
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+  }
+  transition: all 450ms;
+
+  ${mobileSm(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${mobileMd(css`
+    width: 120px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${mobileLg(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  `)}
+  ${laptop(css`
+    width: 50px;
+    height: 50px;
+    img {
+      border: none;
+      outline: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 6px;
+    }
+  `)}
+
+  ${desktop(css`
+    width: 100px;
+    height: 70px;
+
+    img {
+      border: none;
+      outline: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+    }
+  `)}
+`;
+
+export const Section = styled.section`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
 export const ContainerButton = styled.div`
   width: 100%;
   display: flex;
+  margin: auto;
   align-items: center;
   justify-content: center;
   transition: all 450ms;
@@ -641,6 +741,7 @@ export const Button = styled.button<Partial<Props>>`
 export const ContainerDownloadCV = styled.div`
   width: 100%;
   height: 120px;
+  margin: auto;
 
   display: flex;
   align-items: center;
@@ -673,6 +774,7 @@ export const ContainerProjects = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-height: 800px;
   .container-title {
     display: flex;
     align-items: center;
@@ -706,98 +808,6 @@ export const ContainerProjects = styled.div`
   `)}
   ${desktop(css`
     height: 855px;
-  `)}
-`;
-
-export const Icon = styled.div<IconProps>`
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin: 0 10px;
-  &:hover {
-    background-position: 150% 0;
-
-    box-shadow: ${({ boxShadow }) => `0 0px 10px 1px ${boxShadow}`};
-
-    background: linear-gradient(
-      103.59deg,
-      rgba(255, 255, 255, 0.01) 15.34%,
-      rgba(255, 255, 255, 0.04) 19.99%
-    );
-    filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.4));
-    transition: box-shadow 250ms;
-    border-radius: 10%;
-  }
-
-  img {
-    border: none;
-    outline: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 6px;
-  }
-  transition: all 450ms ease-in-out;
-
-  ${mobileSm(css`
-    width: 50px;
-    height: 50px;
-    img {
-      border: none;
-      outline: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 6px;
-    }
-  `)}
-  ${mobileMd(css`
-    width: 120px;
-    height: 50px;
-    img {
-      border: none;
-      outline: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 6px;
-    }
-  `)}
-
-  ${mobileLg(css`
-    width: 50px;
-    height: 50px;
-    img {
-      border: none;
-      outline: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 6px;
-    }
-  `)}
-  ${laptop(css`
-    width: 50px;
-    height: 50px;
-    img {
-      border: none;
-      outline: none;
-      width: 35px;
-      height: 35px;
-      border-radius: 6px;
-    }
-  `)}
-
-  ${desktop(css`
-    width: 100px;
-    height: 70px;
-
-    img {
-      border: none;
-      outline: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 6px;
-    }
   `)}
 `;
 

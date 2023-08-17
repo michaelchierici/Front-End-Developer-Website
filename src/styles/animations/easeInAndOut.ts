@@ -66,3 +66,23 @@ to {
 
   }
   `;
+
+export const expand = keyframes`
+  from {
+    transform: translateY(0em);
+    transition: all 400ms;
+  } to {
+    transform: translateY(32em);
+    transition: all 400ms;
+  }
+  `;
+
+export const reduce = keyframes`
+from {
+  transform: translateY(32em);
+  transition: all 400ms;
+} to {
+  transform: translateY(0em);
+  transition: all 400ms;
+}
+`;
