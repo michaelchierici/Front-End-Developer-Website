@@ -399,110 +399,59 @@ export const ContainerAboutMe = styled.section`
 `;
 
 export const ContainerInfo = styled.div`
-  flex: 1;
-  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-direction: column;
-  flex-wrap: wrap;
   flex-direction: row;
-  position: relative;
-  margin: 20px;
-
-  ${mobileSm(css<Props>`
-    div {
-      margin: 10px 0;
-      padding: 0 20px;
-    }
-  `)}
-
-  ${mobileMd(css<Props>`
-    padding: 20px 0;
-
-    div {
-      margin-top: 15px;
-
-      padding: 0 20px;
-    }
-  `)}
-
-  ${laptop(css<Props>`
-    div {
-      margin: 10px 0;
-      padding: 0 20px;
-    }
-  `)}
-
-  ${laptopM(css<Props>`
-    div {
-      margin: 20px 0;
-      padding: 0 20px;
-    }
-  `)}
-
-${desktop(css`
-    div {
-      margin: 20px 0;
-      padding: 0 20px;
-    }
-  `)}
+  flex-wrap: wrap;
+  max-width: 850px;
+  padding: 20px;
 `;
 
 export const Card = styled.div`
-  width: 320px;
-  height: 70px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 12px;
-  background: linear-gradient(#1d1e18, #1d1e18) padding-box,
-    linear-gradient(to right, #30d95f 0%, #2976c6 100%) 100%;
-  border-radius: 50em;
-  border: 1.5px solid transparent;
-
-  border-image: linear-gradient(to right, #30d95f 0%, #2976c6 100%) 1%;
-
-  box-shadow: 0px 8px 6px 1px rgba(0, 0, 0, 0.79);
-  margin: 15px 0;
-  h2 {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 25px;
-    text-align: center;
-    color: #ffffff;
-    margin: auto;
-    text-shadow: 0px 0px 291.06px #153fe5, 0px 0px 166.32px #153fe5,
-      0px 0px 97.02px #153fe5, 0px 0px 48.51px #153fe5, 0px 0px 13.86px #153fe5,
-      0px 0px 6.93px #153fe5;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 1;
+  margin: 5px 0;
 
   ${mobileSm(css`
-    h2 {
-      font-size: 22px;
+    svg {
+      width: 320px;
     }
   `)}
 
   ${mobileMd(css`
-    h2 {
-      font-size: 22px;
+    svg {
+      width: 320px;
+    }
+  `)}
+  ${laptop(css`
+    svg {
+      width: 350px;
+    }
+  `)}
+
+  ${desktop(css`
+    svg {
+      width: 400px;
     }
   `)}
 `;
 
 export const ContainerSkills = styled.div<Partial<Props>>`
   overflow: hidden;
-  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: ${({ visible }) => (visible ? "32em" : "0em")};
   transition: flex 400ms ease-in-out;
   background-color: #222121;
+  border-radius: 8px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
   font-family: "Lato";
-
+  margin: 15px 0;
   .tools {
     display: flex;
     align-items: center;
@@ -523,6 +472,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   }
 
   ${mobileSm(css`
+    width: 350px;
+
     .tools {
       h1 {
         color: #fff;
@@ -531,6 +482,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     }
   `)}
   ${mobileMd(css`
+    width: 350px;
+
     .tools {
       h1 {
         color: #fff;
@@ -542,6 +495,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   `)}
 
   ${mobileLg(css`
+    width: 350px;
+
     .tools {
       h1 {
         color: #fff;
@@ -550,6 +505,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     }
   `)}
   ${laptop(css`
+    width: 600px;
+
     .tools {
       h1 {
         color: #fff;
@@ -559,6 +516,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   `)}
 
   ${desktop(css`
+    width: 770px;
+
     .tools {
       h1 {
         color: #fff;
@@ -663,7 +622,7 @@ export const Button = styled.button<Partial<Props>>`
   `)}
 
   ${laptop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "18.2rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "20rem")};
     height: ${({ visible }) => (visible ? "3rem" : "3rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;

@@ -34,10 +34,10 @@ import {
 import BackArrow from "../../assets/icons/components/backArrow.svg";
 import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import Lines from "../../assets/images/lines.svg";
-import SmartphoneIcon from "../../assets/icons/components/smartphone.svg";
-import ComputerIcon from "../../assets/icons/components/computer.svg";
-import ZapIcon from "../../assets/icons/components/zap.svg";
-import GhostIcon from "../../assets/icons/components/ghost.svg";
+import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/appCard.svg";
+import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computerCard.svg";
+import { ReactComponent as ZapIcon } from "../../assets/icons/components/zapCard.svg";
+import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghostCard.svg";
 
 import {
   SkillsProps,
@@ -155,7 +155,7 @@ export default function Home() {
       </div>
     );
     return cardSkill;
-  }, []);
+  }, [selectedToolIcon]);
 
   useEffect(() => {
     async function fakeLoading() {
@@ -197,21 +197,19 @@ export default function Home() {
       </ContainerAboutMe>
       <ContainerInfo>
         <Card>
-          <img src={SmartphoneIcon} />
-          <h2>APLICATIVOS</h2>
+          <SmartphoneIcon />
         </Card>
 
         <Card>
-          <img src={ZapIcon} />
-          <h2>LANDING PAGES</h2>
+          <ZapIcon />
         </Card>
+
         <Card>
-          <img src={ComputerIcon} />
-          <h2>SISTEMAS WEB</h2>
+          <ComputerIcon />
         </Card>
+
         <Card>
-          <img src={GhostIcon} />
-          <h2>ANIMAÇÕES E DESIGN</h2>
+          <GhostIcon />
         </Card>
       </ContainerInfo>
       <ContainerSkills visible={skillsIInfoisOpen}>
