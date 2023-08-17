@@ -227,7 +227,7 @@ export default function Home() {
           </Button>
         </ContainerButton>
         <ContainerDownloadCV>
-          <a href="src/assets/files/cv.pdf" target="_blank">
+          <a href="/cv.pdf" target="_blank">
             Baixar CV
           </a>
           <img src={Lines} />
