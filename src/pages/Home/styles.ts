@@ -482,7 +482,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   `)}
   ${mobileMd(css`
     width: 350px;
-
     .tools {
       h1 {
         color: #fff;
@@ -762,6 +761,23 @@ export const ContainerDownloadCV = styled.div`
       61px 61px 153px rgba(173, 173, 173, 0.9);
     cursor: pointer;
   }
+
+  ${mobileSm(css`
+    height: 120px;
+    padding: 20px 0;
+  `)}
+  ${mobileMd(css`
+    height: 120px;
+    padding: 20px 0;
+  `)}
+  ${laptop(css`
+    height: 120px;
+    padding: 0;
+  `)}
+  ${desktop(css`
+    height: 120px;
+    padding: 0;
+  `)}
 `;
 
 export const ContainerProjects = styled.div`
@@ -788,7 +804,7 @@ export const ContainerProjects = styled.div`
   }
 
   ${mobileSm(css`
-    height: 550px;
+    height: 400px;
     .container-title {
       h1 {
         font-size: 45px;
@@ -796,7 +812,8 @@ export const ContainerProjects = styled.div`
     }
   `)}
   ${mobileMd(css`
-    height: 550px;
+    height: 400px;
+
     .container-title {
       h1 {
         font-size: 3em;
