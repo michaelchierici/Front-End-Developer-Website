@@ -216,23 +216,22 @@ export default function Home() {
       <ContainerSkills visible={skillsIInfoisOpen}>
         {skillsIInfoisOpen && skills}
       </ContainerSkills>
+      <ContainerButton>
+        <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
+          {skillsIInfoisOpen ? (
+            <img src={BackArrow} />
+          ) : (
+            <span>Veja mais e entre em contato!</span>
+          )}
+        </Button>
+      </ContainerButton>
+      <ContainerDownloadCV>
+        <a href="/cv.pdf" target="_blank">
+          Baixar CV
+        </a>
+        <img src={Lines} />
+      </ContainerDownloadCV>
       <Section>
-        <ContainerButton>
-          <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
-            {skillsIInfoisOpen ? (
-              <img src={BackArrow} />
-            ) : (
-              <span>Veja mais e entre em contato!</span>
-            )}
-          </Button>
-        </ContainerButton>
-        <ContainerDownloadCV>
-          <a href="/cv.pdf" target="_blank">
-            Baixar CV
-          </a>
-          <img src={Lines} />
-        </ContainerDownloadCV>
-
         <ContainerProjects>
           <div className="container-title">
             <h1>PROJETOS</h1>

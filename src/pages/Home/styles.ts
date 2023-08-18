@@ -620,10 +620,10 @@ export const IconSkillsCard = styled.div<IconProps>`
 
 export const Section = styled.section`
   display: flex;
-  flex: 1;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex: 1;
 `;
 
 export const ContainerButton = styled.div`
@@ -739,8 +739,6 @@ export const Button = styled.button<Partial<Props>>`
 
 export const ContainerDownloadCV = styled.div`
   width: 100%;
-  height: 120px;
-  margin: auto;
 
   display: flex;
   align-items: center;
@@ -787,16 +785,14 @@ export const ContainerProjects = styled.div`
   background-size: contain;
   background-position: bottom;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-height: 800px;
+  flex-direction: column;
   .container-title {
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    height: 100px;
     h1 {
       font-weight: 300;
       color: #ffffff;

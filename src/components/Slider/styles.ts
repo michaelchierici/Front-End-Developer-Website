@@ -183,7 +183,7 @@ export const Card = styled.div`
     display: flex;
 
     img {
-      width: 80%;
+      width: 50%;
     }
   `)}
   ${laptop(css`
