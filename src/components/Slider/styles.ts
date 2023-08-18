@@ -11,7 +11,6 @@ interface SlideProps {
 
 export const Container = styled.div`
   width: 100%;
-  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +62,8 @@ export const Content = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  flex: 1;
+
   svg {
     &:hover {
       transform: scale(1.1);
@@ -77,7 +77,8 @@ export const Board = styled.div<SlideProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  flex: 1;
+
   div {
     text-align: center;
     transition: transform 400ms ease-in-out;
@@ -183,7 +184,7 @@ export const Card = styled.div`
     display: flex;
 
     img {
-      width: 50%;
+      width: 100%;
     }
   `)}
   ${laptop(css`

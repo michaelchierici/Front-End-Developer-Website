@@ -233,9 +233,8 @@ export default function Home() {
       </ContainerDownloadCV>
       <Section>
         <ContainerProjects>
-          <div className="container-title">
-            <h1>PROJETOS</h1>
-          </div>
+          <h1>PROJETOS</h1>
+
           <Slider items={projects} />
         </ContainerProjects>
       </Section>

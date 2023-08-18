@@ -739,7 +739,7 @@ export const Button = styled.button<Partial<Props>>`
 
 export const ContainerDownloadCV = styled.div`
   width: 100%;
-
+  flex: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -761,19 +761,15 @@ export const ContainerDownloadCV = styled.div`
   }
 
   ${mobileSm(css`
-    height: 120px;
     padding: 20px 0;
   `)}
   ${mobileMd(css`
-    height: 120px;
     padding: 20px 0;
   `)}
   ${laptop(css`
-    height: 120px;
     padding: 0;
   `)}
   ${desktop(css`
-    height: 120px;
     padding: 0;
   `)}
 `;
@@ -788,39 +784,35 @@ export const ContainerProjects = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  .container-title {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+
+  h1 {
+    font-weight: 300;
+    color: #ffffff;
     width: 100%;
-    h1 {
-      font-weight: 300;
-      color: #ffffff;
-    }
+    text-align: center;
+    font-size: 3em;
+    padding: 20px 0;
   }
 
   ${mobileSm(css`
-    height: 400px;
-    .container-title {
-      h1 {
-        font-size: 45px;
-      }
+    h1 {
+      font-size: 2.3em;
     }
   `)}
   ${mobileMd(css`
-    height: 400px;
-
-    .container-title {
-      h1 {
-        font-size: 3em;
-      }
+    h1 {
+      font-size: 2.3em;
     }
   `)}
   ${laptop(css`
-    height: 855px;
+    h1 {
+      font-size: 2.3em;
+    }
   `)}
   ${desktop(css`
-    height: 855px;
+    h1 {
+      font-size: 3em;
+    }
   `)}
 `;
 
