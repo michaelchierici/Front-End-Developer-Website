@@ -4,18 +4,14 @@ import ReactPortal from "../ReactPortal";
 import { ModalProps } from "../../types/Modal";
 
 import { Container, Header, Overlay } from "./style";
-import useAnimatiedUnmount from "../../hooks/useAnimtedEnd";
 
 const Modal = forwardRef(({ visible, children, title }: ModalProps, ref) => {
-  const { shouldRender, animtedElementRef } = useAnimatiedUnmount(visible);
-
-  if (!shouldRender) {
+  if (!visible) {
     return null;
   }
-
   return (
     <ReactPortal containerId="modal-root">
-      <Overlay isLeaving={!visible} ref={animtedElementRef}>
+      <Overlay isLeaving={!visible}>
         <Container
           isLeaving={!visible}
           ref={ref as React.RefObject<HTMLDivElement>}

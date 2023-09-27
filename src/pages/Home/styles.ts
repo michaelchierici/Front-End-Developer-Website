@@ -618,14 +618,6 @@ export const IconSkillsCard = styled.div<IconProps>`
   `)}
 `;
 
-export const Section = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex: 1;
-`;
-
 export const ContainerButton = styled.div`
   width: 100%;
   display: flex;
@@ -774,26 +766,20 @@ export const ContainerDownloadCV = styled.div`
   `)}
 `;
 
-export const ContainerProjects = styled.div`
-  width: 100%;
-  background-image: url(${SVGBackground});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
+export const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   h1 {
     font-weight: 300;
     color: #ffffff;
     width: 100%;
+    height: 100px;
     text-align: center;
     font-size: 3em;
     padding: 20px 0;
   }
-
   ${mobileSm(css`
     h1 {
       font-size: 2.3em;
@@ -806,13 +792,38 @@ export const ContainerProjects = styled.div`
   `)}
   ${laptop(css`
     h1 {
-      font-size: 2.3em;
+      font-size: 3em;
     }
   `)}
   ${desktop(css`
     h1 {
       font-size: 3em;
     }
+  `)}
+`;
+
+export const ContainerProjects = styled.div`
+  width: 100%;
+  background-image: url(${SVGBackground});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  ${mobileSm(css`
+    height: 300px;
+  `)}
+  ${mobileMd(css`
+    height: 300px;
+  `)}
+  ${laptop(css`
+    height: 800px;
+  `)}
+  ${desktop(css`
+    height: 900px;
   `)}
 `;
 

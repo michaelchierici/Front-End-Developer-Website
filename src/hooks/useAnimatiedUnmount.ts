@@ -1,22 +1,18 @@
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function useAnimatiedUnmount(visible: boolean) {
   const [shouldRender, setShouldRender] = useState(visible);
 
-  const animtedElementRef: any = useRef(null);
+  const animatedElementRef: any = useRef(null);
 
   useEffect(() => {
     if (visible) {
       setShouldRender(true);
     }
-
-    const overlayRefElement = animtedElementRef.current;
-
     function handleAnimatedEnd() {
       setShouldRender(false);
     }
+    const overlayRefElement = animatedElementRef.current;
     if (!visible && overlayRefElement) {
       overlayRefElement.addEventListener("animationend", handleAnimatedEnd);
     }
@@ -31,5 +27,5 @@ export default function useAnimatiedUnmount(visible: boolean) {
     };
   }, [visible]);
 
-  return { shouldRender, animtedElementRef };
+  return { shouldRender, animatedElementRef };
 }

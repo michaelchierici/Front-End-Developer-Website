@@ -59,6 +59,7 @@ export default function Home() {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
 
+  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [skillsIInfoisOpen, setSkillsInfoIsOpen] = useState<boolean>(false);
   const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
@@ -231,10 +232,10 @@ export default function Home() {
         </a>
         <img src={Lines} />
       </ContainerDownloadCV>
-      <Section>
-        <ContainerProjects>
-          <h1>PROJETOS</h1>
 
+      <Section>
+        <h1>PROJETOS</h1>
+        <ContainerProjects>
           <Slider items={projects} />
         </ContainerProjects>
       </Section>
@@ -242,14 +243,15 @@ export default function Home() {
         <ContentIcon>
           {contactMeIcons.map((icon, index) => (
             <a key={index} href={icon?.link} target="_blank" rel="noreferrer">
-              <img alt={icon.name} src={icon.element} />
+              <img
+                alt={icon.name}
+                src={icon.element}
+                onClick={() =>
+                  icon.name === "whatsapp" && setIsComponentVisible(true)
+                }
+              />
             </a>
           ))}
-          <WhatsappIcon
-            onClick={() => setIsComponentVisible(true)}
-            width={65}
-            height={35}
-          />
         </ContentIcon>
       </Footer>
 

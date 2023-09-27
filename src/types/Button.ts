@@ -2,7 +2,7 @@ export interface ButtonProps {
   title: string;
   cancel: boolean;
   onClick?: () => void;
-  isLoading: boolean;
+  isLoading?: boolean;
   disabled: boolean;
   width: number;
   height: number;

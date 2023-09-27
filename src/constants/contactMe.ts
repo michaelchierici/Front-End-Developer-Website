@@ -1,6 +1,7 @@
 import Linkedin from "../assets/icons/contact/linkedin.svg";
 import Instagram from "../assets/icons/contact/instagram.svg";
 import Github from "../assets/icons/contact/github.svg";
+import Whatsapp from "../assets/icons/contact/whatsapp.svg";
 
 interface ContactMeIcons {
   name: string;
@@ -25,5 +26,9 @@ export const contactMeIcons: ContactMeIcons[] = [
     name: "ícone do Github",
     element: Github,
     link: "https://github.com/michaelchierici",
+  },
+  {
+    name: "whatsapp",
+    element: Whatsapp,
   },
 ];
