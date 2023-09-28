@@ -26,7 +26,7 @@ export const Overlay = styled.div<Props>`
   ${({ isLeaving }) =>
     isLeaving &&
     css`
-      animation: ${easeOut} 400ms;
+      animation: ${easeOut} 400ms forwards;
     `}
 `;
 

@@ -15,7 +15,7 @@ export const easeOut = keyframes`
   }
   to {
     opacity: 0;
-
+    
   }
   `;
 

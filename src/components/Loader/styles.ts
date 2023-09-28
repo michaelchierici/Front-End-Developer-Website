@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
 
-export const Overlay = styled.div`
+interface Props {
+  isLeaving: boolean;
+}
+
+export const Overlay = styled.div<Props>`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -11,6 +16,10 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
-
   z-index: 100;
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${easeOut} 600ms forwards;
+    `}
 `;

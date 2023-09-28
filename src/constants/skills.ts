@@ -25,7 +25,7 @@ export interface SkillsProps {
   color: string;
 }
 
-export const iconsFirstRow: SkillsProps[] = [
+export const iconSkills: SkillsProps[] = [
   {
     id: 15,
     name: "HTML",
@@ -67,8 +67,6 @@ export const iconsFirstRow: SkillsProps[] = [
     rotate: "57",
     color: "rgba(65, 132, 284, 1.75);",
   },
-];
-export const iconsSecondRow: SkillsProps[] = [
   {
     id: 11,
     name: "React",
@@ -109,8 +107,6 @@ export const iconsSecondRow: SkillsProps[] = [
     rotate: "135",
     color: "rgba(146, 146, 146, 1);",
   },
-];
-export const iconsThirdRow: SkillsProps[] = [
   {
     id: 7,
     name: "Tailwind",
@@ -151,9 +147,7 @@ export const iconsThirdRow: SkillsProps[] = [
     rotate: "210",
     color: "rgba(183, 72, 14, 1)",
   },
-];
 
-export const iconsFourthRow: SkillsProps[] = [
   {
     id: 1,
     name: "Node-JS",

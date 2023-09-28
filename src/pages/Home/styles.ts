@@ -440,7 +440,7 @@ export const Card = styled.div`
 export const ContainerSkills = styled.div<Partial<Props>>`
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: ${({ visible }) => (visible ? "32em" : "0em")};
 
@@ -451,23 +451,35 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   font-family: "Lato";
   margin: 15px 0;
 
-  .tools {
+  .container-skills {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+
     h1 {
       color: #fff;
       font-size: 35px;
+      margin-top: 20px;
     }
   }
-  .card-tools {
+  .content-skills {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     width: 100%;
-    height: 100px;
+    height: 100%;
+  }
+
+  .line-skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
   }
 
   ${mobileSm(css`
@@ -533,7 +545,9 @@ export const IconSkillsCard = styled.div<IconProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 20px;
+  padding: 20px;
+
   &:hover {
     background-position: 150% 0;
 
@@ -593,26 +607,25 @@ export const IconSkillsCard = styled.div<IconProps>`
     }
   `)}
   ${laptop(css`
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     img {
       border: none;
       outline: none;
-      width: 35px;
-      height: 35px;
-      border-radius: 6px;
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
     }
   `)}
 
   ${desktop(css`
-    width: 100px;
-    height: 70px;
-
+    width: 80px;
+    height: 60px;
     img {
       border: none;
       outline: none;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 60px;
       border-radius: 6px;
     }
   `)}

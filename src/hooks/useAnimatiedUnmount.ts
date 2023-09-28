@@ -4,6 +4,7 @@ export default function useAnimatiedUnmount(visible: boolean) {
   const [shouldRender, setShouldRender] = useState(visible);
 
   const animatedElementRef: any = useRef(null);
+  const overlayRefElement = animatedElementRef.current;
 
   useEffect(() => {
     if (visible) {
@@ -12,7 +13,6 @@ export default function useAnimatiedUnmount(visible: boolean) {
     function handleAnimatedEnd() {
       setShouldRender(false);
     }
-    const overlayRefElement = animatedElementRef.current;
     if (!visible && overlayRefElement) {
       overlayRefElement.addEventListener("animationend", handleAnimatedEnd);
     }

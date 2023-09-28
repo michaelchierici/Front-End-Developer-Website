@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
@@ -33,21 +33,15 @@ import {
 } from "./styles";
 
 import BackArrow from "../../assets/icons/components/backArrow.svg";
-import { ReactComponent as WhatsappIcon } from "../../assets/icons/contact/whatsapp.svg";
 import Lines from "../../assets/images/lines.svg";
 import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/appCard.svg";
 import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computerCard.svg";
 import { ReactComponent as ZapIcon } from "../../assets/icons/components/zapCard.svg";
 import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghostCard.svg";
 
-import {
-  SkillsProps,
-  iconsFirstRow,
-  iconsFourthRow,
-  iconsSecondRow,
-  iconsThirdRow,
-} from "../../constants/skills";
+import { iconSkills } from "../../constants/skills";
 import Me from "../../assets/images/me.png";
+import { chuckArray } from "../../utils/chuckArray";
 
 interface ToolProps {
   name: string;
@@ -59,7 +53,6 @@ export default function Home() {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
 
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [skillsIInfoisOpen, setSkillsInfoIsOpen] = useState<boolean>(false);
   const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
@@ -74,90 +67,7 @@ export default function Home() {
     setSelectedToolIcon({ name, description, shadow });
   }, []);
 
-  const skills = useMemo(() => {
-    const cardSkill = (
-      <div className="tools">
-        <h1>{selectedToolIcon?.name}</h1>
-        <div className="card-tools">
-          {iconsFirstRow.map((item: SkillsProps, index: number) => (
-            <IconSkillsCard
-              boxShadow={item.color}
-              visible={true}
-              index={item.id}
-              key={index}
-              onMouseEnter={() =>
-                handleShowToolInfo({
-                  name: item.name,
-                  description: item?.description,
-                  shadow: item.color,
-                })
-              }
-            >
-              <img alt={item.name} src={item.icon} />
-            </IconSkillsCard>
-          ))}
-        </div>
-        <div className="card-tools">
-          {iconsSecondRow.map((item: SkillsProps, index: number) => (
-            <IconSkillsCard
-              boxShadow={item.color}
-              visible={true}
-              index={item.id}
-              key={index}
-              onMouseEnter={() =>
-                handleShowToolInfo({
-                  name: item.name,
-                  description: item?.description,
-                  shadow: item.color,
-                })
-              }
-            >
-              <img alt={item.name} src={item.icon} />
-            </IconSkillsCard>
-          ))}
-        </div>
-        <div className="card-tools">
-          {iconsThirdRow.map((item: SkillsProps, index: number) => (
-            <IconSkillsCard
-              boxShadow={item.color}
-              visible={true}
-              index={item.id}
-              key={index}
-              onMouseEnter={() =>
-                handleShowToolInfo({
-                  name: item.name,
-                  description: item?.description,
-                  shadow: item.color,
-                })
-              }
-            >
-              <img alt={item.name} src={item.icon} />
-            </IconSkillsCard>
-          ))}
-        </div>
-        <div className="card-tools">
-          {iconsFourthRow.map((item: SkillsProps, index: number) => (
-            <IconSkillsCard
-              boxShadow={item.color}
-              visible={true}
-              index={item.id}
-              key={index}
-              onMouseEnter={() =>
-                handleShowToolInfo({
-                  name: item.name,
-                  description: item?.description,
-                  shadow: item.color,
-                })
-              }
-            >
-              <img alt={item.name} src={item.icon} />
-            </IconSkillsCard>
-          ))}
-        </div>
-      </div>
-    );
-    return cardSkill;
-  }, [selectedToolIcon]);
+  const icons = chuckArray(iconSkills, 4);
 
   useEffect(() => {
     async function fakeLoading() {
@@ -215,7 +125,34 @@ export default function Home() {
         </Card>
       </ContainerInfo>
       <ContainerSkills visible={skillsIInfoisOpen}>
-        {skillsIInfoisOpen && skills}
+        {skillsIInfoisOpen && (
+          <div className="container-skills">
+            <h1>{selectedToolIcon?.name}</h1>
+            <div className="content-skills">
+              {icons.map((item, index: number) => (
+                <div className="line-skills" key={index}>
+                  {item.map((element) => (
+                    <IconSkillsCard
+                      boxShadow={element.color}
+                      visible={true}
+                      index={element.id}
+                      key={index}
+                      onMouseEnter={() =>
+                        handleShowToolInfo({
+                          name: element.name,
+                          description: element?.description,
+                          shadow: element.color,
+                        })
+                      }
+                    >
+                      <img alt={element.name} src={element.icon} />
+                    </IconSkillsCard>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </ContainerSkills>
       <ContainerButton>
         <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>
