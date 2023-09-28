@@ -67,7 +67,7 @@ export default function Home() {
     setSelectedToolIcon({ name, description, shadow });
   }, []);
 
-  const icons = chuckArray(iconSkills, 4);
+  const icons = chuckArray(iconSkills, 5);
 
   useEffect(() => {
     async function fakeLoading() {

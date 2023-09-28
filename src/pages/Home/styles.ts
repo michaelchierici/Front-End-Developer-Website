@@ -442,7 +442,7 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  height: ${({ visible }) => (visible ? "32em" : "0em")};
+  height: ${({ visible }) => (visible ? "35em" : "0em")};
 
   transition: all 400ms;
   background-color: #222121;
@@ -510,7 +510,7 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   `)}
 
   ${mobileLg(css`
-    width: 350px;
+    width: 380px;
 
     .tools {
       h1 {
