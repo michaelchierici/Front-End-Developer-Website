@@ -98,7 +98,7 @@ export const Content = styled.main`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80%;
+      width: 50%;
       padding-top: 100px;
       img {
         width: 459px;
@@ -806,6 +806,18 @@ export const Section = styled.section`
     text-align: center;
     font-size: 3em;
     padding: 20px 0;
+    margin-top: 50px;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+
+    color: #ffffff;
+
+    text-shadow: 0px 0px 126.945px #476cff, 0px 0px 72.54px #476cff,
+      0px 0px 42.315px #476cff, 0px 0px 21.1575px #476cff,
+      0px 0px 6.045px #476cff, 0px 0px 3.0225px #476cff;
   }
   ${mobileSm(css`
     h1 {
@@ -824,7 +836,7 @@ export const Section = styled.section`
   `)}
   ${desktop(css`
     h1 {
-      font-size: 3em;
+      font-size: 4em;
     }
   `)}
 `;
