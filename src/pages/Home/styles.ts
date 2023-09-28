@@ -479,7 +479,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex: 1;
   }
 
   ${mobileSm(css`
@@ -490,6 +489,9 @@ export const ContainerSkills = styled.div<Partial<Props>>`
         color: #fff;
         font-size: 25px;
       }
+    }
+    .line-skills {
+      width: 80px;
     }
   `)}
   ${mobileMd(css`
@@ -502,6 +504,9 @@ export const ContainerSkills = styled.div<Partial<Props>>`
         width: 100%;
       }
     }
+    .line-skills {
+      width: 80px;
+    }
   `)}
 
   ${mobileLg(css`
@@ -513,6 +518,9 @@ export const ContainerSkills = styled.div<Partial<Props>>`
         font-size: 25px;
       }
     }
+    .line-skills {
+      width: 80px;
+    }
   `)}
   ${laptop(css`
     width: 600px;
@@ -522,6 +530,9 @@ export const ContainerSkills = styled.div<Partial<Props>>`
         color: #fff;
         font-size: 35px;
       }
+    }
+    .line-skills {
+      flex: 1;
     }
   `)}
 
@@ -534,6 +545,9 @@ export const ContainerSkills = styled.div<Partial<Props>>`
         font-size: 35px;
         text-align: center;
       }
+    }
+    .line-skills {
+      flex: 1;
     }
   `)}
 `;
