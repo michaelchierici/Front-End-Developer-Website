@@ -24,7 +24,7 @@ export interface SkillsProps {
   element: string;
   icon: string;
   rotate: string;
-  color: string;
+  shadow: string;
 }
 
 export const iconSkills: SkillsProps[] = [
@@ -33,7 +33,7 @@ export const iconSkills: SkillsProps[] = [
     element: Html,
     icon: Html,
     rotate: "-1.2",
-    color: "rgba(229, 66, 10, 0.75);",
+    shadow: "rgba(229, 66, 10, 0.75);",
   },
 
   {
@@ -41,21 +41,21 @@ export const iconSkills: SkillsProps[] = [
     element: Css,
     icon: Css,
     rotate: "18",
-    color: "rgba(65, 132, 284, 1.75);",
+    shadow: "rgba(65, 132, 284, 1.75);",
   },
   {
     name: "Javascript",
     element: JavaScript,
     icon: JavaScript,
     rotate: "37.5",
-    color: "rgba(241, 192, 53, 1)",
+    shadow: "rgba(241, 192, 53, 1)",
   },
   {
     name: "Typescript",
     element: TypeScript,
     icon: TypeScript,
     rotate: "57",
-    color: "rgba(65, 132, 284, 1.75);",
+    shadow: "rgba(65, 132, 284, 1.75);",
   },
 
   {
@@ -63,14 +63,14 @@ export const iconSkills: SkillsProps[] = [
     element: Git,
     icon: Git,
     rotate: "277.7",
-    color: "rgba(176, 24, 9, 1)",
+    shadow: "rgba(176, 24, 9, 1)",
   },
   {
     name: "React",
     element: React,
     icon: React,
     rotate: "17",
-    color: "rgba(22, 127, 177, 1)",
+    shadow: "rgba(22, 127, 177, 1)",
   },
 
   {
@@ -78,21 +78,21 @@ export const iconSkills: SkillsProps[] = [
     element: Redux,
     icon: Redux,
     rotate: "94.5",
-    color: "rgba(128, 39, 179, 1)",
+    shadow: "rgba(128, 39, 179, 1)",
   },
   {
     name: "Next",
     element: Next,
     icon: Next,
     rotate: "135",
-    color: "rgba(146, 146, 146, 1);",
+    shadow: "rgba(146, 146, 146, 1);",
   },
   {
     name: "Styled Components",
     element: Styled,
     icon: Styled,
     rotate: "115",
-    color: "rgba(231, 123, 159, 1)",
+    shadow: "rgba(231, 123, 159, 1)",
   },
 
   {
@@ -100,7 +100,7 @@ export const iconSkills: SkillsProps[] = [
     element: Tailwind,
     icon: Tailwind,
     rotate: "140",
-    color: "rgba(0, 186, 217, 1)",
+    shadow: "rgba(0, 186, 217, 1)",
   },
 
   {
@@ -108,56 +108,56 @@ export const iconSkills: SkillsProps[] = [
     element: Vue,
     icon: Vue,
     rotate: "255",
-    color: "rgba(65, 184, 131, 1)",
+    shadow: "rgba(65, 184, 131, 1)",
   },
   {
     name: "Sass",
     element: Sass,
     icon: Sass,
     rotate: "181.5",
-    color: "rgba(173, 21, 129, 1)",
+    shadow: "rgba(173, 21, 129, 1)",
   },
   {
     name: "Figma",
     element: Figma,
     icon: Figma,
     rotate: "194",
-    color: "rgba(124, 77, 255, 1)",
+    shadow: "rgba(124, 77, 255, 1)",
   },
   {
     name: "Jest",
     element: Jest,
     icon: Jest,
     rotate: "210",
-    color: "rgba(183, 72, 14, 1)",
+    shadow: "rgba(183, 72, 14, 1)",
   },
   {
     name: "Docker",
     element: Docker,
     icon: Docker,
     rotate: "255",
-    color: "rgba(22, 125, 179, 1)",
+    shadow: "rgba(22, 125, 179, 1)",
   },
   {
     name: "Node-JS",
     element: Node,
     icon: Node,
     rotate: "271.5",
-    color: "rgba(33, 163, 102, 1)",
+    shadow: "rgba(33, 163, 102, 1)",
   },
   {
     name: "Nest",
     element: Nest,
     icon: Nest,
     rotate: "255",
-    color: "rgba(224, 35, 78, 1)",
+    shadow: "rgba(224, 35, 78, 1)",
   },
   {
     name: "Adonis",
     element: Adonis,
     icon: Adonis,
     rotate: "255",
-    color: "rgba(90, 69, 254, 1)",
+    shadow: "rgba(90, 69, 254, 1)",
   },
 
   {
@@ -165,13 +165,13 @@ export const iconSkills: SkillsProps[] = [
     element: Postgres,
     icon: Postgres,
     rotate: "255",
-    color: "rgba(22, 125, 179, 1)",
+    shadow: "rgba(22, 125, 179, 1)",
   },
   {
     name: "MySQL",
     element: MySQL,
     icon: MySQL,
     rotate: "255",
-    color: "rgba(0, 117, 143, 1)",
+    shadow: "rgba(0, 117, 143, 1)",
   },
 ];

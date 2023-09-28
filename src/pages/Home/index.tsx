@@ -45,8 +45,8 @@ import { chuckArray } from "../../utils/chuckArray";
 
 interface ToolProps {
   name: string;
-  description: string;
   shadow: string;
+  color: string;
 }
 
 export default function Home() {
@@ -57,14 +57,13 @@ export default function Home() {
   const [skillsIInfoisOpen, setSkillsInfoIsOpen] = useState<boolean>(false);
   const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
     name: "Javascript",
-    description:
-      "Mantenho meu foco em javascript como linguagem primária de programação, busco melhorar e estudar cada vez mais, tenho grande experiência com a linguagem e os frameworks mais usados no mercado.",
     shadow: "rgba(241, 192, 53, 1)",
+    color: "",
   });
 
   const handleShowToolInfo = useCallback((event: ToolProps) => {
-    const { name, description, shadow } = event;
-    setSelectedToolIcon({ name, description, shadow });
+    const { name, shadow, color } = event;
+    setSelectedToolIcon({ name, shadow, color });
   }, []);
 
   const icons = chuckArray(iconSkills, 5);
@@ -140,8 +139,8 @@ export default function Home() {
                       onMouseEnter={() =>
                         handleShowToolInfo({
                           name: element.name,
-                          description: element?.description,
-                          shadow: element.color,
+                          shadow: element.shadow,
+                          color: element.color,
                         })
                       }
                     >
