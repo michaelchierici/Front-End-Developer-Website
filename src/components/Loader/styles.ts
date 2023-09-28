@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { easeIn, easeOut } from "../../styles/animations/easeInAndOut";
+import { easeOut } from "../../styles/animations/easeInAndOut";
 
 interface Props {
   isLeaving: boolean;
