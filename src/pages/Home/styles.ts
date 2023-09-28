@@ -598,7 +598,7 @@ export const IconSkillsCard = styled.div<IconProps>`
     }
   `)}
   ${mobileMd(css`
-    width: 120px;
+    width: 50px;
     height: 50px;
     img {
       border: none;
