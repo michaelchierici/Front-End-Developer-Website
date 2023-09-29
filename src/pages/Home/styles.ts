@@ -9,7 +9,6 @@ import {
   mobileSm,
 } from "../../styles/globals";
 import SVGBackground from "../../assets/images/projects_background.svg";
-import { moveLeft, moveRight } from "../../styles/animations/moveRightOrLeft";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";

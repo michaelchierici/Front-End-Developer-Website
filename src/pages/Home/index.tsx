@@ -43,7 +43,6 @@ import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghost
 import { iconSkills } from "../../constants/skills";
 import Me from "../../assets/images/me.png";
 import { chuckArray } from "../../utils/chuckArray";
-import { moveRight } from "../../styles/animations/moveRightOrLeft";
 
 interface ToolProps {
   name: string;
