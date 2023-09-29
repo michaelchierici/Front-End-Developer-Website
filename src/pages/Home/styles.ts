@@ -412,7 +412,6 @@ export const Card = styled.div`
   flex-wrap: wrap;
   flex: 1;
   margin: 5px 0;
-
   ${mobileSm(css`
     svg {
       width: 320px;
@@ -432,7 +431,7 @@ export const Card = styled.div`
 
   ${desktop(css`
     svg {
-      width: 400px;
+      width: 380px;
     }
   `)}
 `;

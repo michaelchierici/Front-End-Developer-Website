@@ -63,6 +63,7 @@ export default function Home() {
 
   const handleShowToolInfo = useCallback((event: ToolProps) => {
     const { name, shadow, color } = event;
+    console.log(shadow);
     setSelectedToolIcon({ name, shadow, color });
   }, []);
 
@@ -129,10 +130,10 @@ export default function Home() {
             <h1>{selectedToolIcon?.name}</h1>
             <div className="content-skills">
               {icons.map((item, index: number) => (
-                <div className="line-skills" key={index}>
+                <div className="line-skills" key={index + 1}>
                   {item.map((element) => (
                     <IconSkillsCard
-                      boxShadow={element.color}
+                      boxShadow={element.shadow}
                       visible={true}
                       index={element.id}
                       key={index}
