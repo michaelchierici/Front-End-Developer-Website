@@ -30,6 +30,7 @@ import {
   ContainerSkills,
   Section,
   IconSkillsCard,
+  LineBorder,
 } from "./styles";
 
 import BackArrow from "../../assets/icons/components/backArrow.svg";
@@ -42,6 +43,7 @@ import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghost
 import { iconSkills } from "../../constants/skills";
 import Me from "../../assets/images/me.png";
 import { chuckArray } from "../../utils/chuckArray";
+import { moveRight } from "../../styles/animations/moveRightOrLeft";
 
 interface ToolProps {
   name: string;
@@ -55,17 +57,19 @@ export default function Home() {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [skillsIInfoisOpen, setSkillsInfoIsOpen] = useState<boolean>(false);
-  const [selectedToolIcon, setSelectedToolIcon] = useState<ToolProps>({
+  const [selectedSkillIcon, setSelecteSkillIcon] = useState<ToolProps>({
     name: "Javascript",
     shadow: "rgba(241, 192, 53, 1)",
-    color: "",
+    color: "rgba(241, 192, 53, 1)",
   });
-
-  const handleShowToolInfo = useCallback((event: ToolProps) => {
-    const { name, shadow, color } = event;
-    console.log(shadow);
-    setSelectedToolIcon({ name, shadow, color });
-  }, []);
+  const [isHoveredIcon, setIsHoveredIcon] = useState(false);
+  const handleShowSkillInfo = useCallback(
+    (event: ToolProps) => {
+      const { name, shadow, color } = event;
+      setSelecteSkillIcon({ name, shadow, color });
+    },
+    [selectedSkillIcon]
+  );
 
   const icons = chuckArray(iconSkills, 5);
 
@@ -124,10 +128,19 @@ export default function Home() {
           <GhostIcon />
         </Card>
       </ContainerInfo>
-      <ContainerSkills visible={skillsIInfoisOpen}>
+      <ContainerSkills
+        visible={skillsIInfoisOpen}
+        boxShadow={selectedSkillIcon.shadow}
+      >
         {skillsIInfoisOpen && (
           <div className="container-skills">
-            <h1>{selectedToolIcon?.name}</h1>
+            <div className="animation-title">
+              <h1>{selectedSkillIcon?.name}</h1>
+              <LineBorder
+                color={selectedSkillIcon.shadow}
+                hasHoveredIcon={isHoveredIcon}
+              />
+            </div>
             <div className="content-skills">
               {icons.map((item, index: number) => (
                 <div className="line-skills" key={index + 1}>
@@ -137,13 +150,15 @@ export default function Home() {
                       visible={true}
                       index={element.id}
                       key={index}
-                      onMouseEnter={() =>
-                        handleShowToolInfo({
+                      onMouseEnter={() => {
+                        handleShowSkillInfo({
                           name: element.name,
                           shadow: element.shadow,
                           color: element.color,
-                        })
-                      }
+                        });
+                        setIsHoveredIcon(true);
+                      }}
+                      onMouseLeave={() => setIsHoveredIcon(false)}
                     >
                       <img alt={element.name} src={element.icon} />
                     </IconSkillsCard>

@@ -9,12 +9,15 @@ import {
   mobileSm,
 } from "../../styles/globals";
 import SVGBackground from "../../assets/images/projects_background.svg";
+import { moveLeft, moveRight } from "../../styles/animations/moveRightOrLeft";
 
 interface Props {
   type: "name" | "profession" | "role" | "description";
   visible: boolean;
   hasAnimation: boolean;
   boxShadow: string;
+  color: string;
+  hasHoveredIcon: boolean;
 }
 
 interface IconProps {
@@ -447,7 +450,6 @@ export const ContainerSkills = styled.div<Partial<Props>>`
   background-color: #222121;
   border-radius: 8px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
-  font-family: "Lato";
   margin: 15px 0;
 
   .container-skills {
@@ -462,6 +464,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
       color: #fff;
       font-size: 35px;
       margin-top: 20px;
+      font-family: "Montserrat";
+      font-weight: 500;
     }
   }
   .content-skills {
@@ -471,6 +475,10 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     flex-direction: row;
     width: 100%;
     height: 100%;
+  }
+
+  .animation-title {
+    background-color: transparent;
   }
 
   .line-skills {
@@ -549,6 +557,16 @@ export const ContainerSkills = styled.div<Partial<Props>>`
       flex: 1;
     }
   `)}
+`;
+
+export const LineBorder = styled.div<Partial<Props>>`
+  background-color: ${({ color }) => color};
+  padding: 1px;
+  ${({ hasHoveredIcon }) =>
+    hasHoveredIcon &&
+    css`
+      animation: ${moveRight} 400ms;
+    `};
 `;
 
 export const IconSkillsCard = styled.div<IconProps>`
