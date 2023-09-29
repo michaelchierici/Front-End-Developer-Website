@@ -466,6 +466,7 @@ export const ContainerSkills = styled.div<Partial<Props>>`
       margin-top: 20px;
       font-family: "Montserrat";
       font-weight: 500;
+      text-align: center;
     }
   }
   .content-skills {

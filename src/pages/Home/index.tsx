@@ -142,13 +142,13 @@ export default function Home() {
             </div>
             <div className="content-skills">
               {icons.map((item, index: number) => (
-                <div className="line-skills" key={index + 1}>
+                <div className="line-skills" key={index}>
                   {item.map((element) => (
                     <IconSkillsCard
                       boxShadow={element.shadow}
                       visible={true}
                       index={element.id}
-                      key={index}
+                      key={element.id}
                       onMouseEnter={() => {
                         handleShowSkillInfo({
                           name: element.name,
@@ -158,6 +158,7 @@ export default function Home() {
                         setIsHoveredIcon(true);
                       }}
                       onMouseLeave={() => setIsHoveredIcon(false)}
+                      onClick={() => setIsHoveredIcon(true)}
                     >
                       <img alt={element.name} src={element.icon} />
                     </IconSkillsCard>
