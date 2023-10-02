@@ -17,7 +17,7 @@ interface Props {
   hasAnimation: boolean;
   boxShadow: string;
   color: string;
-  hasHoveredIcon: boolean;
+  isHovered: boolean;
 }
 
 interface IconProps {
@@ -482,7 +482,7 @@ export const ContainerSkills = styled.div<Partial<Props>>`
     background-color: transparent;
   }
 
-  .line-skills {
+  .row-skills {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -563,8 +563,8 @@ export const ContainerSkills = styled.div<Partial<Props>>`
 export const LineBorder = styled.div<Partial<Props>>`
   background-color: ${({ color }) => color};
   padding: 1px;
-  ${({ hasHoveredIcon }) =>
-    hasHoveredIcon &&
+  ${({ isHovered }) =>
+    isHovered &&
     css`
       animation: ${moveRight} 400ms;
     `};
@@ -705,7 +705,7 @@ export const Button = styled.button<Partial<Props>>`
   font-size: ${({ theme }) => theme.font.size.sm}em;
   font-weight: ${({ theme }) => theme.font.weight.light};
 
-  border-radius: ${({ visible }) => (visible ? "50%" : "16px")};
+  border-radius: ${({ visible }) => (visible ? "50%" : "20px")};
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.button};
   color: ${({ theme }) => theme.colors.text_primary};
@@ -744,30 +744,26 @@ export const Button = styled.button<Partial<Props>>`
   outline: none;
 
   ${mobileSm(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "8.5rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "10rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
-    font-size: 1.2em;
-    font-weight: 300;
   `)}
 
   ${mobileMd(css<Props>`
-    width: ${({ visible }) => (visible ? "2.5rem" : "17rem")};
+    width: ${({ visible }) => (visible ? "2.5rem" : "10rem")};
     height: ${({ visible }) => (visible ? "2.5rem" : "2.5rem")};
-    font-size: 1.2em;
-    font-weight: 300;
   `)}
 
   ${laptop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "20rem")};
-    height: ${({ visible }) => (visible ? "3rem" : "3rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "12rem")};
+    height: ${({ visible }) => (visible ? "3rem" : "2.5rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;
-    font-weight: ${({ theme }) => theme.font.weight.light};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
   `)}
 
   ${desktop(css<Props>`
-    width: ${({ visible }) => (visible ? "3rem" : "20rem")};
-    height: ${({ visible }) => (visible ? "3rem" : "rem")};
+    width: ${({ visible }) => (visible ? "3rem" : "12rem")};
+    height: ${({ visible }) => (visible ? "3rem" : "2.5rem")};
 
     font-size: ${({ theme }) => theme.font.size.sm}em;
     font-weight: ${({ theme }) => theme.font.weight.light};

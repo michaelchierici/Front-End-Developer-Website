@@ -3,15 +3,22 @@ import { useCallback, useEffect, useState } from "react";
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
 import { projects } from "../../constants/projects";
+import { SkillsProps, iconSkills } from "../../constants/skills";
 
 import Loader from "../../components/Loader";
 import FormSendMessage from "../../components/FormSendMessage";
-
 import Modal from "../../components/Modal";
 import Slider from "../../components/Slider";
 
-import delay from "../../utils/delay";
 import useVisibleComponent from "../../hooks/useVisibleComponent";
+
+import Me from "../../assets/images/me.png";
+import Lines from "../../assets/images/lines.svg";
+import BackArrow from "../../assets/icons/components/backArrow.svg";
+import { ReactComponent as SmartphoneCard } from "../../assets/icons/components/appCard.svg";
+import { ReactComponent as ComputerCard } from "../../assets/icons/components/computerCard.svg";
+import { ReactComponent as ZapCard } from "../../assets/icons/components/zapCard.svg";
+import { ReactComponent as GhostCard } from "../../assets/icons/components/ghostCard.svg";
 
 import {
   Container,
@@ -33,44 +40,33 @@ import {
   LineBorder,
 } from "./styles";
 
-import BackArrow from "../../assets/icons/components/backArrow.svg";
-import Lines from "../../assets/images/lines.svg";
-import { ReactComponent as SmartphoneIcon } from "../../assets/icons/components/appCard.svg";
-import { ReactComponent as ComputerIcon } from "../../assets/icons/components/computerCard.svg";
-import { ReactComponent as ZapIcon } from "../../assets/icons/components/zapCard.svg";
-import { ReactComponent as GhostIcon } from "../../assets/icons/components/ghostCard.svg";
-
-import { iconSkills } from "../../constants/skills";
-import Me from "../../assets/images/me.png";
-import { chuckArray } from "../../utils/chuckArray";
-
-interface ToolProps {
-  name: string;
-  shadow: string;
-  color: string;
-}
+import delay from "../../utils/delay";
+import chuckArray from "../../utils/chuckArray";
 
 export default function Home() {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useVisibleComponent(false);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const [skillsIInfoisOpen, setSkillsInfoIsOpen] = useState<boolean>(false);
-  const [selectedSkillIcon, setSelecteSkillIcon] = useState<ToolProps>({
+  const [isHoveredOnIcon, setIsHoveredOnIcon] = useState<boolean>(false);
+  const [selectedSkillIcon, setSelecteSkillIcon] = useState<
+    Partial<SkillsProps>
+  >({
     name: "Javascript",
     shadow: "rgba(241, 192, 53, 1)",
     color: "rgba(241, 192, 53, 1)",
   });
-  const [isHoveredIcon, setIsHoveredIcon] = useState(false);
-  const handleShowSkillInfo = useCallback(
-    (event: ToolProps) => {
+
+  const handleChangeSkillInfoOnHover = useCallback(
+    (event: Partial<SkillsProps>) => {
       const { name, shadow, color } = event;
       setSelecteSkillIcon({ name, shadow, color });
+      setIsHoveredOnIcon(true);
     },
     [selectedSkillIcon]
   );
-
-  const icons = chuckArray(iconSkills, 5);
 
   useEffect(() => {
     async function fakeLoading() {
@@ -90,7 +86,12 @@ export default function Home() {
       <Content>
         <ContainerTitle>
           {AboutMe.map((person, index) => (
-            <Title key={index} type={person.type} hasAnimation={isLoading}>
+            <Title
+              key={index}
+              type={person.type}
+              hasAnimation={isLoading}
+              translate="no"
+            >
               {person.title}
             </Title>
           ))}
@@ -112,19 +113,19 @@ export default function Home() {
       </ContainerAboutMe>
       <ContainerInfo>
         <Card>
-          <SmartphoneIcon />
+          <SmartphoneCard />
         </Card>
 
         <Card>
-          <ZapIcon />
+          <ZapCard />
         </Card>
 
         <Card>
-          <ComputerIcon />
+          <ComputerCard />
         </Card>
 
         <Card>
-          <GhostIcon />
+          <GhostCard />
         </Card>
       </ContainerInfo>
       <ContainerSkills
@@ -137,12 +138,12 @@ export default function Home() {
               <h1>{selectedSkillIcon?.name}</h1>
               <LineBorder
                 color={selectedSkillIcon.shadow}
-                hasHoveredIcon={isHoveredIcon}
+                isHovered={isHoveredOnIcon}
               />
             </div>
             <div className="content-skills">
-              {icons.map((item, index: number) => (
-                <div className="line-skills" key={index}>
+              {chuckArray(iconSkills, 5).map((item, index: number) => (
+                <div className="row-skills" key={index}>
                   {item.map((element) => (
                     <IconSkillsCard
                       boxShadow={element.shadow}
@@ -150,15 +151,14 @@ export default function Home() {
                       index={element.id}
                       key={element.id}
                       onMouseEnter={() => {
-                        handleShowSkillInfo({
+                        handleChangeSkillInfoOnHover({
                           name: element.name,
                           shadow: element.shadow,
                           color: element.color,
                         });
-                        setIsHoveredIcon(true);
                       }}
-                      onMouseLeave={() => setIsHoveredIcon(false)}
-                      onClick={() => setIsHoveredIcon(true)}
+                      onMouseLeave={() => setIsHoveredOnIcon(false)}
+                      onClick={() => setIsHoveredOnIcon(true)}
                     >
                       <img alt={element.name} src={element.icon} />
                     </IconSkillsCard>
@@ -174,7 +174,7 @@ export default function Home() {
           {skillsIInfoisOpen ? (
             <img src={BackArrow} />
           ) : (
-            <span>Veja mais e entre em contato!</span>
+            <span>Habilidades</span>
           )}
         </Button>
       </ContainerButton>

@@ -1,12 +1,15 @@
 import { AboutMeProps } from "../types/AboutMe";
 
 export const AboutMe: AboutMeProps[] = [
-  { title: "MICHAEL CHIERICI,", type: "name" },
-  { title: "DESENVOLVEDOR", type: "profession" },
-  { title: "FULLSTACK", type: "role" },
   {
-    description: `Formado em análise e desenvolvimento de sistemas, trabalho com tecnologia há mais de 2 anos, atualmente atuo como desenvolvedor Fullstack. Possuo grande capacidade em construir interfaces do absoluto zero, resolver problemas do dia a dia entregando demandas dentro do prazo.
-     `,
-    type: "description",
+    title: "MICHAEL CHIERICI,",
+    type: "name",
+    translation: "description.part1",
   },
+  {
+    title: "DESENVOLVEDOR",
+    type: "profession",
+    translation: "description.part2",
+  },
+  { title: "FULLSTACK", type: "role", translation: "description.part3" },
 ];
