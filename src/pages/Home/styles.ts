@@ -721,6 +721,10 @@ export const Button = styled.button<Partial<Props>>`
 
   transition: all 400ms ease-in-out;
 
+  span {
+    font-family: "Montserrat";
+  }
+
   &:hover {
     background-position: 150% 0;
     -o-transition: all 400ms ease-in-out;
@@ -776,6 +780,7 @@ export const ContainerDownloadCV = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
   a {
     text-decoration: none;
     padding: 10px 0;
@@ -783,6 +788,11 @@ export const ContainerDownloadCV = styled.div`
     font-style: normal;
     font-weight: 300;
     font-size: 25px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+    transition: ease 0.5s all;
 
     color: #ffffff;
 
@@ -804,6 +814,9 @@ export const ContainerDownloadCV = styled.div`
   `)}
   ${desktop(css`
     padding: 0;
+    &:hover {
+      transform: scale(1);
+    }
   `)}
 `;
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "../../constants/aboutMe";
 import { contactMeIcons } from "../../constants/contactMe";
@@ -132,42 +132,46 @@ export default function Home() {
         visible={skillsIInfoisOpen}
         boxShadow={selectedSkillIcon.shadow}
       >
-        {skillsIInfoisOpen && (
-          <div className="container-skills">
-            <div className="animation-title">
-              <h1>{selectedSkillIcon?.name}</h1>
-              <LineBorder
-                color={selectedSkillIcon.shadow}
-                isHovered={isHoveredOnIcon}
-              />
-            </div>
-            <div className="content-skills">
-              {chuckArray(iconSkills, 5).map((item, index: number) => (
-                <div className="row-skills" key={index}>
-                  {item.map((element) => (
-                    <IconSkillsCard
-                      boxShadow={element.shadow}
-                      visible={true}
-                      index={element.id}
-                      key={element.id}
-                      onMouseEnter={() => {
-                        handleChangeSkillInfoOnHover({
-                          name: element.name,
-                          shadow: element.shadow,
-                          color: element.color,
-                        });
-                      }}
-                      onMouseLeave={() => setIsHoveredOnIcon(false)}
-                      onClick={() => setIsHoveredOnIcon(true)}
-                    >
-                      <img alt={element.name} src={element.icon} />
-                    </IconSkillsCard>
-                  ))}
-                </div>
-              ))}
-            </div>
+        <div className="container-skills">
+          <div className="animation-title">
+            <h1>{selectedSkillIcon?.name}</h1>
+            <LineBorder
+              color={selectedSkillIcon.shadow}
+              isHovered={isHoveredOnIcon}
+            />
           </div>
-        )}
+          <div className="content-skills">
+            {chuckArray(iconSkills, 5).map((item, index: number) => (
+              <div className="row-skills" key={index}>
+                {item.map((element) => (
+                  <IconSkillsCard
+                    boxShadow={element.shadow}
+                    visible={true}
+                    index={element.id}
+                    key={element.id}
+                    onMouseEnter={() => {
+                      handleChangeSkillInfoOnHover({
+                        name: element.name,
+                        shadow: element.shadow,
+                        color: element.color,
+                      });
+                    }}
+                    onMouseLeave={() => setIsHoveredOnIcon(false)}
+                    onClick={() => setIsHoveredOnIcon(true)}
+                  >
+                    <Suspense fallback={<Loader isLoading={true} />}>
+                      <img
+                        alt={element.name}
+                        src={element.icon}
+                        loading="lazy"
+                      />
+                    </Suspense>
+                  </IconSkillsCard>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </ContainerSkills>
       <ContainerButton>
         <Button visible={skillsIInfoisOpen} onClick={handleOpenResume}>

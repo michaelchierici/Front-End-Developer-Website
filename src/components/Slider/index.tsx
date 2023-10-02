@@ -66,7 +66,7 @@ export default function Slider({ items }: SliderProps) {
                     <Suspense
                       fallback={<div>{<Loader isLoading={true} />}</div>}
                     >
-                      <img src={card.photo} />
+                      <img src={card.photo} loading="lazy" />
                     </Suspense>
                   </Card>
                 </ContainerCard>
