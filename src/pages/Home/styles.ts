@@ -899,6 +899,7 @@ export const Footer = styled.footer`
   justify-content: center;
   width: 100%;
   height: 180px;
+  outline: none;
 `;
 
 export const ContentIcon = styled.div<Partial<Props>>`

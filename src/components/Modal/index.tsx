@@ -19,7 +19,7 @@ const Modal = forwardRef(({ visible, children, title }: ModalProps, ref) => {
           ref={ref as React.RefObject<HTMLDivElement>}
         >
           <Header>
-            <h3>{title}</h3>
+            <h3 translate="no">{title}</h3>
           </Header>
           {children}
         </Container>
